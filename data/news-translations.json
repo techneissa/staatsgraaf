@@ -1144,6 +1144,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:14e4e7c4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Italy evacuates schools again after threat emails: another 1800 schools received a message",
+    "lead": "In Italy on Thursday pupils at a number of schools were again evacuated due to a threat email, news agency ANSA reports. In total, 1800 schools received threat emails on Thursday. On Wednesday, hundreds of schools were already cleared after false bomb threats. The government now wants to set out in a protocol how such threats should be handled.",
+    "sourceHash": "7949e78a3179",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:14f3b560",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1186,6 +1197,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:15161b40",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet saved, interim formation or new elections? 'Voters think anyway: what a mess'",
+    "lead": "Tension in The Hague: can this cabinet still be saved, or is it curtains? Our political correspondent and commentator Hans van Soest explains the three scenarios. \"Either way, the relations between the parties are completely poisoned. Between all parties.\"",
+    "sourceHash": "1a24cc7da5cb",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:151ef555",
@@ -2035,6 +2057,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:18e23a5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US envoys have met with President Vladimir Putin",
+    "lead": null,
+    "sourceHash": "6bdaaab38546",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:18f957b",
     "language": "nl",
     "sourceLanguage": "en",
@@ -2332,6 +2365,17 @@
     "translated": "2026-11-05"
   },
   {
+    "id": "news:1a78623",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Goalkeeper Bart Verbruggen has become a regular fixture for Oranje: 'I'm still tweaking my style'",
+    "lead": null,
+    "sourceHash": "ff5b083e56f7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:1a7d5326",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2508,17 +2552,6 @@
     "translated": "2026-11-06"
   },
   {
-    "id": "news:1b509d51",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Guidance for software updates with AI add-ons",
-    "lead": "Existing software increasingly includes AI features. For government organisations it is not always clear how to handle these add-ons responsibly, especially when the software has already been purchased. A new guidance document is meant to offer practical tools for purchasers.",
-    "sourceHash": "c3c67b7532e0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:1b547552",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2605,6 +2638,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:1bc58a96",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Kabinetscrisis dreigt nu de VVD aankondigt tegen het belastingplan te stemmen",
+    "lead": "De rechts-liberale VVD stemt tegen het eigen belastingplan van het kabinet als de coalitiepartners helpen een amendement van de oppositie aan te nemen...",
+    "sourceHash": "e576a9018eb5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:1bcc51d1",
@@ -2915,6 +2959,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:1d76a4fb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Groundbreaking photos and measurement data from European space telescope: 'This has no equal in astronomy'",
+    "lead": null,
+    "sourceHash": "2f9e90b6fbf2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:1d7ba600",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2957,6 +3012,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
+  },
+  {
+    "id": "news:1dab6486",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The Hague wins the Dutch Tile Swap Championship with more than 507 thousand tiles swapped, making the city greener and cooler",
+    "lead": null,
+    "sourceHash": "ad7d597d709f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:1daca5ea",
@@ -3265,6 +3331,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:1ee8e08e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "No gas, but sky-high prices: Amsterdam households with city heating pay through the nose as new law arrives just too late",
+    "lead": null,
+    "sourceHash": "88537b48fa2f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:1ef7f80d",
@@ -3650,6 +3727,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-11"
+  },
+  {
+    "id": "news:20cab30f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "That's not true, Jan Klaassen",
+    "lead": "UMC Amsterdam wants to 'reeducate' staff with posters and cards against discrimination. Unfortunately the campaign is full of moral oversimplifications and rather selective logic.",
+    "sourceHash": "8d22c66ab75f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:20ce6fd9",
@@ -4255,6 +4343,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-08"
+  },
+  {
+    "id": "news:231976b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "European Parliament votes for blocking statute to protect the ICC, as a signal to the Commission and banks",
+    "lead": "On Thursday the European Parliament voted to activate the blocking statute to protect the International Criminal Court (ICC) against paralysis by the Trump administration.",
+    "sourceHash": "6c35bb052bf2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:231f32a3",
@@ -5885,17 +5984,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:28e59d16",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Graffiti vandals stop Amsterdam metro with passengers inside to completely deface vehicle",
-    "lead": "A group of graffiti vandals stopped a metro at the Henk Sneevlietweg stop on Saturday and completely covered it in graffiti within a few minutes. Passengers were still in the vehicle at that time. The driver could not drive away because the vandals had thrown a bicycle onto the track.",
-    "sourceHash": "5e095560600b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:28fa411f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6422,6 +6510,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:2b357b11",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "1,800 schools in Italy evacuated after bomb threats, calls for a European approach",
+    "lead": "In Italy on Thursday, pupils from around 1,800 schools were evacuated due to emails containing bomb threats. Meanwhile, the CEO of Hungarian budget airline Wizz Air is calling for a European approach following a series of bomb threats in Europe.",
+    "sourceHash": "c38aff8aaa24",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:2b365c38",
@@ -7280,6 +7379,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-08"
+  },
+  {
+    "id": "news:2eb6a22",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Splendid choir Pygmalion sings razor-sharp, radiant and spot-on",
+    "lead": null,
+    "sourceHash": "0c3a63cd6f04",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:2ed116c9",
@@ -9009,6 +9119,17 @@
     "translated": "2026-11-10"
   },
   {
+    "id": "news:353cc592",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "As his body gradually lets him down, Golden Calf winner Daan Buringa is in a hurry. 'I always live in the future'",
+    "lead": null,
+    "sourceHash": "2fff54541b5a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:353e72e3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9260,17 +9381,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:36558106",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Arson in changing room at Centraal Station and in train during Pride 2025 was planned, says Justice",
-    "lead": null,
-    "sourceHash": "486036e8e2f2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:3665dd79",
@@ -10065,6 +10175,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:39668861",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ruud Nijstad on front page of Spanish sports paper, Quinten Timber gets new coach at Crystal Palace",
+    "lead": "The transfer market in the Netherlands has been closed since Wednesday evening, 2 September. The market in the foreign top competitions closed a day earlier. Clubs can still sign players without a transfer fee. Follow all the transfer news here.",
+    "sourceHash": "f8e5ec855f3a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:397524ed",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10324,6 +10445,17 @@
     "title": "Political struggle over land speculation, between VNG, the national government and NEPROM",
     "lead": "'This will not win the VNG politically', says Paul Tang, former MP for the PvdA and now alderman in <entity id=\"org:gemeente-almere\">Almere</entity>. It is the end of October and he is in a brand-new childcare centre in the already new village of Reeve just outside <entity id=\"org:gemeente-kampen\">Kampen</entity>. He is here as a representative of the VNG on a working visit by minister <entity id=\"person:elanor-boekholt-osullivan\">Elanor Boekholt-O’Sullivan</entity> of Housing to the Reevedelta area development. On the same day her letter to parliament was published, in which the minister sets out how she…",
     "sourceHash": "2d9ff2df6451",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
+    "id": "news:3aa84c2d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Deal with PRO and Volt fits within coalition agreements, says Bontenbal",
+    "lead": "This morning <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> is debating the tax plan. An amended plan from coalition parties D66 and CDA together with the left-wing opposition has dealt a blow to the minority cabinet. The VVD says a fundamental reset is needed if the other two coalition parties stick to the deal. Follow everything today in this liveblog.",
+    "sourceHash": "9acefe40a7b1",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
@@ -11341,6 +11473,17 @@
     "translated": "2026-11-11"
   },
   {
+    "id": "news:3e5a0349",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Two robberies within half an hour at shops in Amsterdam-West, police investigating possible link",
+    "lead": null,
+    "sourceHash": "f90d9b913739",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:3e78986b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11737,17 +11880,6 @@
     "translated": "2026-11-11"
   },
   {
-    "id": "news:3fc20eb9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Erkens on Albert Heijn outage: 'At this moment no problem regarding food security'",
-    "lead": "State Secretary <entity id=\"person:silvio-erkens\">Silvio Erkens</entity> (VVD) stresses in <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> that there is no problem with food security due to the IT outage at Albert Heijn. \"We see that the problem is only occurring at Albert Heijn\", Erkens said in response to questions during the Vragenuurtje in the Tweede Kamer.",
-    "sourceHash": "d7cfaf8536e2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:3fd37b7b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11944,17 +12076,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-11"
-  },
-  {
-    "id": "news:407fed76",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "State Secretary for the childcare benefits scandal Palmen wants to make herself redundant: 'That means we have helped the parents'",
-    "lead": "State Secretary Sandra Palmen hopes to complete the restoration operation of the childcare benefits scandal by the end of 2027. This could also make her temporary role as State Secretary redundant. Yet there is still much work to do: there are thousands of objections and the budget for the restoration operation is rising towards 12 billion euros.",
-    "sourceHash": "587d72395719",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:408e3e6e",
@@ -12384,17 +12505,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
-  },
-  {
-    "id": "news:429971ad",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Negotiations: everyone is giving ground",
-    "lead": null,
-    "sourceHash": "03223b1c6830",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:429d5164",
@@ -13211,17 +13321,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:45bb6096",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Court: further investigation needed at three pig farmers into cutting and burning off pig tails",
-    "lead": "Pigs in Need Foundation asked the state secretary for Agriculture to conduct an investigation and possibly intervene at three pig farmers whom the foundation says unlawfully dock the tails of their animals. According to the state secretary, it is not possible to enforce the ban. The Board of Appeal ruled differently on Tuesday.",
-    "sourceHash": "d987f3fecd5e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:45c3829",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13869,6 +13968,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
+  },
+  {
+    "id": "news:484d36ea",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Bontenbal fully behind deal, not happy with Klaver's 'framing'",
+    "lead": null,
+    "sourceHash": "c3c7863a807a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:484da1f7",
@@ -15040,9 +15150,9 @@
     "id": "news:4d12c159",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "LIVE | VVD parliamentary leader Ruben Brekelmans: a fundamental reset is needed regardless",
-    "lead": "Follow here the most important developments in politics in The Hague.",
-    "sourceHash": "14d67fe4afeb",
+    "title": "LIVE | Bontenbal defends deal: PRO dropped many demands",
+    "lead": "Follow the main developments in The Hague politics here.",
+    "sourceHash": "f88d2f0ecfd4",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
@@ -16621,6 +16731,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:533686b9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Good that so much is being written about De Toxische Relatie",
+    "lead": null,
+    "sourceHash": "2c5e33ac4eee",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:533776f8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -17017,17 +17138,6 @@
     "translated": "2026-11-08"
   },
   {
-    "id": "news:54af426f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The notorious rapper Djaga Djaga briefly peeked outside, but posed as a free man",
-    "lead": null,
-    "sourceHash": "1c611bdcb87a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:54b20cc1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -17103,6 +17213,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:54e78953",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New top rate for box 3 makes no difference for most Dutch people",
+    "lead": null,
+    "sourceHash": "34d2d902886d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:54f30706",
@@ -17754,6 +17875,17 @@
     "translated": "2026-11-03"
   },
   {
+    "id": "news:575fa872",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Amsterdam households on district heating face sky-high prices as new law arrives just too late",
+    "lead": null,
+    "sourceHash": "430a524532b4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:5763ede1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -18403,6 +18535,17 @@
     "translated": "2026-11-11"
   },
   {
+    "id": "news:5a506d4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Bontenbal (CDA) defends agreement with Pro and Volt: 'there is nothing dodgy about it'",
+    "lead": null,
+    "sourceHash": "cc51647ababf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:5a570ea5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -18423,17 +18566,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:5a606811",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Niclas Füllkrug returns to German squad for matches against Serbia and the Netherlands",
-    "lead": "Niclas Füllkrug returns to the German national team after more than a year. Head coach Jürgen Klopp has included the striker in his squad for the upcoming Nations League matches against Serbia and the Dutch national team. The 33-year-old forward of Werder Bremen is the Bundesliga's top scorer with nine goals.",
-    "sourceHash": "67b1b18ff91a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:5a620f27",
@@ -18464,17 +18596,6 @@
     "title": "Historically low export from the Netherlands to the US",
     "lead": "Despite the eroded trade relationship with the Americans, total export from the Netherlands continues to rise.",
     "sourceHash": "5d65f39b53ce",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
-    "id": "news:5a9bf3e2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Nauseating",
-    "lead": "Jan Bart Dieperink on Dutch interviewers",
-    "sourceHash": "599008c46d6f",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-05"
@@ -18656,6 +18777,17 @@
     "translated": "2026-11-06"
   },
   {
+    "id": "news:5b585a35",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Katrina Esau is the last fluent speaker of the centuries-old South African language N|uu. 'Now our language is hanging by a thread'",
+    "lead": "'Granny' Esau teaches N|uu, the centuries-old language of the San, in the South African Kalahari desert. She wants to prevent the language, which was pushed back by colonialism and apartheid, from disappearing after all. \"The white rulers said it was an ugly language.\"",
+    "sourceHash": "b187e96ac09d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:5b5b20dd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -18709,6 +18841,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
+  },
+  {
+    "id": "news:5b8326bd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Golfer Luiten leads after first day of season finale in Dubai",
+    "lead": "Golfer Joost Luiten leads after the first day of the season finale of the European Tour in Dubai. The Dutchman played the first round on the Jumeirah Golf Estate in 67 strokes, five under par. The Dane Jacob Skov Olesen is second with 68 strokes.",
+    "sourceHash": "9d209ba93dab",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:5b8512c6",
@@ -18852,6 +18995,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
+  },
+  {
+    "id": "news:5bcf6d74",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fast-growing companies increasingly join forces with the bank",
+    "lead": "Companies on the FD Gazellen list are financing their growth more often this year with loans and less from their own funds.",
+    "sourceHash": "2c15605810fe",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:5bd2ff5c",
@@ -19182,17 +19336,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:5d2583e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Albert Heijn detected hacker traffic, attack via multiple foreign servers",
-    "lead": "Albert Heijn is dealing with a hacking attack or a serious attempt at one. Officially, the supermarket chain does not want to say what its \"cybersecurity incident\" exactly involves, but sources in the security world report that Albert Heijn has identified suspicious attack traffic on its systems. It appears that Albert Heijn's ICT security staff saw suspicious traffic coming in and decided to shut down the ICT systems. In doing so, they managed to prevent the hackers from penetrating the systems further. So far, Albert Heijn has spoken of a \"cybersecurity incident\" in which parts of the system were shut down \"as a precaution\". Multiple computer servers The company knows of several computer servers that were used in the attack, the sources who wish to remain anonymous report. They concern computer servers in the United States, Poland, Moldova and Turkey. That means the attackers used multiple computer servers in several countries to attack. Which server they use says nothing about their physical location: it is easy to route internet traffic through a server in another country. \"Albert Heijn has apparently identified the hackers' infrastructure, which they used to explore the systems or with which they wanted to steal data from the Albert Heijn systems\", says computer security expert Pim Takkenberg, who regularly assists hacked companies. Information shared Albert Heijn has shared information about the hackers' infrastructure with other companies so that they can better secure their systems. Companies generally only do this when they have serious indications that a server was involved in an attack. Albert Heijn's investigation shows that servers of Ahold's American division may also be involved. \"That could mean the hackers broke into those servers and used them to attack Dutch systems\", says Takkenberg. That is not yet certain. Contact the editors The NOS is investigating the hacking attack at Albert Heijn. Do you work at Albert Heijn or do you have other information and want to contact us? That can be done by email or via Signal: @schellevis.86 \"We take the cybersecurity incident very seriously\", Albert Heijn said in a written response. \"In the interest of the investigation and security, we cannot go into technical details or specific security measures at this time.\" The company does say that no customer data appears to have been stolen. That Albert Heijn has tracked down specific servers says little about whether the attack succeeded, says cybersecurity expert Joey Fennis. \"There are hackers involved in any case, but how successful they were cannot yet be said based on this. It is also possible that Albert Heijn detected them in time.\" Significant consequences Since Sunday afternoon, Albert Heijn has been dealing with the \"cyber incident\", which has significant consequences both online and offline. The website, apps and customer service of the stores are unreachable due to technical problems, and ordered groceries were not delivered. Several distribution centers are still down. Albert Heijn said at the end of the morning that it was restocking supermarkets again. A source with knowledge of the logistics system tells the NOS that this is going in a rather unstructured way. Ahold reported this afternoon that it is working on a \"controlled restart of certain systems\".",
-    "sourceHash": "cbbbe8a74299",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:5d25841",
@@ -28028,6 +28171,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:5d4f943",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sleeping at rush hour lands self-driving car driver a fine",
+    "lead": "A woman who was caught sleeping behind the wheel of her self-driving car during the morning rush hour has been fined by Canadian police. The car was on Highway 417, which runs right through the capital Ottawa, among slow-moving traffic. An officer spotted the woman and drove close to her car to record on a bodycam that she was sitting in the driver's seat with her eyes closed and hands off the steering wheel. The siren stayed off. The woman probably woke up when her car warned her of approaching traffic. The driver may face a fine for careless driving, the Ottawa police write in a message about the incident. That ticket costs 490 Canadian dollars, a hefty 300 euros. The woman also receives 6 penalty points on her licence, which is enough for a warning letter from her province. Children in the back seat: The police used the incident to remind motorists that they must keep their attention on traffic at all times. \"Even if a vehicle has an autonomous driving function, drivers remain obliged to pay due care and attention to traffic when they are behind the wheel,\" the police wrote on social media. Officer Michael Fathi told CBC News that, as far as he knows, this is the first time Ottawa police have caught someone sleeping behind the wheel of a self-driving car. In the western province of British Colombia, several motorists also recently dozed off. According to a witness, two children were in the back seat of one car. Sunglasses: In theory, the car system should warn the person in the driver's seat if the steering wheel has not been touched for some time, or if a camera in the rear-view mirror registers that a person's eyes have been closed for a while. But that system is not foolproof. If the driver wears sunglasses, for example, eye movements are hard to detect. Fathi points out that automatic driving is indeed \"a very interesting option\" to have in your car, but that \"you still have to remain in control of your vehicle\". The technology is not flawless, he stresses, and has led to traffic accidents, including fatal ones. In the Netherlands too, the driver of a self-driving car is always responsible.",
+    "sourceHash": "85f43c2afdcd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:5d5ea7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28600,6 +28754,17 @@
     "translated": "2026-11-11"
   },
   {
+    "id": "news:60420a81",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Clothing workers in Bangladesh demand higher wages. 'Rent has doubled and food costs more'",
+    "lead": null,
+    "sourceHash": "cc1d1f299a9d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:6048816f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28802,8 +28967,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Eight dead and at least seventeen injured after building collapses in Brooklyn, search for victims could take days",
-    "lead": "At least eight people, including a child, have died after a three-storey building largely collapsed in the New York borough of Brooklyn. Seventeen people were also injured. Four people were taken to hospital in critical condition. Seven of the victims are children.",
-    "sourceHash": "a73fda7f903e",
+    "lead": "At least eight people, including a child, have died after a three-storey building largely collapsed on Wednesday afternoon in the New York borough of Brooklyn. Seventeen people were also injured. Four people were taken to hospital in critical condition. Seven of the victims are children.",
+    "sourceHash": "a976b9706106",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
@@ -29313,6 +29478,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
+  },
+  {
+    "id": "news:63875b42",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "50Plus support for amendment is important, but inheritance tax 'weighs heavily on Struijs's stomach'",
+    "lead": "It is still unclear whether there is a majority for the amendment from Pro and Volt. 50Plus is in any case one of the parties whose support is really needed to…",
+    "sourceHash": "ff12dddfbf7c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:639adee7",
@@ -30030,17 +30206,6 @@
     "translated": "2026-11-06"
   },
   {
-    "id": "news:666cf489",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "A pharmacy in The Hague is making a medicine itself for seven sick children in India, because the manufacturer is asking an unaffordable price for it",
-    "lead": "A pharmaceutical company multiplied the price of an old medicine and denied patients in India access to the drug. Now a pharmacy in The Hague is sending the pills to those patients for a fraction of the price, as an \"emergency solution\".",
-    "sourceHash": "c00c96b9ae6e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:667a2fca",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30688,6 +30853,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-05"
+  },
+  {
+    "id": "news:68c8a55f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Frenkie de Jong named Oranje captain in Van Dijk's absence",
+    "lead": "Frenkie de Jong is captain of the Netherlands national team during this international break. The 29-year-old midfielder has been named as the replacement for the injured Virgil van Dijk.",
+    "sourceHash": "a92887e7a17f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:68c92bc1",
@@ -31856,17 +32032,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:6e0b45f9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Graffiti vandals stop metro with passengers inside at Henk Sneevlietweg, vehicle completely defaced",
-    "lead": null,
-    "sourceHash": "1a1de2be3e09",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:6e0be08",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32206,17 +32371,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
-  },
-  {
-    "id": "news:6f50dfe3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bank of England raises interest rates after all",
-    "lead": "Unlike other central banks, the British central bank had not raised its interest rate since the outbreak of the Iran war. Now that inflation threatens to rise towards 5%, the BoE is changing course after all.",
-    "sourceHash": "14663b448c23",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:6f653c59",
@@ -33066,6 +33220,28 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:72e5d5eb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Protest against scrapping free public transport for elderly in Rotterdam reveals strained relationship between executive and combative opposition",
+    "lead": "Relations between the coalition and opposition in Rotterdam are frosty. This is clearly noticeable in the endless and heated debate on scrapping free transport for the elderly, which is to be voted on definitively on Thursday. \"We sometimes go swimming or to the sauna. If you do nothing anymore, you die.\"",
+    "sourceHash": "c5ec965e6c51",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
+    "id": "news:72e97439",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US envoys conclude meeting with Putin: 'He will not tolerate foreign troops in Ukraine'",
+    "lead": "US envoys Steve Witkoff and Jared Kushner have spoken with Putin in Moscow about the war in Ukraine. They did so after two days of negotiations in Abu Dhabi with Russian and Ukrainian counterparts. Both Moscow and Kyiv appear positive about the talks on Tuesday and Wednesday. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "b20303b0f272",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:72ed549f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33559,6 +33735,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
+  },
+  {
+    "id": "news:745eced0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "After three years of protest, Leiden University bars far-right GNVS from information market",
+    "lead": null,
+    "sourceHash": "4d026d5a4384",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:74704031",
@@ -34221,6 +34408,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:7712e29f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Will the right-progressives and left-conservatives please stand up?",
+    "lead": "The political spectrum is nowadays often shown with two axes. Horizontally runs the opposition between left and right, vertically that between progressive and conservative. This creates four quadrants in which every political conviction can neatly find a place. But how logical is that division, really? And why do the combinations left-progressive and right-conservative in particular seem ideologically self-evident, […] Read more posts on Sargasso",
+    "sourceHash": "d734dfc906e8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:771fca9f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34307,6 +34505,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:775731b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sexual misconduct by male soldiers is a daily occurrence in the German armed forces, research shows",
+    "lead": "Around 60 per cent of female soldiers up to the age of 24 experienced sexual misconduct in the past year. In almost all cases, a male colleague is the alleged perpetrator.",
+    "sourceHash": "e327faa612ca",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:775c5070",
@@ -36608,6 +36817,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:80f7fbae",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Emma (41) from Brussels seeks a sporty, positive man. 'And yes, he may make an effort to look attractive'",
+    "lead": null,
+    "sourceHash": "7aef2588428a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:80f9010",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37488,17 +37708,6 @@
     "translated": "2026-11-06"
   },
   {
-    "id": "news:8492a3b4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "State secretary sticks to ban on sale of Solvinity (the company behind DigiD) to American firm",
-    "lead": "<entity id=\"person:willemijn-aerdts\">Staatssecretaris Aerdts</entity> (Digitale Economie en Soevereiniteit, D66) is sticking to her ban on the planned sale of Solvinity (the company behind, among other things, the login service DigiD) to the American company Kyndryl.",
-    "sourceHash": "58b4cf8afd00",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:8497b191",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37510,12 +37719,23 @@
     "translated": "2026-11-08"
   },
   {
+    "id": "news:849d5b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Klasse' causes linguistic confusion",
+    "lead": null,
+    "sourceHash": "404777e3e4b8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:84a5b098",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "LIVE | Von der Leyen: before EU summit, proposal for support for Ukraine and sanctions",
-    "lead": "Follow here all the news, background articles, interviews and more about the war in Ukraine.",
-    "sourceHash": "6416c5257b1c",
+    "title": "LIVE | US envoys have met with President Vladimir Putin",
+    "lead": "Follow all the news here, background articles, interviews and more about the war in Ukraine.",
+    "sourceHash": "b06fae31c865",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
@@ -37937,6 +38157,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:867466ee",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why do adults flock to the Sinterklaas news programme? 'Love the double layer in jokes and nostalgia'",
+    "lead": "Sinterklaas still exerts a great appeal on adults, as evidenced by the good viewing figures for Het Sinterklaasjournaal. Why is a fictional story about the events surrounding a children's friend so interesting to watch? The AD reader gets it. \"There is also a lot for adults to enjoy.\"",
+    "sourceHash": "5e86427d5f22",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:86762e76",
@@ -38731,6 +38962,17 @@
     "translated": "2026-11-10"
   },
   {
+    "id": "news:895cbf34",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The rise of the middle-class footballer: football in England is no longer just a people's sport",
+    "lead": null,
+    "sourceHash": "db6a5eb54294",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:89650b8c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -39026,6 +39268,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:8a5bc947",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "De Jong to captain Oranje against Greece",
+    "lead": "Frenkie de Jong will wear the captain's armband for the Netherlands national team on Friday in the home Nations League match against Greece. He replaces Virgil van Dijk, who is not sufficiently fit.",
+    "sourceHash": "60372462f003",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:8a663051",
@@ -39941,6 +40194,17 @@
     "translated": "2026-11-05"
   },
   {
+    "id": "news:8d89dfd",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "De VVD steunt het belastingplan niet als het linkse amendement \"Millionairsbelasting\" erdoor komt",
+    "lead": "De VVD steunt het belastingplan voor 2027 niet als de afgezwakte versie van een amendement van de oppositiepartijen PRO en Volt door de <entity id=\"org:tweede-kamer\">Tweede Kamer</entity> wordt aangenomen, het lagerhuis van het parlement.",
+    "sourceHash": "8ed9a320b9d7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:8d8b8623",
     "language": "nl",
     "sourceLanguage": "en",
@@ -40390,6 +40654,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
+  },
+  {
+    "id": "news:8f6b1064",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Rutte pleased with Ukraine talks, but he too does not know whether Russia is serious",
+    "lead": "NATO chief <entity id=\"person:mark-rutte\">Mark Rutte</entity> is positive about the talks in Abu Dhabi on peace between Ukraine and Russia. According to him, the Americans, Europeans and Ukrainians are fairly well aligned. But it remains very much the question whether Russia will also align with that.",
+    "sourceHash": "972e86cae171",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:8f6f12b",
@@ -41679,6 +41954,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:94758b7c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Spain is unbeaten in 42 internationals. Where will this Spanish fairy tale end?",
+    "lead": null,
+    "sourceHash": "444c84b7ee2d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:9478275a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41853,6 +42139,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:95428ef5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Belgian ministers contradict each other over Iran's role in freezer hacks",
+    "lead": "Belgian foreign minister Maxime Prévot has contradicted colleague Bernard Quintin of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> over the cyberattack on cooling installations. Quintin said earlier on Thursday that Iran was behind it, but according to Prévot he spoke out of turn.",
+    "sourceHash": "4e5248d1e53d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:95476965",
@@ -42075,17 +42372,6 @@
     "translated": "2026-11-05"
   },
   {
-    "id": "news:96611d61",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "With jars and preserves, Olga Grigoerko is preparing for another harsh winter",
-    "lead": null,
-    "sourceHash": "16dda17f0a91",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:966191f4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42262,6 +42548,17 @@
     "translated": "2026-11-10"
   },
   {
+    "id": "news:96fa749f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Reijnders still uncertain for match against Greeks: 'It is always a scramble in midfield for Oranje'",
+    "lead": "Xavi Hernández and Tijjani Reijnders previewed in Zeist the international against Greece on Friday evening in Amsterdam. The head coach once again praised Frenkie de Jong, who will wear the captain's armband. Reijnders reflected on the squad's visit to the Prinses Máxima Centrum for paediatric oncology.",
+    "sourceHash": "59ce3fea780b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:9702b3ce",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42416,6 +42713,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:97bfa3f6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ukraine says it has attacked the five largest Russian refineries in two weeks",
+    "lead": null,
+    "sourceHash": "53673bde218d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:97c78b46",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42524,6 +42832,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-08"
+  },
+  {
+    "id": "news:984c5828",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Possible hazing in Ohio gets out of hand: students set on fire, police investigate",
+    "lead": "Police are investigating a possible hazing at a student fraternity at Ohio State University in the American city of Columbus that got out of hand. Last weekend a video appeared on social media showing two young men on fire while cheering and laughing students stood around them.",
+    "sourceHash": "f0ececf0987d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:9859e488",
@@ -43109,6 +43428,17 @@
     "translated": "2026-11-10"
   },
   {
+    "id": "news:9ac75d9a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Wennemars skates against Lian again after much-discussed swap",
+    "lead": "Joep Wennemars will skate his 1000 metres against Chinese skater Lian Ziwen at the World Cup in Beijing on Friday. This is a repeat of the race at the Winter Olympics in Milan in February, when Lian hindered the Dutchman at the crossing. The 24-year-old skater for Team Essent seemed on course for a medal until then, but ultimately finished fifth.",
+    "sourceHash": "58d5aa565f4d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:9ac75ffd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43426,17 +43756,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:9c0157dd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "I simply believe that a human has a soul and a machine does not",
-    "lead": null,
-    "sourceHash": "3e477ad7537f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:9c03c57",
@@ -43890,6 +44209,17 @@
     "translated": "2026-11-11"
   },
   {
+    "id": "news:9d700db6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brekelmans (VVD) demands reflection from Prime Minister Jetten, Bontenbal (CDA) had 'no grip on communication of the deal'",
+    "lead": null,
+    "sourceHash": "bff442ed66ea",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:9d85f858",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43987,17 +44317,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:9dfe525e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "This briefcase must check what happens in large data centres - a new security tool in the global AI race",
-    "lead": "The Netherlands wants to take the lead in international discussions on AI safety. To that end, the government is developing a system to supervise what happens in data centres. One calls it 'a hopeless attempt' to make the Netherlands relevant in 'the AI arms race'. Another sees an important step towards a safer world.",
-    "sourceHash": "d90741f5de85",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:9e1a7e84",
@@ -45331,17 +45650,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:a2bda5b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "At least 27 bomb threats disrupt European air traffic",
-    "lead": "At least 27 passenger aircraft in Europe faced bomb threats yesterday. Earlier this week that also happened, but no bomb was actually found anywhere. A false bomb threat is not new, but so many in one day? \"The threat seems more serious than usual, but you don't just come on board with something.\"",
-    "sourceHash": "6890b7cefd75",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-06"
-  },
-  {
     "id": "news:a2bde679",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45637,6 +45945,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
+  },
+  {
+    "id": "news:a4550c9b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "LIVE | Bontenbal (CDA) unhappy with 'framing' of the millionaires' tax, Brekelmans (VVD) demands reflection from Prime Minister Jetten on his own role",
+    "lead": "D66 and CDA are holding firm on their deal with PRO and Volt, the VVD will then vote against its own tax plan, and nobody yet knows how to move forward. Since 10.15 am <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> has been debating the tax plan. Follow everything about the escalating political tensions in The Hague in the liveblog and in the livestream above.",
+    "sourceHash": "b5bec28827b5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:a46fcf4e",
@@ -46310,17 +46629,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:a7b61a98",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Branford Marsalis and Dianne Reeves honour Coltrane with brilliance",
-    "lead": "With warm sax and a crystal-clear voice, Branford Marsalis and Dianne Reeves breathe new life into the ballads of jazz saxophonist John Coltrane and singer Johnny Hartman. Their tribute is a celebration of craftsmanship, although freedom only comes late in the concert.",
-    "sourceHash": "d87b42741c15",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:a7ba612d",
     "language": "nl",
     "sourceLanguage": "en",
@@ -46539,6 +46847,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
+  },
+  {
+    "id": "news:a89743da",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Homeowners have joint equity of nearly €700 billion",
+    "lead": "On average, owners of an owner-occupied home in the Netherlands have built up equity of €220,000 since purchase.",
+    "sourceHash": "a7262de141b8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:a899b3b1",
@@ -48873,6 +49192,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:b225e9d7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Products from Danfoss, maker of hacked cooling systems, are also found in cars, tunnels and homes",
+    "lead": "The Danish group profited greatly from the growth in the number of data centres, but made negative headlines due to hacked cooling equipment. 'Companies that use a device often do not see the updates.'",
+    "sourceHash": "2bcca7585977",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:b227f1c0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49558,12 +49888,12 @@
     "id": "news:b550de12",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Top basketball player Quinten Post: 'I still feel that I have to establish myself in the NBA'",
-    "lead": "After two seasons as a rookie with the Golden State Warriors, Quinten Post signed a multimillion-dollar contract with the Memphis Grizzlies this summer, a young team that has to rely on hard work. 'The coach yells at everyone.'",
-    "sourceHash": "df9bebafc4f4",
+    "title": "Top basketball player Quinten Post received a multi-million contract but still feels he has to prove himself in the NBA. 'The coach shouts at everyone'",
+    "lead": "After two seasons as a rookie with the Golden State Warriors, Quinten Post signed a multi-million contract with the Memphis Grizzlies this summer, a young team that relies on hard work. 'The coach shouts at everyone'.",
+    "sourceHash": "3a35253294e9",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-11"
+    "translated": "2026-11-12"
   },
   {
     "id": "news:b5513273",
@@ -50031,9 +50361,9 @@
     "id": "news:b766a903",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Tax plan probably fails if VVD does not give support",
-    "lead": "Now that VVD-<entity id=\"person:ruben-pieter-brekelmans\">fractievoorzitter Brekelmans</entity> announces that the VVD will vote against the Tax Plan if the amendment by Pro and Volt is adopted, it will be tense whether the…",
-    "sourceHash": "b63a9a420fab",
+    "title": "Tax plan likely to founder without VVD support",
+    "lead": "Now that VVD <entity id=\"person:ruben-pieter-brekelmans\">fractievoorzitter Brekelmans</entity> has announced that the VVD will vote against the tax plan if the amendment by Pro and Volt is adopted, things get tense as to whether the plan will…",
+    "sourceHash": "f4f7f6107b36",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
@@ -50851,17 +51181,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:bb39fabd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The energetic bravado gushes from the stage in Theater Oostpool's contemporary 'Romeo en Julia'",
-    "lead": null,
-    "sourceHash": "b11ff64889f9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-09"
   },
   {
     "id": "news:bb3ae525",
@@ -51967,9 +52286,9 @@
     "id": "news:c05d4718",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Live: AEX heads lower, chance that Klaas Knot becomes ECB president shrinks",
-    "lead": "After reports that Nvidia wants to dismiss its chief executive, attention in Asia this morning is mainly directed downwards. In Amsterdam the chip funds are pulling the AEX in a different direction.",
-    "sourceHash": "b7e93b06f62e",
+    "title": "Live: Wall Street heads for a red opening",
+    "lead": "After reports that Nvidia wants to dismiss its chief executive, attention in Asia this morning is mainly focused on the downside. In Amsterdam, chip funds are making a switch on the AEX.",
+    "sourceHash": "03b4b107c38d",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
@@ -52734,17 +53053,6 @@
     "translated": "2026-11-11"
   },
   {
-    "id": "news:c3806089",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Almost coming to blows, hard tackle and consolation after own goal: remarkable brotherly rivalries on the football pitch",
-    "lead": "Teun (Juventus) and Peer (AZ) Koopmeiners could face each other in Alkmaar on Thursday evening (21.00 hours). In the past there were also brothers who clashed on the football pitch. Blood is thicker than water, but that rarely holds after the first whistle.",
-    "sourceHash": "4e64a2ea9508",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:c3811807",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53161,6 +53469,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
+  },
+  {
+    "id": "news:c571f406",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "7-year-old rhinoceros Diederik suddenly dies at Wildlands Emmen: 'He will be missed'",
+    "lead": "Rhinoceros Diederik died on Wednesday morning at Wildlands Adventure Zoo Emmen. The 7-year-old animal had remained in the indoor enclosure since Tuesday afternoon for observation, examination and care.",
+    "sourceHash": "7b6560deb1ac",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:c5796a95",
@@ -55924,17 +56243,6 @@
     "translated": "2026-11-11"
   },
   {
-    "id": "news:d057d4d5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jenning de Boo collarbone fracture: speed skater misses first World Cup races",
-    "lead": null,
-    "sourceHash": "aed724f9053b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:d058c88",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56186,17 +56494,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
-  },
-  {
-    "id": "news:d12587ad",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Barça playmaker Raphinha extends to 2030, former international becomes assistant to Maaskant at Tuvalu",
-    "lead": "The transfer market in the Netherlands has been closed since Wednesday evening, 2 September. The market in the foreign top competitions closed a day earlier. Clubs can still sign players without a transfer fee. Follow all transfer news here.",
-    "sourceHash": "39b4f6ef5142",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:d13efa9d",
@@ -57409,6 +57706,17 @@
     "translated": "2026-11-10"
   },
   {
+    "id": "news:d60a4ea6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Reduce your screen time",
+    "lead": "Cartoon Martine van der Reijden",
+    "sourceHash": "714e7178ad75",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:d61674f4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57904,17 +58212,6 @@
     "translated": "2026-11-03"
   },
   {
-    "id": "news:d801a26d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Trump's defeat doesn't get us any further",
-    "lead": null,
-    "sourceHash": "aadb686523f9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-06"
-  },
-  {
     "id": "news:d80214cc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58245,17 +58542,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:d9a00196",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jenning de Boo breaks collarbone in bicycle fall: 'No World Cups for me'",
-    "lead": "Jenning de Boo has broken his collarbone in a fall from his bicycle. The 22-year-old speed skater, who dominated last weekend at the World Cup Kwalificatietoernooi (WCKT) in Thialf, reported this on Instagram.",
-    "sourceHash": "190089e7aa2d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:d9a4bca9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58375,17 +58661,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:d9f2e4f0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Eight injured, including children, in accident at Hazerswoude-Dorp",
-    "lead": "Eight people, including children, were injured in a serious traffic accident near Hazerswoude-Dorp. The injured have been taken to hospital. Two of them were seriously injured.",
-    "sourceHash": "553ddedd7c0f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:da09295b",
@@ -58595,17 +58870,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
-  },
-  {
-    "id": "news:dac6bf1b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Farmers come up with alternative nitrogen plan, but minister rejects it",
-    "lead": "Four farmers' organisations presented a nitrogen plan on Tuesday afternoon with much less drastic nitrogen standards. They hoped to convince agriculture minister <entity id=\"person:jaimi-van-essen\">Jaimi van Essen</entity>, but he is not interested in the plans. According to him, the Netherlands will therefore not get out of the nitrogen deadlock.",
-    "sourceHash": "4af1414fb2a2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:dad04902",
@@ -59708,17 +59972,6 @@
     "translated": "2026-11-11"
   },
   {
-    "id": "news:de62f79a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brabant does not want to be pressured by decision on permits",
-    "lead": "The <entity id=\"org:provincie-noord-brabant\">provincie Noord-Brabant</entity> is opposing the ruling of the <entity id=\"org:raad-van-state\">Raad van State</entity> that a final decision must be taken on 4 February regarding the permit of five poultry farmers. 'We want to make a careful decision and take the time for consultation with the companies. This deadline does make that complicated', said deputy Saskia Boelema (enforcement). This summer Brabant announced it would revoke the five permits. The date to start doing so (1 October) was…",
-    "sourceHash": "6efe3f1d57d5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:de694d2c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -60635,9 +60888,9 @@
     "id": "news:e20cd96e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Death toll from New York building collapse rises: five dead, seventeen injured",
-    "lead": "In New York a three-storey building has collapsed. At least five people lost their lives and seventeen others were injured. Four of the injured are in critical condition. Among the victims there are reportedly also children, although it is not known whether they are injured or have died. The fire brigade is searching the rubble with hundreds of rescue workers.",
-    "sourceHash": "080bb525cff0",
+    "title": "At least eight dead after New York building collapse, seventeen injured",
+    "lead": "A three-storey building has collapsed in New York. At least eight people lost their lives and seventeen others were injured. Four of the injured are in critical condition. Among the victims are also children, although it is not known whether they were injured or killed. The fire brigade is searching the rubble with hundreds of rescue workers.",
+    "sourceHash": "758d1008e894",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
@@ -61114,17 +61367,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
-  },
-  {
-    "id": "news:e3f6aeb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Antisemitism is back in Polish public life. 'The problem is that people do not respond'",
-    "lead": null,
-    "sourceHash": "0b53f98fec95",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:e3fadb23",
@@ -63129,6 +63371,17 @@
     "translated": "2026-11-06"
   },
   {
+    "id": "news:eced9ace",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Death toll after building collapse in New York rises to 8, bad weather forecast",
+    "lead": "The death toll after the collapse of an apartment complex in the American city of New York has risen to eight, according to mayor Zohran Mamdani on X. Bad weather is forecast, which could affect the rescue operation.",
+    "sourceHash": "c3f444301eaa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:ecf554bc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -63138,6 +63391,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
+  },
+  {
+    "id": "news:ecf761da",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The selective outrage of party-hopper Joost Eerdmans",
+    "lead": "The selective outrage of Joost Eerdmans",
+    "sourceHash": "4f1d932c1803",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:ecfab51",
@@ -63756,17 +64020,6 @@
     "translated": "2026-11-06"
   },
   {
-    "id": "news:ef2c84eb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Electrofunk, uncompromising techno and dance adventures: the tracks of the week",
-    "lead": null,
-    "sourceHash": "200c05ed788a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-06"
-  },
-  {
     "id": "news:ef2e26ac",
     "language": "en",
     "sourceLanguage": "nl",
@@ -63864,6 +64117,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
+  },
+  {
+    "id": "news:ef857c3b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "With its 'rebirth' programme, Greece changed course, and the national football team is now reaping the rewards",
+    "lead": null,
+    "sourceHash": "4fdc00549f02",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:ef90c509",
@@ -64680,17 +64944,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:f2c3c28a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jenning de Boo breaks collarbone in cycling accident and misses World Cups",
-    "lead": "Speed skater Jenning de Boo has broken his collarbone in a fall from his bike. As a result, the sprinter will have to miss the upcoming World Cups.",
-    "sourceHash": "b37d0a50d84a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
-  },
-  {
     "id": "news:f2c42db4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -64733,6 +64986,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
+  },
+  {
+    "id": "news:f30f2eee",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Bottom-of-the-table Crystal Palace sacks French coach Sage",
+    "lead": "Crystal Palace has dismissed head coach Pierre Sage. The English football club announced this on Thursday on its own website. The 47-year-old Frenchman has to make way after a poor start to the season in the Premier League. After ten matchdays the club is bottom with 7 points. In the Europa League, Palace are 21st.",
+    "sourceHash": "f1e8c6b8bdb8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
   },
   {
     "id": "news:f314337b",
@@ -65098,6 +65362,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:f48b656d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Parisians are a danger on the road, and that has now really been proven",
+    "lead": "On the immense roundabout around the Arc de Triomphe there are no lane markings on the road surface. Parisians drive around it by the hundreds, criss-crossing, often honking for long periods and with middle fingers raised at other road users.",
+    "sourceHash": "5029118dbbc1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-12"
+  },
+  {
     "id": "news:f495757d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -65129,17 +65404,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
-  },
-  {
-    "id": "news:f4a3e04e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Fossil 66 million years old found in Limburg: 'Extremely rare'",
-    "lead": "Researchers from Het Nationaal Oertijdmuseum and the Natuurhistorisch Museum Maastricht have discovered an \"extremely rare\" fossil in Limburg. The animal lived shortly before the dinosaurs went extinct, the researchers write in a study published Thursday in the journal Geodiversitas.",
-    "sourceHash": "ba50ce6e07db",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:f4da3699",
@@ -66768,17 +67032,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-11"
-  },
-  {
-    "id": "news:fb3e75aa",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Video: AI geeft gezicht aan niet-geïdentificeerd Nederlands meisje 36 jaar nadat zij werd gemarteld en gedood",
-    "lead": "Bijna 36 jaar nadat op eerste kerstdag 1990 een niet-geïdentificeerd meisje dood werd aangetroffen in het bos bij Teteringen, heeft een Nederlandse organisatie voor koude zaken kunstmatige intelligentie gebruikt om een geanimeerde v",
-    "sourceHash": "472dda4a88d6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-05"
   },
   {
     "id": "news:fb437c8d",
