@@ -127,9 +127,13 @@ export function evaluateEkInvariants({ members = [], fracties = [] }) {
   return { ok: failures.length === 0, failures, stats: { members: members.length, seats: sum } };
 }
 
-export function evaluateBewindspersonenInvariants({ count }) {
+/**
+ * `exitedHolders`: how many open bewindspersonen belong to a party that the official cabinet page says left the
+ * cabinet (cabinet-state.mjs); the list may then be that many shorter. Without such a statement it is 0.
+ */
+export function evaluateBewindspersonenInvariants({ count, exitedHolders = 0 }) {
   const failures = [];
-  const low = BEWINDSPERSONEN_EXPECTED - BEWINDSPERSONEN_TOLERANCE;
+  const low = BEWINDSPERSONEN_EXPECTED - BEWINDSPERSONEN_TOLERANCE - exitedHolders;
   const high = BEWINDSPERSONEN_EXPECTED + BEWINDSPERSONEN_TOLERANCE;
   if (count < low || count > high) {
     failures.push(failure("list-size", `${count} bewindspersonen, verwacht ${BEWINDSPERSONEN_EXPECTED} plus of min ${BEWINDSPERSONEN_TOLERANCE}`));
@@ -149,7 +153,8 @@ export function recentEvents({ today, elections = [], coalitions = [], windowDay
     if (age >= 0 && age <= windowDays) events.push({ kind: "election", id: election.id, date: election.date });
   }
   for (const coalition of coalitions) {
-    if (!coalition || typeof coalition.start !== "string") continue;
+    // A romp cabinet starts because a party left; the party-exit rule covers it, not this event.
+    if (!coalition || typeof coalition.start !== "string" || coalition.kind === "rompkabinet") continue;
     const age = daysBetween(coalition.start, today);
     if (age >= 0 && age <= windowDays) events.push({ kind: "cabinet-start", id: coalition.id, date: coalition.start });
   }

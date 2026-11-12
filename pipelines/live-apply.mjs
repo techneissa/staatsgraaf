@@ -12,6 +12,7 @@
 //    (name, aliases, seats, established, dissolved, website) and gains missing source references;
 //  - positions and relations: inserted when new; an existing one changes only its seats (`seatsCount`,
 //    `seatsAppointed`) and the end of a relation (`validTo`);
+//  - coalitions (cabinet-state.mjs): inserted when new; an existing one changes only `end` and `demissionairSince`;
 //  - sources: inserted when new (license and credit note resolved as merge does),
 //    otherwise the retrieval date moves forward.
 
@@ -31,6 +32,7 @@ const PATCH_FIELDS = {
   organizations: ["name", "aliases", "seatsCount", "established", "dissolved", "website"],
   positions: ["seatsCount"],
   relations: ["seatsAppointed", "validTo"],
+  coalitions: ["end", "demissionairSince"],
 };
 
 // Tenures and memberships first: the people pass needs to know whose records changed.
@@ -41,6 +43,7 @@ const FILES = {
   organizations: "organizations.json",
   positions: "positions.json",
   relations: "relations.json",
+  coalitions: "coalitions.json",
   sources: "sources.json",
 };
 

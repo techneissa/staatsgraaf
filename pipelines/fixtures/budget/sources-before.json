@@ -1,0 +1,14 @@
+[
+  {
+    "id": "src:rijksfinancien-begrotingsstaten-2013-2027",
+    "url": "https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.json",
+    "title": "Begrotingsstaten 2013-2027 (uitgaven, verplichtingen en ontvangsten per artikel per begrotingsfase)",
+    "publisher": "Ministerie van Financien, rijksfinancien.nl",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-18",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Amounts in EUR x 1,000 (duizend euro). Per begrotingshoofdstuk and artikel, phases StandOWB, StandO1, StandSBS, StandO2 and Realisatie for V (verplichtingen), U (uitgaven) and O (ontvangsten)."
+  }
+]

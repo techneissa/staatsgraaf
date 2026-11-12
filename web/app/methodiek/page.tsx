@@ -128,7 +128,7 @@ export default function MethodPage() {
           </p>
         </Section>
 
-        <Section id="grenzen" icon={CircleDashed} title={<L nl="Wat nog ontbreekt" en="What is still missing" />}>
+        <Section id="grenzen" icon={CircleDashed} title={<L nl="Wat nog ontbreekt" en="What Is Still Missing" />}>
           <ul className="list-disc space-y-1.5 ps-5 marker:text-ink-faint">
             <li>
               <L

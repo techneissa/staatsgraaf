@@ -129,6 +129,38 @@ jobs:
           path: pipelines/.cache/translations
           key: news-translations-${{ github.run_id }}-${{ github.run_attempt }}
 
+      # Ministry budgets (pipelines/budget.mjs): the rijksfinancien Begrotingsstaten download,
+      # checked once a day (the run is skipped within 20 hours of the last check). The validators and
+      # hash of the last download come from the previous run, so a day without news costs one
+      # request for the overview page and one HEAD request. A new fiscal year or new realised
+      # figures are written to data/budgets.json and committed below. Exit codes as for the live
+      # step: 0 fine, 2 the guard stopped a broken download (nothing written, ops issue below).
+      - name: Restore the budget check cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: pipelines/.cache/budget
+          key: budget-check-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            budget-check-
+
+      - name: Refresh ministry budgets
+        id: budget
+        run: |
+          set +e
+          bun run budget
+          code=$?
+          echo "code=${code}" >> "$GITHUB_OUTPUT"
+          if [ "${code}" -eq 0 ] || [ "${code}" -eq 2 ]; then exit 0; fi
+          exit "${code}"
+
+      - name: Save the budget check cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: pipelines/.cache/budget
+          key: budget-check-${{ hashFiles('pipelines/.cache/budget/**') }}
+
       - name: Refresh the change feed
         run: bun run changes
 
@@ -157,17 +189,26 @@ jobs:
       # A source stopped by its consistency guard is not a failed run: the other sources
       # were applied. It needs a person to look, so open or update one ops issue.
       - name: Report a stopped source
-        if: steps.live.outputs.code == '2'
+        if: steps.live.outputs.code == '2' || steps.budget.outputs.code == '2'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          BUDGET_CODE: ${{ steps.budget.outputs.code }}
         run: |
           set -uo pipefail
           marker="Bron gestopt door controle"
           title="[ops] ${marker}"
-          body="Een officiële bron is door de consistentiecontrole gestopt (zie research/qa/live-run-latest.json in de run-uitvoer en research/qa/live-review-queue.md). De andere bronnen zijn wel verwerkt.
+          body="Een officiële bron is door de consistentiecontrole gestopt, of de run heeft een voorstel dat een persoon moet beoordelen (zie research/qa/live-run-latest.json in de run-uitvoer en research/qa/live-review-queue.md). De andere bronnen zijn wel verwerkt."
+          if [ "${BUDGET_CODE:-0}" = "2" ]; then
+            body="${body} De begrotingscijfers (rijksfinancien.nl, stap 'Refresh ministry budgets') zijn niet bijgewerkt: de download zag er stuk uit."
+          fi
+          body="${body}
 
           Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          # A cabinet change that no official page states (pipelines/cabinet-state.mjs) is drafted here, with the
+          # exact coalitions.json change, so a person can apply it in one step.
+          drafts="$(jq -r '.opsDrafts[]? | "\n---\n" + .' research/qa/live-run-latest.json 2>/dev/null || true)"
+          if [ -n "${drafts}" ]; then body="${body}${drafts}"; fi
           gh label create ops --force >/dev/null 2>&1 || true
           existing="$(gh issue list --state open --search "${marker} in:title" --json number --jq '.[0].number // empty' 2>/dev/null || true)"
           if [ -n "${existing}" ]; then

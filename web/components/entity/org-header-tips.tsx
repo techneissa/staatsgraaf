@@ -30,7 +30,7 @@ export function OrgNameTip({
     <InfoTip label={t("nameTipLabel")}>
       {showDutch ? (
         <>
-          <p className="text-[10px] font-medium uppercase tracking-wide text-ink-faint">{t("dutchNameLabel")}</p>
+          <p className="text-[10px] font-medium text-ink-faint">{t("dutchNameLabel")}</p>
           <p lang="nl" className="mt-0.5 break-words font-medium text-ink">
             {name}
           </p>
@@ -38,7 +38,7 @@ export function OrgNameTip({
       ) : null}
       {aliases.length > 0 ? (
         <p className={showDutch ? "mt-2" : undefined}>
-          <span className="text-[10px] font-medium uppercase tracking-wide text-ink-faint">{t("factAliases")}</span>
+          <span className="text-[10px] font-medium text-ink-faint">{t("factAliases")}</span>
           <span lang="nl" className="mt-0.5 block text-ink">
             {aliases.join(", ")}
           </span>

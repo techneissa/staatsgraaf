@@ -30,6 +30,8 @@ export const NEWS_DICT = {
   newsAllDays: { nl: "Alle dagen", en: "All days" },
   newsEntityAllLink: { nl: "Alle berichten over {name}", en: "All items about {name}" },
   // Relevance filter (): items that name nothing in the dataset sit behind a toggle.
+  newsViewLarge: { nl: "Grote weergave", en: "Large View" },
+  newsViewStandard: { nl: "Standaardweergave", en: "Standard View" },
   newsShowAll: { nl: "Toon al het nieuws", en: "Show all news" },
   newsRelevantCount: { nl: "{n} van {total} berichten gaan over of noemen de overheid", en: "{n} of {total} items are about or mention the government" },
   newsRelevantEmptyTitle: { nl: "Geen bericht gaat over of noemt de overheid", en: "No item is about or mentions the government" },
