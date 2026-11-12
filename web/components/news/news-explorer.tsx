@@ -18,7 +18,7 @@ import { newsFacets, rowMatches, type FacetRow } from "@/lib/news-facets";
 import { NEWS_LANGUAGES, type RecencyGroupKey } from "@/lib/news-meta";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import { readEntryState, writeEntryState } from "@/lib/news-entry-state";
-import { sumBuckets, translationSummary, type LanguageCounts } from "@/lib/news-stats";
+import { sumBuckets, type LanguageCounts } from "@/lib/news-stats";
 import { NEWS_DICT } from "@/lib/i18n/dict-news";
 import { interpolate } from "@/lib/i18n/locales";
 import type { PeekKind } from "@/lib/peek";
@@ -169,28 +169,18 @@ export function NewsExplorer({
     .filter(({ filtered, unloaded }) => filtered.length + unloaded > 0);
   const resultCount = sections.reduce((sum, { filtered, unloaded }) => sum + filtered.length + unloaded, 0);
 
-  const translated = translationSummary(buckets, uiLanguage, language, relevantOnly);
   const countWord = (count: number) =>
     interpolate(count === 1 ? NEWS_DICT.newsFilterCountWordOne[uiLanguage] : NEWS_DICT.newsFilterCountWord[uiLanguage], {
       n: formatCountIn(count, uiLanguage),
     });
 
+  const relevantSentence = interpolate(NEWS_DICT.newsRelevantCount[uiLanguage], {
+    n: formatCountIn(relevantTotals[language], uiLanguage),
+    total: formatCountIn(totals[language], uiLanguage),
+  });
+
   return (
     <div data-settled={settled ? "" : undefined}>
-      <p className="mb-3 text-xs text-ink-faint">
-        {translated !== null ? (
-          <>
-            {interpolate(NEWS_DICT.newsTranslatedCount[uiLanguage], {
-              translated: formatCountIn(translated.translated, uiLanguage),
-              total: formatCountIn(translated.total, uiLanguage),
-            })}{" "}
-          </>
-        ) : null}
-        <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
-          {translated !== null ? NEWS_DICT.newsTranslatedMethodLink[uiLanguage] : messages.card.translationNote}
-        </a>
-      </p>
-
       <NewsFilterBar
         uiLanguage={uiLanguage}
         filters={filters}
@@ -244,12 +234,20 @@ export function NewsExplorer({
         </div>
       ) : (
         <>
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-            <p role="status" aria-atomic="true" className="text-sm text-ink-muted">
-              {interpolate(NEWS_DICT.newsRelevantCount[uiLanguage], {
-                n: formatCountIn(relevantTotals[language], uiLanguage),
-                total: formatCountIn(totals[language], uiLanguage),
-              })}
+          <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            <p
+              role="status"
+              aria-atomic="true"
+              title={relevantSentence}
+              className="text-sm tabular-nums text-ink-muted"
+            >
+              <span className="sr-only">{relevantSentence}</span>
+              <span aria-hidden="true">
+                {interpolate(NEWS_DICT.newsRelevantCountShort[uiLanguage], {
+                  n: formatCountIn(relevantTotals[language], uiLanguage),
+                  total: formatCountIn(totals[language], uiLanguage),
+                })}
+              </span>
               {filtering
                 ? ` · ${resultCount === 0 ? messages.noItemsFilterLabel : interpolate(NEWS_DICT.newsFilterResultCount[uiLanguage], { n: countWord(resultCount) })}`
                 : ""}
@@ -280,7 +278,7 @@ export function NewsExplorer({
               )}
             </div>
           ) : (
-            <div className="mt-6 space-y-8">
+            <div className="mt-3 space-y-6">
               {sections.map(({ group, filtered, unloaded }) => {
                 const visible = filtered.slice(0, initialVisible);
                 const hidden = filtered.slice(initialVisible);
