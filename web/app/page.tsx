@@ -11,10 +11,11 @@ import { TranslationInfo } from "@/components/home/translation-info";
 import { getDatasetDate, getOrganizationCounts } from "@/lib/data";
 import { getFocusPeople, getHomeNews, getSubOrganizationCount } from "@/lib/home";
 import { getBudgetOverview } from "@/lib/budget";
+import { getS } from "@/lib/i18n/server-strings";
 import { absoluteUrl, pageMetadata, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: `${SITE_NAME}: de Nederlandse rijksoverheid in kaart`,
+  title: getS("pages", "homeTitle"),
   description: SITE_TAGLINE,
   path: "/",
   absoluteTitle: true,
