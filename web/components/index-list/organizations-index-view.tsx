@@ -229,7 +229,7 @@ function Overview({ groups, onJump }: { groups: OrganizationGroup[]; onJump: (ke
           const labelId = `overzicht-${cluster}`;
           return (
             <div key={cluster} className="min-w-0">
-              <p id={labelId} className="text-xs font-semibold uppercase tracking-wider text-ink-faint">
+              <p id={labelId} className="text-xs font-semibold text-ink-faint">
                 {t(CLUSTER_KEY[cluster])}
               </p>
               <ul aria-labelledby={labelId} className="mt-2 grid list-none grid-cols-1 gap-2 p-0 @lg:grid-cols-2 @5xl:grid-cols-1">
@@ -378,7 +378,7 @@ export function OrganizationsIndexView({ initial, groups, total }: { initial: Or
             <GroupHeading group={group} anchor={anchor} count={searching || typeFilter !== null ? items.length : group.count} />
             {split ? (
               <>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-faint">{t(group.by === "ministerie" ? "orgByMinisterie" : "orgByProvincie")}</p>
+                <p className="mt-4 text-xs font-semibold text-ink-faint">{t(group.by === "ministerie" ? "orgByMinisterie" : "orgByProvincie")}</p>
                 <div className="mt-2 @container">
                   <ul
                     role="list"

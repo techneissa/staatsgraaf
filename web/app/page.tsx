@@ -58,7 +58,7 @@ export default function HomePage() {
             id="nieuws-titel"
             className="text-lg font-semibold tracking-tight text-ink"
           >
-            <L nl="Recent nieuws" en="Recent news" />
+            <L nl="Recent nieuws" en="Recent News" />
           </h2>
           <TranslationInfo />
         </div>
@@ -71,9 +71,9 @@ export default function HomePage() {
         <section aria-labelledby="mensen-titel" className="border-b border-line py-6">
           <h2 id="mensen-titel" className="text-lg font-semibold tracking-tight text-ink">
             {news.length > 0 ? (
-              <L nl="Mensen in het nieuws" en="People in the news" />
+              <L nl="Mensen in het nieuws" en="People in the News" />
             ) : (
-              <L nl="Huidige functionarissen" en="Current office holders" />
+              <L nl="Huidige functionarissen" en="Current Office Holders" />
             )}
           </h2>
           <div className="mt-4">
@@ -84,7 +84,7 @@ export default function HomePage() {
 
       <section aria-labelledby="wijzigingen-titel" className="border-b border-line py-6">
         <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
-          <L nl="Recente wijzigingen" en="Recent changes" />
+          <L nl="Recente wijzigingen" en="Recent Changes" />
         </h2>
         <ChangePanel />
       </section>

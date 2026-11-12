@@ -198,13 +198,17 @@ jobs:
           set -uo pipefail
           marker="Bron gestopt door controle"
           title="[ops] ${marker}"
-          body="Een officiële bron is door de consistentiecontrole gestopt (zie research/qa/live-run-latest.json in de run-uitvoer en research/qa/live-review-queue.md). De andere bronnen zijn wel verwerkt."
+          body="Een officiële bron is door de consistentiecontrole gestopt, of de run heeft een voorstel dat een persoon moet beoordelen (zie research/qa/live-run-latest.json in de run-uitvoer en research/qa/live-review-queue.md). De andere bronnen zijn wel verwerkt."
           if [ "${BUDGET_CODE:-0}" = "2" ]; then
             body="${body} De begrotingscijfers (rijksfinancien.nl, stap 'Refresh ministry budgets') zijn niet bijgewerkt: de download zag er stuk uit."
           fi
           body="${body}
 
           Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          # A cabinet change that no official page states (pipelines/cabinet-state.mjs) is drafted here, with the
+          # exact coalitions.json change, so a person can apply it in one step.
+          drafts="$(jq -r '.opsDrafts[]? | "\n---\n" + .' research/qa/live-run-latest.json 2>/dev/null || true)"
+          if [ -n "${drafts}" ]; then body="${body}${drafts}"; fi
           gh label create ops --force >/dev/null 2>&1 || true
           existing="$(gh issue list --state open --search "${marker} in:title" --json number --jq '.[0].number // empty' 2>/dev/null || true)"
           if [ -n "${existing}" ]; then

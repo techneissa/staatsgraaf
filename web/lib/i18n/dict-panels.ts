@@ -93,13 +93,13 @@ export const PANELS_DICT = {
   machineTranslation: { nl: "Machinevertaling", en: "Machine translation" },
   responsible: { nl: "Verantwoordelijke organisaties", en: "Responsible organizations" },
   positions: { nl: "Posities", en: "Positions" },
-  changes: { nl: "Recente wijzigingen", en: "Recent changes" },
+  changes: { nl: "Recente wijzigingen", en: "Recent Changes" },
 
   // Default view.
   defaultInTheNews: { nl: "Meest in het nieuws", en: "Most in the news" },
   defaultInTheNewsWindow: { nl: "Laatste {n} dagen", en: "Last {n} days" },
   defaultSectors: { nl: "Grootste sectoren", en: "Largest sectors" },
-  defaultChanges: { nl: "Recente wijzigingen", en: "Recent changes" },
+  defaultChanges: { nl: "Recente wijzigingen", en: "Recent Changes" },
   defaultSectorsNote: { nl: "Aantal organisaties per sector", en: "Organizations per sector" },
   defaultChangesAll: { nl: "Alle wijzigingen", en: "All changes" },
   sectorOrganisations: { nl: "{n} organisaties", en: "{n} organizations" },
