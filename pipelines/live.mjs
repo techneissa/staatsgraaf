@@ -128,6 +128,7 @@ export async function runLive(options = {}) {
     closures: [],
     openings: [],
     stoppedByGuard: [],
+    opsDrafts: [],
     gaps: [],
     reviewEntries: [],
     requests: null,
@@ -275,6 +276,7 @@ export async function runLive(options = {}) {
 
     const stopped = new Set(plan.stopped.map((entry) => entry.source));
     summary.stoppedByGuard = plan.stopped;
+    summary.opsDrafts = plan.opsDrafts ?? [];
     summary.counts = {
       closures: plan.stats.closed,
       openings: plan.stats.opened,
@@ -384,8 +386,10 @@ export async function runLive(options = {}) {
     ];
     const added = await appendReviewQueue(root, queueEntries, today);
     summary.reviewEntries = queueEntries.map((entry) => ({ kind: entry.kind, text: entry.text, key: entry.key, newInQueue: added.includes(entry) }));
+    // An [ops] draft (a cabinet change no official page states) needs a person, like a stopped source: exit code 2.
+    const needsPerson = stopped.size > 0 || summary.opsDrafts.length > 0;
     summary.outcome = stopped.size > 0 ? "stopped-by-guard" : dataChanged ? "updated" : "checked";
-    return await finish(stopped.size > 0 ? 2 : 0);
+    return await finish(needsPerson ? 2 : 0);
   } catch (error) {
     summary.outcome = "error";
     summary.gaps.push({ what: "bun run live", why: error.message, endpoint: "pipelines/live.mjs", resume: "Lees de foutmelding; er is niets bewaard van deze run." });

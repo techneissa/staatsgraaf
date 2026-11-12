@@ -4,6 +4,13 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (12-11-2026, cabinet status)
+
+- The 3-hourly refresh reads the official cabinet page on rijksoverheid.nl (`pipelines/cabinet-state.mjs`). When it states that a party's bewindspersonen offered their resignation, `data/coalitions.json` closes the cabinet and adds a romp cabinet of the remaining parties (demissionair when the page says so). A statement that the whole cabinet resigned sets `demissionairSince`.
+- Such a party exit lets the ministers update through its guard: the list may be shorter by the people of that party, and their closures count as an event, but only when everyone who left belongs to a party the page says left. A half-loaded page is still stopped.
+- Posts taken over ad interim ("Minister van Defensie a.i.") open an `acting` tenure for the person who took them over.
+- When bewindspersonen of a whole party are gone but no official page says the party left, nothing is written about the cabinet; the run exits with code 2 and the `[ops]` issue gets the exact `coalitions.json` change as a draft.
+
 ### Changed (12-11-2026, translation)
 
 - News and description translation runs only on OpenCode (`OPENCODE_API_KEY`). Claude Haiku 5.5 runs at effort `low` instead of `medium`: it thinks less, so each item costs less.
