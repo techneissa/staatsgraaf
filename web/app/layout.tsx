@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { LanguageProvider } from "@/components/i18n/language-provider";
+import { LocaleHtml } from "@/components/i18n/locale-html";
 import { CanvasFrame } from "@/components/canvas-frame";
 import { SelectionProvider } from "@/components/selection/selection-provider";
 import { SelectionProfileGate } from "@/components/selection/selection-profile-gate";
@@ -57,15 +58,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const datasetDate = getDatasetDate();
 
   return (
-    <html lang="nl" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
-        <script dangerouslySetInnerHTML={{ __html: PANELS_INIT_SCRIPT }} />
-        <script dangerouslySetInnerHTML={{ __html: CANVAS_INIT_SCRIPT }} />
-        <script dangerouslySetInnerHTML={{ __html: WELCOME_BANNER_INIT_SCRIPT }} />
-      </head>
-      <body>
-        <LanguageProvider>
+    <LanguageProvider>
+      <LocaleHtml>
+        <head>
+          <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+          <script dangerouslySetInnerHTML={{ __html: PANELS_INIT_SCRIPT }} />
+          <script dangerouslySetInnerHTML={{ __html: CANVAS_INIT_SCRIPT }} />
+          <script dangerouslySetInnerHTML={{ __html: WELCOME_BANNER_INIT_SCRIPT }} />
+        </head>
+        <body>
           <SkipLink />
           <NavRecovery />
           <SelectionProvider>
@@ -103,8 +104,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </SelectionProvider>
           <PeekProvider />
           <RevealObserver />
-        </LanguageProvider>
-      </body>
-    </html>
+        </body>
+      </LocaleHtml>
+    </LanguageProvider>
   );
 }

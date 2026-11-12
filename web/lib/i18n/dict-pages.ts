@@ -44,6 +44,10 @@ export const PAGES_DICT = {
   },
   partyOverviewLabel: { nl: "Alle partijen", en: "All parties" },
 
+  homeTitle: {
+    nl: "Staatsgraaf: de Nederlandse rijksoverheid in kaart",
+    en: "Staatsgraaf: the Dutch central government, mapped",
+  },
   notFoundTitle: { nl: "Pagina niet gevonden", en: "Page not found" },
   notFoundPre: {
     nl: "Deze pagina bestaat niet of is verplaatst. Ga terug naar de",

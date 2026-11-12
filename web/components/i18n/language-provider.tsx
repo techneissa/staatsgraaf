@@ -1,19 +1,22 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import {
   createContext,
   useCallback,
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
+import { isEnglishRoute } from "@/lib/language-routes";
+import { englishTitle } from "@/lib/i18n/page-titles";
 import {
   DEFAULT_LOCALE,
   LANG_STORAGE_KEY,
   isLocale,
-  localeHtmlLang,
   type Locale,
 } from "@/lib/i18n/locales";
 
@@ -27,8 +30,36 @@ const LocaleContext = createContext<LocaleContextValue>({
   setLocale: () => {},
 });
 
+/**
+ * Keeps the tab title in the chosen language. Next writes the Dutch title on
+ * every navigation, so this watches the <title> and shows its English name
+ * (lib/i18n/page-titles.ts) while English is picked. It remembers the Dutch
+ * title to put back when the reader switches to Dutch.
+ */
+function useDocumentTitle(locale: Locale) {
+  const dutch = useRef<string | null>(null);
+  const written = useRef<string | null>(null);
+
+  useEffect(() => {
+    const sync = () => {
+      const current = document.title;
+      if (current !== written.current) dutch.current = current;
+      const english = locale === "en" && dutch.current !== null ? englishTitle(dutch.current) : null;
+      const next = english ?? dutch.current;
+      written.current = english;
+      if (next !== null && next !== current) document.title = next;
+    };
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(document.head, { childList: true, subtree: true, characterData: true });
+    return () => observer.disconnect();
+  }, [locale]);
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
+  // The English news routes render in English from the first byte of their HTML.
+  const onEnglishRoute = isEnglishRoute(usePathname());
+  const [locale, setLocaleState] = useState<Locale>(onEnglishRoute ? "en" : DEFAULT_LOCALE);
 
   useEffect(() => {
     try {
@@ -39,9 +70,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  useEffect(() => {
-    document.documentElement.lang = localeHtmlLang(locale);
-  }, [locale]);
+  useDocumentTitle(locale);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
