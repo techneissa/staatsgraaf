@@ -17,6 +17,7 @@
 | Presidium (Voorzitter en ondervoorzitters van de Tweede Kamer) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=CommissieZetel/Commissie/Afkorting eq 'PRES' | 12-11-2026 | 200 |
 | Eerste Kamer alle leden | https://www.eerstekamer.nl/alle_leden | 12-11-2026 | 200 |
 | Eerste Kamer fracties en fractiebesturen | https://www.eerstekamer.nl/fracties | 12-11-2026 | 200 |
+| Rijksoverheid overzicht commissarissen van de Koning | https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/commissaris-van-de-koning/overzicht/commissarissen-van-de-koning | 12-11-2026 | 200 |
 
 ## Tellingen
 
@@ -26,7 +27,7 @@
 - Gemeenten (TOOI, register, CBS): 0 gelezen, 0 gekoppeld.
 - Provincies (TOOI, register, CBS): 0 gelezen, 0 gekoppeld.
 - Waterschappen (TOOI, register): 0 gelezen, 0 gekoppeld.
-- Commissarissen van de Koning (Rijksoverheid): 0 gelezen, 0 gekoppeld.
+- Commissarissen van de Koning (Rijksoverheid): 12 gelezen, 12 gekoppeld.
 - Nieuwe personen: 0.
 - Uitgegeven tenures: 461. Uitgegeven memberships: 225.
 - Geopend: 0. Gesloten: 0.
