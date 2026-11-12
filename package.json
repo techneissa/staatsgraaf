@@ -13,6 +13,7 @@
     "ek-commissies": "bun pipelines/ek-commissies.mjs",
     "merge": "bun pipelines/merge.mjs",
     "news": "bun pipelines/news.mjs",
+    "budget": "bun pipelines/budget.mjs",
     "translate": "bun pipelines/translate.mjs api",
     "changes": "bun pipelines/changes.mjs",
     "diff": "bun pipelines/diff.mjs",
