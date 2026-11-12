@@ -22,6 +22,7 @@ import {
   parseBatchReply,
   PROVIDERS,
   pruneOrphans,
+  resolveBackup,
   resolveProvider,
   runApi,
   runExport,
@@ -195,13 +196,13 @@ test("api mode keeps checked responses and drops ones that break entity tags", a
   const client = fakeClient((item) => (item.lead === null
     ? { title: "Nederlands kabinet valt", lead: null }
     : { title: "Cabinet falls", lead: "The House backed a motion." }));
-  const result = await runApi({ dataDir: dir, client, model: "claude-haiku-4-5", date: "2026-09-24", log: () => {} });
+  const result = await runApi({ dataDir: dir, client, date: "2026-09-24", log: () => {} });
   assert.equal(result.translated, 1);
   assert.equal(result.dropped, 1);
-  assert.equal(client.requests[0].model, "claude-haiku-4-5");
+  assert.equal(client.requests[0].model, "claude-haiku-5-5");
   assert.equal(client.requests[0].output_config.format.type, "json_schema");
   const saved = JSON.parse(await readFile(join(dir, "news-translations.json"), "utf8"));
-  assert.deepEqual(saved.map((r) => [r.id, r.method, r.engine]), [[ITEM_EN.id, "anthropic-api", "claude-haiku-4-5"]]);
+  assert.deepEqual(saved.map((r) => [r.id, r.method, r.engine]), [[ITEM_EN.id, "opencode-zen", "claude-haiku-5-5"]]);
 });
 
 test("api mode batches items per language pair and retries a failed batch item by item", async () => {
@@ -309,21 +310,19 @@ test("data/news-translations.json: current records pass the merge checks", () =>
   }
 });
 
-test("resolveProvider picks TRANSLATE_PROVIDER, else the first key in order opencode, deepseek, anthropic", () => {
+test("resolveProvider picks TRANSLATE_PROVIDER, else opencode, all on the OpenCode key", () => {
   assert.equal(resolveProvider({}), null);
-  const all = { OPENCODE_API_KEY: "o", DEEPSEEK_API_KEY: "d", ANTHROPIC_API_KEY: "a" };
-  assert.equal(resolveProvider(all).name, "opencode");
-  assert.equal(resolveProvider(all).model, "claude-haiku-5-5");
-  assert.equal(resolveProvider({ OPENCODE_API_KEY: "k" }).baseUrl, "https://opencode.ai/inference");
-  assert.equal(resolveProvider({ OPENCODE_API_KEY: "k", TRANSLATE_PROVIDER: "opencode-go" }).baseUrl, "https://opencode.ai/inference/go");
-  assert.equal(resolveProvider({ DEEPSEEK_API_KEY: "d", ANTHROPIC_API_KEY: "a" }).name, "deepseek");
-  assert.equal(resolveProvider({ DEEPSEEK_API_KEY: "d" }).model, "deepseek-flash");
-  assert.equal(resolveProvider({ ANTHROPIC_API_KEY: "a" }).model, "claude-haiku-4-5");
-  assert.equal(resolveProvider({ ...all, TRANSLATE_PROVIDER: "anthropic" }).name, "anthropic");
-  assert.equal(resolveProvider({ ...all, TRANSLATE_MODEL: "deepseek-v4-flash" }).model, "deepseek-v4-flash");
   assert.equal(resolveProvider({ OPENCODE_API_KEY: "  " }), null);
-  assert.equal(resolveProvider({ DEEPSEEK_API_KEY: "d", TRANSLATE_PROVIDER: "opencode" }), null);
-  assert.throws(() => resolveProvider({ TRANSLATE_PROVIDER: "nope" }));
+  const key = { OPENCODE_API_KEY: "o" };
+  assert.equal(resolveProvider(key).name, "opencode");
+  assert.equal(resolveProvider(key).model, "claude-haiku-5-5");
+  assert.equal(resolveProvider(key).baseUrl, "https://opencode.ai/inference");
+  assert.equal(resolveProvider({ ...key, TRANSLATE_PROVIDER: "opencode-go" }).baseUrl, "https://opencode.ai/inference/go");
+  assert.equal(resolveProvider({ ...key, TRANSLATE_PROVIDER: "deepseek" }).model, "deepseek-v4.1-flash");
+  assert.equal(resolveProvider({ ...key, TRANSLATE_MODEL: "claude-sonnet-5-5" }).model, "claude-sonnet-5-5");
+  assert.deepEqual(resolveBackup(resolveProvider(key)), { ...PROVIDERS.deepseek, key: "o", model: "deepseek-v4.1-flash" });
+  assert.equal(resolveBackup(resolveProvider({ ...key, TRANSLATE_PROVIDER: "deepseek" })), null);
+  assert.throws(() => resolveProvider({ ...key, TRANSLATE_PROVIDER: "anthropic" }));
 });
 
 test("parseBatchReply strips code fences and drops unusable records", () => {
@@ -367,16 +366,19 @@ function fakeMessages(reply) {
   return impl;
 }
 
+// DeepSeek as the main provider, by name; it has no backup.
+const DEEPSEEK_ONLY = { OPENCODE_API_KEY: "k", TRANSLATE_PROVIDER: "deepseek" };
+
 const TRANSLATE_PAIR = (items) => JSON.stringify({
   items: items.map((item) => (item.lead === null
     ? { id: item.id, title: "Nederlands kabinet valt", lead: null }
     : { id: item.id, title: "Cabinet falls", lead: GOOD_NL_LEAD })),
 });
 
-test("opencode provider: Haiku 5.5 on the pay-as-you-go Messages endpoint, effort medium, tag check", async () => {
+test("opencode provider: Haiku 5.5 on the pay-as-you-go Messages endpoint, effort low, tag check", async () => {
   const dir = await tempData([ITEM_NL, ITEM_EN]);
   const fetchImpl = fakeMessages(TRANSLATE_PAIR);
-  const result = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "zen-key", ANTHROPIC_API_KEY: "a" }, fetchImpl, concurrency: 1, log: () => {} });
+  const result = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "zen-key" }, fetchImpl, concurrency: 1, log: () => {} });
   assert.equal(result.provider, "opencode");
   assert.equal(result.translated, 2);
   const call = fetchImpl.calls[0];
@@ -385,7 +387,7 @@ test("opencode provider: Haiku 5.5 on the pay-as-you-go Messages endpoint, effor
   assert.equal(new Headers(call.init.headers).get("x-api-key"), "zen-key");
   assert.equal(new Headers(call.init.headers).get("x-opencode-session"), null);
   assert.equal(call.body.model, "claude-haiku-5-5");
-  assert.equal(call.body.output_config.effort, "medium");
+  assert.equal(call.body.output_config.effort, "low");
   assert.equal(call.body.output_config.format.type, "json_schema");
   const saved = JSON.parse(await readFile(join(dir, "news-translations.json"), "utf8"));
   assert.deepEqual([...new Set(saved.map((r) => `${r.method}|${r.engine}`))], ["opencode-zen|claude-haiku-5-5"]);
@@ -406,16 +408,16 @@ test("opencode-go provider: same key on the Go Messages endpoint with a session 
   assert.equal((await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "go-key" }, fetchImpl, concurrency: 1, log: () => {} })).translated, 0);
 });
 
-test("opencode provider: malformed JSON and broken entity tags are dropped, the run still succeeds", async () => {
+test("malformed JSON and broken entity tags are dropped, the run still succeeds", async () => {
   const dir = await tempData([ITEM_NL]);
   const malformed = fakeFetch("{ this is not json");
-  const bad = await runApi({ dataDir: dir, env: { DEEPSEEK_API_KEY: "k" }, fetchImpl: malformed, sleep: async () => {}, log: () => {} });
+  const bad = await runApi({ dataDir: dir, env: DEEPSEEK_ONLY, fetchImpl: malformed, sleep: async () => {}, log: () => {} });
   assert.equal(bad.translated, 0);
   assert.equal(bad.dropped, 1);
   assert.equal(bad.remaining, 1);
 
   const tagBreaker = fakeFetch((items) => JSON.stringify({ items: items.map((item) => ({ id: item.id, title: "Cabinet falls", lead: "The House backed a motion." })) }));
-  const broken = await runApi({ dataDir: dir, env: { DEEPSEEK_API_KEY: "k" }, fetchImpl: tagBreaker, log: () => {} });
+  const broken = await runApi({ dataDir: dir, env: DEEPSEEK_ONLY, fetchImpl: tagBreaker, log: () => {} });
   assert.equal(broken.translated, 0);
   assert.equal(broken.dropped, 1);
   const saved = JSON.parse(await readFile(join(dir, "news-translations.json"), "utf8"));
@@ -439,15 +441,28 @@ test("--replace ENGINE translates current records of that engine again and keeps
   ]);
 });
 
+test("an item Haiku drops is translated by the DeepSeek backup and saved under its name", async () => {
+  const dir = await tempData([ITEM_NL]);
+  const haiku = fakeMessages((items) => JSON.stringify({ items: items.map((item) => ({ id: item.id, title: "Cabinet falls", lead: "Broken." })) }));
+  const deepseek = fakeFetch((items) => JSON.stringify({ items: items.map((item) => ({ id: item.id, title: "Cabinet falls", lead: GOOD_NL_LEAD })) }));
+  const fetchImpl = (url, init) => (String(url) === PROVIDERS.deepseek.url ? deepseek(url, init) : haiku(url, init));
+  const result = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "k" }, fetchImpl, log: () => {} });
+  assert.equal(result.translated, 1);
+  assert.equal(result.dropped, 0);
+  assert.equal(new Headers(deepseek.calls[0].init.headers).get("authorization"), "Bearer k");
+  const saved = JSON.parse(await readFile(join(dir, "news-translations.json"), "utf8"));
+  assert.deepEqual(saved.map((r) => [r.engine, r.method]), [["deepseek-v4.1-flash", "opencode-zen"]]);
+});
+
 test("deepseek provider retries 429 and 503 with backoff", async () => {
   const dir = await tempData([ITEM_NL]);
   const fetchImpl = fakeFetch((items) => JSON.stringify({ items: items.map((item) => ({ id: item.id, title: "Cabinet falls", lead: GOOD_NL_LEAD })) }), { statuses: [429, 503] });
   const delays = [];
-  const result = await runApi({ dataDir: dir, env: { DEEPSEEK_API_KEY: "d" }, fetchImpl, sleep: async (ms) => delays.push(ms), log: () => {} });
+  const result = await runApi({ dataDir: dir, env: DEEPSEEK_ONLY, fetchImpl, sleep: async (ms) => delays.push(ms), log: () => {} });
   assert.equal(result.translated, 1);
   assert.deepEqual(delays, [2000, 4000]);
   assert.equal(fetchImpl.calls[0].url, PROVIDERS.deepseek.url);
-  assert.equal(fetchImpl.calls[0].body.model, "deepseek-flash");
+  assert.equal(fetchImpl.calls[0].body.model, "deepseek-v4.1-flash");
 });
 
 test("an empty reply is retried once, then the item is dropped", async () => {
@@ -457,7 +472,7 @@ test("an empty reply is retried once, then the item is dropped", async () => {
     calls += 1;
     return { ok: true, status: 200, json: async () => ({ choices: [{ finish_reason: "stop", message: { content: "", reasoning_content: "..." } }] }) };
   };
-  const result = await runApi({ dataDir: dir, env: { DEEPSEEK_API_KEY: "k" }, fetchImpl, sleep: async () => {}, log: () => {} });
+  const result = await runApi({ dataDir: dir, env: DEEPSEEK_ONLY, fetchImpl, sleep: async () => {}, log: () => {} });
   assert.equal(calls, 2);
   assert.equal(result.translated, 0);
   assert.equal(result.dropped, 1);

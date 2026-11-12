@@ -110,7 +110,7 @@ test("api mode translates missing descriptions through the provider and caches t
   assert.ok(requests[0].system.includes("descriptions"));
   const cached = JSON.parse(await readFile(join(dir, "cache", "description-translations.json"), "utf8"));
   assert.equal(cached.length, 2);
-  assert.equal(cached[0].method, "anthropic-api");
+  assert.equal(cached[0].method, "opencode-zen");
   const again = await runApi({ dataDir: dir, client, cacheFile, log: () => {} });
   assert.equal(again.descriptions.requests, 0);
 });
