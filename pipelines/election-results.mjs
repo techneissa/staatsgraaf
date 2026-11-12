@@ -26,12 +26,13 @@ export const WINDOW_DAYS = 42;
 
 /**
  * The two chambers with a result. `minDays` keeps the check away from a day on which the
- * Kiesraad has not yet established the result (Tweede Kamer: the central count takes
- * about a week and a half; Eerste Kamer: one or two days).
+ * Kiesraad has not yet established the result. The databank page does not say whether a
+ * result is provisional, and a record is never overwritten, so both chambers wait 10 days
+ * (the Tweede Kamer result of 2025 was established on day 9).
  */
 export const RESULT_TYPES = {
   tk: { id: "tk", code: "TK", body: "org:tweede-kamer", label: "Tweede Kamer", seatsTotal: 150, minDays: 10 },
-  ek: { id: "ek", code: "EK", body: "org:eerste-kamer", label: "Eerste Kamer", seatsTotal: 75, minDays: 2 },
+  ek: { id: "ek", code: "EK", body: "org:eerste-kamer", label: "Eerste Kamer", seatsTotal: 75, minDays: 10 },
 };
 
 const MONTHS_NL = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
@@ -69,14 +70,33 @@ function dutchDate(date) {
 }
 
 /**
- * Elections that need a result now: a TK or EK election day in the last WINDOW_DAYS days, at
- * least `minDays` ago, with no record in `elections` yet. Reads the dates the Kiesraad type
- * pages gave (data/upcoming-elections.json). Returns [{ type, date, kind }].
+ * The regular election days the Kiesraad announced ("De volgende reguliere Tweede Kamerverkiezing
+ * is op ..."), kept in the live state because the weekly date run replaces the announcement
+ * before the result is in. A date drops out when its record exists or it is older than the window.
+ * Returns [{ type, date }].
  */
-export function electionsDue({ elections = [], upcoming = [], today, windowDays = WINDOW_DAYS }) {
+export function updateRegularDates(regular = [], upcoming = [], elections = [], today) {
+  const stored = new Set(elections.map((election) => election.id));
+  const announced = upcoming.filter((item) => item?.kind === "next" && item.date && RESULT_TYPES[item.type]).map((item) => ({ type: item.type, date: item.date }));
+  const kept = new Map();
+  for (const item of [...regular, ...announced]) {
+    if (!RESULT_TYPES[item?.type] || !item.date) continue;
+    if (stored.has(electionId(RESULT_TYPES[item.type], item.date)) || daysBetween(item.date, today) > WINDOW_DAYS) continue;
+    kept.set(`${item.type}-${item.date}`, { type: item.type, date: item.date });
+  }
+  return [...kept.values()].sort((a, b) => a.date.localeCompare(b.date) || a.type.localeCompare(b.type));
+}
+
+/**
+ * Elections that need a result now: a TK or EK election day in the last WINDOW_DAYS days, at
+ * least `minDays` ago, with no record in `elections` yet. The days come from the dates the
+ * Kiesraad type pages gave (data/upcoming-elections.json) and from the remembered regular dates.
+ * Returns [{ type, date }].
+ */
+export function electionsDue({ elections = [], upcoming = [], regular = [], today, windowDays = WINDOW_DAYS }) {
   const stored = new Set(elections.map((election) => election.id));
   const due = new Map();
-  for (const item of upcoming) {
+  for (const item of [...upcoming, ...regular]) {
     const type = RESULT_TYPES[item?.type];
     if (!type || !item.date || item.date > today) continue;
     const age = daysBetween(item.date, today);
@@ -164,7 +184,7 @@ function sourceDef(type, date) {
 /**
  * Turn one databank page into a record, behind the guard. Returns { record, source, problems }:
  * `record` is null as soon as there is a problem (nothing may be written then).
- * `regular` says the date was announced as the regular election day.
+ * `regular` says the date was announced as the regular election day (Tweede Kamer only).
  */
 export function buildElectionRecord({ type, date, page, partyKeys, today, existingSources = [], regular = false }) {
   const problems = [];
@@ -215,12 +235,12 @@ export function buildElectionRecord({ type, date, page, partyKeys, today, existi
   const source = buildSourceRecord(sourceDef(type, date), existingSources, today);
   const notes = weighted
     ? `Zetels uit de Databank verkiezingsuitslagen van de Kiesraad. validVotes is het totaal van de gewogen stemmen (stemmen van de Statenleden en kiescollegeleden vermenigvuldigd met de stemwaarde). Stemcijfers per lijst zijn niet overgenomen. Toegevoegd door pipelines/election-results.mjs.`
-    : `Zetels, opkomst en geldige stemmen uit de Databank verkiezingsuitslagen van de Kiesraad; stemmen per lijst uit dezelfde pagina; share berekend als stemmen gedeeld door geldige stemmen op kandidaten.${regular ? "" : " Aard (regulier of vervroegd) niet vastgesteld."} Toegevoegd door pipelines/election-results.mjs.`;
+    : `Zetels, opkomst en geldige stemmen uit de Databank verkiezingsuitslagen van de Kiesraad; stemmen per lijst uit dezelfde pagina; share berekend als stemmen gedeeld door geldige stemmen op kandidaten.${regular ? "" : " Aard (vervroegd): de datum is niet als reguliere verkiezingsdag aangekondigd."} Toegevoegd door pipelines/election-results.mjs.`;
   const record = {
     id: electionId(type, date),
     body: type.body,
     date,
-    kind: weighted || regular ? "regulier" : null,
+    kind: weighted || regular ? "regulier" : "vervroegd",
     seatsTotal: type.seatsTotal,
     turnout,
     validVotes,
@@ -240,8 +260,8 @@ export function buildElectionRecord({ type, date, page, partyKeys, today, existi
  * Fetch the pages of the elections that are due and build their records. Makes no request when
  * nothing is due. A page that is missing or fails the guard is a gap, never a record.
  */
-export async function fetchElectionResults({ http, today, elections, upcoming, partyKeys, existingSources = [] }) {
-  const due = electionsDue({ elections, upcoming, today });
+export async function fetchElectionResults({ http, today, elections, upcoming, regular = [], partyKeys, existingSources = [] }) {
+  const due = electionsDue({ elections, upcoming, regular, today });
   const records = [];
   const sources = [];
   const gaps = [];
@@ -255,8 +275,14 @@ export async function fetchElectionResults({ http, today, elections, upcoming, p
       gaps.push(makeGap(what, `de uitslagpagina van de Kiesraad is nog niet beschikbaar (${error.message})`, url, "De volgende run probeert het opnieuw zolang de verkiezing recent is."));
       continue;
     }
-    const regular = upcoming.some((item) => item.type === type.id && item.kind === "next" && item.date === date);
-    const built = buildElectionRecord({ type, date, page: parseDatabankPage(html), partyKeys, today, existingSources, regular });
+    const isRegular = regular.some((item) => item.type === type.id && item.date === date) || upcoming.some((item) => item.type === type.id && item.kind === "next" && item.date === date);
+    let built;
+    try {
+      built = buildElectionRecord({ type, date, page: parseDatabankPage(html), partyKeys, today, existingSources, regular: isRegular });
+    } catch (error) {
+      // a page of an unexpected shape (a null entry in the party list, say) must not stop the whole live run
+      built = { record: null, problems: [`de pagina heeft een onverwachte opbouw (${error.message})`] };
+    }
     if (!built.record) {
       gaps.push(makeGap(what, `niets geschreven: ${built.problems.join("; ")}`, url, "Controleer de uitslagpagina; de volgende run probeert het opnieuw. Zo nodig voeg je de uitslag met de hand toe."));
       continue;
@@ -299,10 +325,10 @@ function runValidate(root) {
 
 /**
  * The step the live run calls. Fetches what is due, writes what passed the guard, validates and
- * restores the files when validation fails. Returns { requested, added, gaps } (`requested` is
+ * restores the files when validation fails. `state` is the live state: the regular dates are kept in it. Returns { requested, added, gaps } (`requested` is
  * the number of elections looked up, `added` the ids written).
  */
-export async function runElectionResults({ root, http, today, partyKeys, elections, upcoming, validate = true }) {
+export async function runElectionResults({ root, http, today, partyKeys, elections, upcoming, state = null, validate = true }) {
   const read = async (relative, fallback) => {
     try {
       return JSON.parse(await readFile(join(root, relative), "utf8"));
@@ -314,7 +340,10 @@ export async function runElectionResults({ root, http, today, partyKeys, electio
   const dates = upcoming ?? (await read("data/upcoming-elections.json", []));
   const existingSources = await read("data/sources.json", []);
   const keys = partyKeys ?? (await loadPartyKeys(root));
-  const fetched = await fetchElectionResults({ http, today, elections: stored, upcoming: dates, partyKeys: keys, existingSources });
+  // the announced regular dates live in the state (state.electionResults.regular), so they outlast the weekly date run
+  const regular = updateRegularDates(state?.electionResults?.regular, dates, stored, today);
+  if (state) state.electionResults = { ...state.electionResults, regular };
+  const fetched = await fetchElectionResults({ http, today, elections: stored, upcoming: dates, regular, partyKeys: keys, existingSources });
   const gaps = [...fetched.gaps];
   if (fetched.records.length === 0) return { requested: fetched.due.length, added: [], gaps };
 

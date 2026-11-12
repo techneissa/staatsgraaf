@@ -78,3 +78,24 @@ test("a result whose seats do not add up writes nothing", async () => {
   assert.equal(await readFile(join(root, "data", "elections.json"), "utf8"), "[]\n");
   assert.equal(await readFile(join(root, "data", "sources.json"), "utf8"), "[]\n");
 });
+
+test("a Tweede Kamer day is vervroegd unless it was announced as the regular day, which the state remembers", async () => {
+  const run = async (state) => {
+    const root = await makeRoot();
+    await runElectionResults({ root, http: httpFor(FIXTURE), today: TODAY, partyKeys: await loadPartyKeys(REPO_ROOT), upcoming: UPCOMING, state, validate: false });
+    return JSON.parse(await readFile(join(root, "data", "elections.json"), "utf8"))[0].kind;
+  };
+  assert.equal(await run({}), "vervroegd");
+  // the weekly date run has already replaced the announcement; only the remembered date is left
+  assert.equal(await run({ electionResults: { regular: [{ type: "tk", date: "2025-10-29" }] } }), "regulier");
+});
+
+test("a page with a null entry in its party list is a gap, not a crash", async () => {
+  const root = await makeRoot();
+  const broken = changedFixture((page) => {
+    page.Stemregio.Partij.push(null);
+  });
+  const result = await runElectionResults({ root, http: httpFor(broken), today: TODAY, partyKeys: await loadPartyKeys(REPO_ROOT), upcoming: UPCOMING, validate: false });
+  assert.deepEqual(result.added, []);
+  assert.equal(result.gaps.length, 1);
+});

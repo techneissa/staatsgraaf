@@ -210,7 +210,7 @@ export async function runLive(options = {}) {
 
     // official election results (issue #8): no request unless a TK or EK election lies in the last weeks without a record
     const { runElectionResults } = await import("./election-results.mjs");
-    const electionResults = await runElectionResults({ root, http, today, partyKeys: registeredFractieKeys, elections: dataset.elections, upcoming: state.electionDates.items, validate });
+    const electionResults = await runElectionResults({ root, http, today, partyKeys: registeredFractieKeys, elections: dataset.elections, upcoming: state.electionDates.items, state, validate });
     summary.sources.electionResults = { requested: electionResults.requested, added: electionResults.added };
     summary.gaps.push(...electionResults.gaps);
 
