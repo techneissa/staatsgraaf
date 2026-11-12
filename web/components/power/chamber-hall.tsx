@@ -76,6 +76,20 @@ export function ChamberHallView({
   }, []);
   const [hover, setHover] = useState<string | null>(null);
   const [card, setCard] = useState<string | null>(null);
+  // Escape closes an open card wherever focus is: a tap leaves focus on the page,
+  // and an Escape left unhandled reaches the Connections view, which would step
+  // the pick back (and add a history entry) instead of only closing the card.
+  useEffect(() => {
+    if (card === null) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      // A modal on top (the peek) takes the key first.
+      if (event.key !== "Escape" || event.defaultPrevented || document.querySelector('[aria-modal="true"]')) return;
+      event.preventDefault();
+      setCard(null);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [card]);
 
   const hubById = useMemo(() => new Map(tree.hubs.map((hub) => [hub.id, hub])), [tree]);
   const people = useMemo(() => {
