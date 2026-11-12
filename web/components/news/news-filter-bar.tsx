@@ -93,6 +93,11 @@ export function NewsFilterBar({
     };
   }, [open]);
 
+  // Closing a menu unmounts the option that had focus, so focus goes back to the menu's button.
+  const close = (name: MenuName) => {
+    setOpen(null);
+    rootRef.current?.querySelector<HTMLElement>(`[data-menu="${name}"]`)?.focus();
+  };
   const languageOption = (option: "all" | NewsLanguage) =>
     option === "all" ? messages.allLanguagesLabel : messages.languageFilterLabels[option];
   const languageShort = filters.language === "all" ? NEWS_DICT.newsLanguageAllShort[uiLanguage] : filters.language.toUpperCase();
@@ -162,7 +167,7 @@ export function NewsFilterBar({
                 aria-pressed={selected}
                 onClick={() => {
                   update({ language: option, publisher: null });
-                  setOpen(null);
+                  close("language");
                 }}
                 className={optionClass(selected)}
               >

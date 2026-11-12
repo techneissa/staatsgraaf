@@ -26,6 +26,8 @@ export function InfoTip({
   const ref = useRef<HTMLDetailsElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
+  // Set when the note was opened from the keyboard: its links are portalled, so focus has to move to them.
+  const focusLink = useRef(false);
   const [box, setBox] = useState<{ top: number; left: number; maxHeight: number } | null>(null);
 
   const place = useCallback(() => {
@@ -51,6 +53,12 @@ export function InfoTip({
     }
     place();
   }, [open, place, children]);
+
+  useEffect(() => {
+    if (!open || !box || !focusLink.current) return;
+    focusLink.current = false;
+    panelRef.current?.querySelector<HTMLElement>("a[href], button")?.focus();
+  }, [open, box]);
 
   useEffect(() => {
     if (!open) return;
@@ -112,6 +120,12 @@ export function InfoTip({
   return (
     <details ref={ref} className="group relative inline-block align-middle" onToggle={(event) => setOpen(event.currentTarget.open)}>
       <summary
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") focusLink.current = true;
+        }}
+        onPointerDown={() => {
+          focusLink.current = false;
+        }}
         aria-label={label}
         title={label}
         className={
