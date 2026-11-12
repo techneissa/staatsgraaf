@@ -209,6 +209,12 @@ export async function runLive(options = {}) {
     const electionsDue = force || !state.electionDates.lastRun || hoursSinceIso(state.electionDates.lastRun, now) >= WEEKLY_HOURS;
     summary.sources.electionDates = { full: electionsDue };
 
+    // official election results (issue #8): no request unless a TK or EK election lies in the last weeks without a record
+    const { runElectionResults } = await import("./election-results.mjs");
+    const electionResults = await runElectionResults({ root, http, today, partyKeys: registeredFractieKeys, elections: dataset.elections, upcoming: state.electionDates.items, state, validate });
+    summary.sources.electionResults = { requested: electionResults.requested, added: electionResults.added };
+    summary.gaps.push(...electionResults.gaps);
+
     const nothingDue = !which.tweedeKamer && !which.eersteKamer && !which.bewindspersonen && !DECENTRAL_KEYS.some((key) => which[key]) && !electionsDue;
     if (nothingDue) {
       summary.outcome = "unchanged";
