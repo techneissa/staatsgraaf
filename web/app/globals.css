@@ -753,6 +753,31 @@
   }
 }
 
+/*
+ * Large news view (components/news/use-news-large.ts). While <html> carries
+ * data-news-large the page column spans the whole workspace and covers the
+ * canvas and the details panel, so the news uses the window. The side-column
+ * tabs hide; the reader's column choices are left as they were and apply again
+ * when the standard view returns.
+ */
+@media (min-width: 64rem) {
+  html[data-news-large] .sg-page-col {
+    grid-column: 1 / -1;
+    z-index: 15;
+    background-color: var(--color-canvas);
+  }
+  html[data-news-large] .sg-page-inner {
+    width: 100%;
+  }
+  html[data-news-large][data-page-panel="closed"] .sg-page-col {
+    visibility: visible;
+    transition: none;
+  }
+  html[data-news-large] .sg-workspace > button {
+    display: none;
+  }
+}
+
 html[data-panels-resizing] {
   cursor: col-resize;
   user-select: none;

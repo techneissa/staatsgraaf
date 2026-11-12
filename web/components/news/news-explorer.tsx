@@ -7,6 +7,7 @@ import { NewsItemCard } from "./news-item-card";
 import type { NewsItemView } from "./news-view";
 import { NEWS_WINDOW_STEP, ShowMoreButton } from "./windowed-cards";
 import { useNewsFilters } from "./use-news-filters";
+import { useNewsLarge } from "./use-news-large";
 import { EmptyState } from "@/components/empty-state";
 import { useLocale } from "@/components/i18n/language-provider";
 import { KindGlyph } from "@/components/kind-glyph";
@@ -87,6 +88,7 @@ export function NewsExplorer({
   const relevantOnly = !showAll;
   const [entityMeta, setEntityMeta] = useState<Omit<EntityFilter, "id"> | null>(null);
   const settled = useSettled();
+  const [large, setLarge] = useNewsLarge();
 
   const merged = useMemo(
     () =>
@@ -252,9 +254,18 @@ export function NewsExplorer({
                 ? ` · ${resultCount === 0 ? messages.noItemsFilterLabel : interpolate(NEWS_DICT.newsFilterResultCount[uiLanguage], { n: countWord(resultCount) })}`
                 : ""}
             </p>
-            <button type="button" aria-pressed={showAll} onClick={() => update({ showAll: !showAll })} className={pillClass(showAll)}>
-              {NEWS_DICT.newsShowAll[uiLanguage]}
-            </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setLarge(!large)}
+                className={`${pillClass(false)} max-lg:hidden`}
+              >
+                {large ? NEWS_DICT.newsViewStandard[uiLanguage] : NEWS_DICT.newsViewLarge[uiLanguage]}
+              </button>
+              <button type="button" aria-pressed={showAll} onClick={() => update({ showAll: !showAll })} className={pillClass(showAll)}>
+                {NEWS_DICT.newsShowAll[uiLanguage]}
+              </button>
+            </div>
           </div>
 
           {sections.length === 0 ? (
@@ -292,6 +303,8 @@ export function NewsExplorer({
 
                     {filtered.length === 0 ? (
                       <p className="mt-3 text-sm text-ink-faint">{messages.noItemsFilterLabel}</p>
+                    ) : large ? (
+                      <LargeCards items={filtered} language={uiLanguage} />
                     ) : (
                       <>
                         <ol className="mt-3 list-none space-y-2 p-0">
@@ -334,6 +347,35 @@ export function NewsExplorer({
         </>
       )}
     </div>
+  );
+}
+
+/** Cards added per step of the large view's grid; a window of 120 fills several wide screens. */
+const LARGE_WINDOW_STEP = 120;
+
+/**
+ * A group's cards in the large view: every item together in a grid that fills the width,
+ * in windows so a long group does not put hundreds of cards in the page at once.
+ */
+function LargeCards({ items, language }: { items: NewsItemView[]; language: NewsLanguage }) {
+  const [shown, setShown] = useState(LARGE_WINDOW_STEP);
+  const rest = items.length - shown;
+  return (
+    <>
+      <ol className="mt-3 grid list-none grid-cols-1 gap-2 p-0 md:grid-cols-2 xl:grid-cols-3 min-[1800px]:grid-cols-4">
+        {items.slice(0, shown).map((item) => (
+          <li key={item.id} className="min-w-0">
+            <NewsItemCard item={item} displayLanguage={language} />
+          </li>
+        ))}
+      </ol>
+      {rest > 0 ? (
+        <ShowMoreButton
+          label={interpolate(NEWS_DICT.newsDayMore[language], { n: formatCountIn(Math.min(rest, LARGE_WINDOW_STEP), language) })}
+          onClick={() => setShown((value) => value + LARGE_WINDOW_STEP)}
+        />
+      ) : null}
+    </>
   );
 }
 
