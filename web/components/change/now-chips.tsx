@@ -99,7 +99,7 @@ export function NowChips({
   const shared = { mode, onSelect } as const;
   return (
     <div className={`flex flex-wrap items-center gap-x-4 gap-y-1 ${className}`.trim()}>
-      <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">{t("chgNowLabel")}</p>
+      <p className="text-[11px] font-semibold text-ink-faint">{t("chgNowLabel")}</p>
       <ul aria-label={t("chgNowGroupAria")} className="flex flex-wrap items-center gap-x-4 gap-y-1">
         <Chip
           {...shared}
