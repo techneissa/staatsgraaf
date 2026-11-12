@@ -141,8 +141,10 @@ export function resolveBackup(provider) {
 
 /**
  * Give the items the main provider dropped one more try on the backup, in
- * batches of `size`. `attempt(chunk, provider)` returns the items that failed
- * the checks. Returns the items still dropped after that.
+ * batches of `size`; a batch that fails gets one more try item by item, as on
+ * the main provider. `attempt(chunk, provider)` returns the items that failed
+ * the checks. Returns the items still dropped after that. A 401 or 403 stops
+ * the backup.
  */
 async function retryOnBackup({ backup, dropped, tasks, size, attempt, log }) {
   const ids = new Set(dropped.map((drop) => drop.id));
@@ -151,12 +153,27 @@ async function retryOnBackup({ backup, dropped, tasks, size, attempt, log }) {
   log(`Trying ${again.length} dropped item(s) again with ${backup.name} (${backup.model}):`);
   for (const drop of dropped) log(`  ${drop.id}: ${drop.problems.join("; ")}`);
   const still = dropped.filter((drop) => !again.some((task) => task.id === drop.id));
-  for (const chunk of chunkTasks(again, Math.max(1, size))) {
+  let halted = false;
+  const run = async (chunk) => {
     try {
-      for (const miss of await attempt(chunk, backup)) still.push({ id: miss.task.id, problems: miss.problems });
+      return await attempt(chunk, backup);
     } catch (error) {
-      for (const task of chunk) still.push({ id: task.id, problems: [error?.message ?? String(error)] });
+      if (error?.status === 401 || error?.status === 403) halted = true;
+      return chunk.map((task) => ({ task, problems: [error?.message ?? String(error)] }));
     }
+  };
+  for (const chunk of chunkTasks(again, Math.max(1, size))) {
+    if (halted) {
+      for (const task of chunk) still.push({ id: task.id, problems: [`${backup.name} refused the credentials`] });
+      continue;
+    }
+    let failed = await run(chunk);
+    if (chunk.length > 1 && !halted) {
+      const retried = [];
+      for (const { task } of failed) retried.push(...(halted ? [{ task, problems: [`${backup.name} refused the credentials`] }] : await run([task])));
+      failed = retried;
+    }
+    for (const miss of failed) still.push({ id: miss.task.id, problems: miss.problems });
   }
   return still;
 }
@@ -1106,7 +1123,7 @@ export async function runDescriptionApi({
     await saveCache(records);
     return { translated: 0, dropped: 0, remaining: pending.length, requests: 0, provider: null };
   }
-  if (provider.kind === "anthropic" && !client) client = await anthropicClient(provider);
+  if (provider.kind === "anthropic" && !client) client = await anthropicClient(provider, fetchImpl);
   const chunks = [];
   const tasks = pending.slice(0, descriptionMax);
   for (let start = 0; start < tasks.length; start += Math.max(1, descriptionBatchSize)) {
