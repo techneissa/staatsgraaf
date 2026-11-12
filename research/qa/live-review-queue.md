@@ -206,3 +206,8 @@ Entries the live run (`bun run live`, ADR 0024) lists for a weekly human glance:
 - [ ] 11-11-2026 zetelwijziging: org:gemeenteraad-rijswijk-zh: het aantal zetels is 31 in de dataset en 32 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-rijswijk-zh|32 -->
 - [ ] 11-11-2026 zetelwijziging: org:gemeenteraad-weert: het aantal zetels is 30 in de dataset en 31 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-weert|31 -->
 - [ ] 11-11-2026 zetelwijziging: org:gemeenteraad-leudal: het aantal zetels is 24 in de dataset en 25 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-leudal|25 -->
+- [ ] 12-11-2026 zetelwijziging: org:gemeenteraad-meppel: het aantal zetels is 22 in de dataset en 25 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-meppel|25 -->
+- [ ] 12-11-2026 zetelwijziging: org:gemeenteraad-lochem: het aantal zetels is 22 in de dataset en 23 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-lochem|23 -->
+- [ ] 12-11-2026 zetelwijziging: org:gemeenteraad-alphen-aan-den-rijn: het aantal zetels is 39 in de dataset en 40 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-alphen-aan-den-rijn|40 -->
+- [ ] 12-11-2026 zetelwijziging: org:gemeenteraad-s-gravenhage: het aantal zetels is 45 in de dataset en 44 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-s-gravenhage|44 -->
+- [ ] 12-11-2026 zetelwijziging: org:gemeenteraad-alphen-chaam: het aantal zetels is 16 in de dataset en 15 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-alphen-chaam|15 -->
