@@ -21,17 +21,18 @@
  *   prune                      drop records whose news item left news.json
  *   api [--max N] [--provider P] [--model M] [--batch B] [--cache FILE]
  *                              [--replace ENGINE]
- *                              translate missing or stale items through a
- *                              provider: opencode (OPENCODE_API_KEY, OpenCode
- *                              pay-as-you-go, default claude-haiku-5-5),
- *                              opencode-go (the same key on the OpenCode Go
- *                              subscription, only by name), deepseek
- *                              (DEEPSEEK_API_KEY, default deepseek-flash) or
- *                              anthropic (ANTHROPIC_API_KEY, claude-haiku-4-5);
- *                              --replace ENGINE also translates again the current
- *                              records made by ENGINE (e.g. deepseek-v4.1-flash);
- *                              TRANSLATE_PROVIDER picks one, else the first key
- *                              set in that order; TRANSLATE_MODEL overrides; B items per request (default 8), at most N
+ *                              translate missing or stale items through
+ *                              OpenCode (OPENCODE_API_KEY): opencode, the
+ *                              pay-as-you-go endpoint with claude-haiku-5-5 at
+ *                              effort low (default); opencode-go, the same key on
+ *                              the Go subscription, only by name; deepseek,
+ *                              deepseek-v4.1-flash on the pay-as-you-go endpoint,
+ *                              only by name. Items Haiku drops get one more try on
+ *                              deepseek, the backup. --replace ENGINE also
+ *                              translates again the current records made by
+ *                              ENGINE (e.g. deepseek-v4.1-flash);
+ *                              TRANSLATE_PROVIDER picks one; TRANSLATE_MODEL
+ *                              overrides its model; B items per request (default 20), at most N
  *                              per run (default 400). With --cache the records
  *                              in FILE (restored by CI) are merged in first and
  *                              the result is written back to FILE. Without the
@@ -73,18 +74,17 @@ const DEFAULT_DATA = join(ROOT, "data");
 export const TRANSLATIONS_FILE = "news-translations.json";
 export const SESSION_ENGINE = "claude-opus-5-5";
 export const SESSION_METHOD = "claude-code-session";
-export const API_METHOD = "anthropic-api";
-// A small, cheap current Anthropic model; override with TRANSLATE_MODEL or --model.
-export const DEFAULT_API_MODEL = "claude-haiku-4-5";
 
 /**
- * Translation providers, in auto-selection order: the first whose key is set
- * wins unless TRANSLATE_PROVIDER names one. Model ids and endpoints verified by
- * the orchestrator on 13-10-2026 against https://opencode.ai/v2/docs/console/models
- * and https://opencode.ai/v2/docs/console/go (Anthropic Messages endpoints, effort
- * medium), and on 24-09-2026 against https://api-docs.deepseek.com/quick_start/pricing.
- * Both OpenCode endpoints take the same key; the Go endpoint also needs a session
- * id header. Only public news headlines and leads are sent.
+ * Translation providers, all on OpenCode with the one key. opencode is the
+ * default; the others run only when TRANSLATE_PROVIDER or --provider names them.
+ * `backup` names the provider that gets one more try at the items this one
+ * drops. Model ids, endpoints and prices checked on 12-11-2026 against
+ * https://opencode.ai/v2/docs/console/models (Haiku 5.5 $0.10 / $0.50 and
+ * DeepSeek V4.1 Flash $0.30 / $1.20 per million tokens in / out) and on
+ * 13-10-2026 against https://opencode.ai/v2/docs/console/go. The Go endpoint
+ * also needs a session id header. Only public news headlines and leads and
+ * public descriptions are sent.
  */
 export const PROVIDERS = Object.freeze({
   opencode: Object.freeze({
@@ -94,7 +94,9 @@ export const PROVIDERS = Object.freeze({
     defaultModel: "claude-haiku-5-5",
     baseUrl: "https://opencode.ai/inference",
     kind: "anthropic",
-    effort: "medium",
+    // Translation needs little reasoning; low thinks least and costs least.
+    effort: "low",
+    backup: "deepseek",
   }),
   "opencode-go": Object.freeze({
     name: "opencode-go",
@@ -103,44 +105,60 @@ export const PROVIDERS = Object.freeze({
     defaultModel: "claude-haiku-5-5",
     baseUrl: "https://opencode.ai/inference/go",
     kind: "anthropic",
-    effort: "medium",
+    effort: "low",
     sessionHeader: true,
+    backup: "deepseek",
   }),
   deepseek: Object.freeze({
     name: "deepseek",
-    keyEnv: "DEEPSEEK_API_KEY",
-    method: "deepseek-api",
-    defaultModel: "deepseek-flash",
-    url: "https://api.deepseek.com/chat/completions",
+    keyEnv: "OPENCODE_API_KEY",
+    method: "opencode-zen",
+    defaultModel: "deepseek-v4.1-flash",
+    url: "https://opencode.ai/inference/openai/v1/chat/completions",
     kind: "openai",
   }),
-  anthropic: Object.freeze({
-    name: "anthropic",
-    keyEnv: "ANTHROPIC_API_KEY",
-    method: API_METHOD,
-    defaultModel: DEFAULT_API_MODEL,
-    kind: "anthropic",
-  }),
 });
-export const PROVIDER_ORDER = Object.freeze(["opencode", "deepseek", "anthropic"]);
+export const DEFAULT_PROVIDER = "opencode";
 
 /**
- * Pick the provider: TRANSLATE_PROVIDER (or the explicit argument) when its key
- * is set, otherwise the first provider with a key. Null when no key is set.
+ * Pick the provider: TRANSLATE_PROVIDER (or the explicit argument), else
+ * opencode. Null when OPENCODE_API_KEY is not set.
  */
 export function resolveProvider(env = process.env, { provider = null, model = null } = {}) {
-  const wanted = provider || env.TRANSLATE_PROVIDER || null;
-  const has = (name) => typeof env[PROVIDERS[name].keyEnv] === "string" && env[PROVIDERS[name].keyEnv].trim() !== "";
-  let name = null;
-  if (wanted) {
-    if (!PROVIDERS[wanted]) throw new Error(`unknown TRANSLATE_PROVIDER ${wanted}; use one of ${PROVIDER_ORDER.join(", ")}`);
-    if (has(wanted)) name = wanted;
-  } else {
-    name = PROVIDER_ORDER.find(has) ?? null;
-  }
-  if (!name) return null;
+  const name = provider || env.TRANSLATE_PROVIDER || DEFAULT_PROVIDER;
+  if (!PROVIDERS[name]) throw new Error(`unknown TRANSLATE_PROVIDER ${name}; use one of ${Object.keys(PROVIDERS).join(", ")}`);
   const spec = PROVIDERS[name];
-  return { ...spec, key: env[spec.keyEnv].trim(), model: model || env.TRANSLATE_MODEL || spec.defaultModel };
+  const key = typeof env[spec.keyEnv] === "string" ? env[spec.keyEnv].trim() : "";
+  if (!key) return null;
+  return { ...spec, key, model: model || env.TRANSLATE_MODEL || spec.defaultModel };
+}
+
+/** The backup of a resolved provider, on the same key with its own model; null when it has none. */
+export function resolveBackup(provider) {
+  const spec = provider?.backup ? PROVIDERS[provider.backup] : null;
+  return spec ? { ...spec, key: provider.key, model: spec.defaultModel } : null;
+}
+
+/**
+ * Give the items the main provider dropped one more try on the backup, in
+ * batches of `size`. `attempt(chunk, provider)` returns the items that failed
+ * the checks. Returns the items still dropped after that.
+ */
+async function retryOnBackup({ backup, dropped, tasks, size, attempt, log }) {
+  const ids = new Set(dropped.map((drop) => drop.id));
+  const again = tasks.filter((task) => ids.has(task.id));
+  if (!backup || again.length === 0) return dropped;
+  log(`Trying ${again.length} dropped item(s) again with ${backup.name} (${backup.model}):`);
+  for (const drop of dropped) log(`  ${drop.id}: ${drop.problems.join("; ")}`);
+  const still = dropped.filter((drop) => !again.some((task) => task.id === drop.id));
+  for (const chunk of chunkTasks(again, Math.max(1, size))) {
+    try {
+      for (const miss of await attempt(chunk, backup)) still.push({ id: miss.task.id, problems: miss.problems });
+    } catch (error) {
+      for (const task of chunk) still.push({ id: task.id, problems: [error?.message ?? String(error)] });
+    }
+  }
+  return still;
 }
 export const DEFAULT_API_MAX = 400;
 
@@ -385,10 +403,11 @@ export const API_SYSTEM_PROMPT = [
   'The lead may contain tags of the form <entity id="...">text</entity>. Copy every tag unchanged, byte for byte, including the Dutch text inside it, and translate only the text around the tags.',
   'Never translate the text inside a tag: <entity id="org:ministerraad">De ministerraad</entity> stays exactly <entity id="org:ministerraad">De ministerraad</entity>, not "The Council of Ministers"; write for example "<entity id="org:ministerraad">De ministerraad</entity> will decide".',
   "Use straight quotes. Do not introduce em dashes or en dashes.",
+  "In English, use British spelling (colour, tyre, programme) and the usual English names of places outside the entity tags (The Hague, not Den Haag).",
   "If the lead is null, return null for the lead.",
 ].join(" ");
 
-export const DEFAULT_API_BATCH = 8;
+export const DEFAULT_API_BATCH = 20;
 export const DEFAULT_API_RETRIES = 3;
 
 const BATCH_SCHEMA = {
@@ -673,13 +692,13 @@ async function runNewsApi({
     await writeFile(cacheFile, `${JSON.stringify(sortTranslations(list), null, 2)}\n`, "utf8");
   };
   const pending = pendingTasks(news, records, { replaceEngine });
-  // An injected client (tests) stands for the Anthropic provider.
+  // An injected client (tests) stands for the opencode provider, without a backup.
   const provider = client
-    ? { ...PROVIDERS.anthropic, key: "injected", model: model || env.TRANSLATE_MODEL || PROVIDERS.anthropic.defaultModel }
+    ? { ...PROVIDERS.opencode, key: "injected", model: model || env.TRANSLATE_MODEL || PROVIDERS.opencode.defaultModel }
     : resolveProvider(env, { provider: providerName, model });
+  const backup = client ? null : resolveBackup(provider);
   if (!provider) {
-    const keys = PROVIDER_ORDER.map((name) => PROVIDERS[name].keyEnv).join(", ");
-    log(`No translation key set (${keys}); ${pending.length} news item(s) remain untranslated or stale and show in their original language. Nothing translated.`);
+    log(`No translation key set (OPENCODE_API_KEY); ${pending.length} news item(s) remain untranslated or stale and show in their original language. Nothing translated.`);
     printSummary(summarize(news, records), log);
     await saveCache(records);
     return { translated: 0, dropped: 0, remaining: pending.length, requests: 0, provider: null };
@@ -689,19 +708,20 @@ async function runNewsApi({
   const tasks = pending.slice(0, max);
   const chunks = chunkTasks(tasks, Math.max(1, batchSize));
   const entries = [];
-  const dropped = [];
+  const backupEntries = [];
+  let dropped = [];
   let requests = 0;
   let next = 0;
   let halted = null;
 
-  async function translateChunk(chunk) {
+  async function translateChunk(chunk, using = provider) {
     requests += 1;
-    const out = await translateBatch(provider, chunk, { client, fetchImpl, retries, sleep });
+    const out = await translateBatch(using, chunk, { client, fetchImpl, retries, sleep });
     const failed = [];
     for (const task of chunk) {
       const translated = out.get(task.id);
       const problems = translated ? checkTranslation(task, translated) : ["missing from the response"];
-      if (problems.length === 0) entries.push({ id: task.id, language: task.language, ...translated });
+      if (problems.length === 0) (using === provider ? entries : backupEntries).push({ id: task.id, language: task.language, ...translated });
       else failed.push({ task, problems });
     }
     return failed;
@@ -742,10 +762,16 @@ async function runNewsApi({
   }
   await Promise.all(Array.from({ length: Math.min(concurrency, chunks.length) }, worker));
   if (halted) log(`Stopped early: the API refused the credentials (${halted.status}).`);
-  const result = mergeTranslations({ news, records, entries, engine: provider.model, method: provider.method, date });
+  else dropped = await retryOnBackup({ backup, dropped, tasks, size: batchSize, attempt: translateChunk, log });
+  let result = mergeTranslations({ news, records, entries, engine: provider.model, method: provider.method, date });
+  if (backupEntries.length > 0) {
+    const second = mergeTranslations({ news, records: result.records, entries: backupEntries, engine: backup.model, method: backup.method, date });
+    result = { records: second.records, merged: result.merged + second.merged, rejected: [...result.rejected, ...second.rejected], byBackup: second.merged };
+  }
   await writeTranslations(dataDir, result.records);
   await saveCache(result.records);
-  log(`Translated ${result.merged} item(s) with ${provider.name} (${provider.model}) in ${requests} request(s); dropped ${dropped.length + result.rejected.length}.`);
+  const viaBackup = result.byBackup ? `, ${result.byBackup} of them by ${backup.name} (${backup.model})` : "";
+  log(`Translated ${result.merged} item(s) with ${provider.name} (${provider.model})${viaBackup} in ${requests} request(s); dropped ${dropped.length + result.rejected.length}.`);
   for (const drop of [...dropped, ...result.rejected]) log(`  dropped ${drop.id}: ${drop.problems.join("; ")}`);
   const remaining = pendingTasks(news, result.records).length;
   log(`${remaining} news item(s) remain untranslated or stale and show in their original language.`);
@@ -763,7 +789,7 @@ export const DESCRIPTIONS_FILE = "description-translations.json";
 export const DESCRIPTION_ENTITY_FILES = Object.freeze(["organizations.json", "people.json", "topics.json"]);
 export const DESCRIPTION_FIELD = "description";
 export const DEFAULT_DESCRIPTION_MAX = 100;
-export const DEFAULT_DESCRIPTION_BATCH = 6;
+export const DEFAULT_DESCRIPTION_BATCH = 12;
 
 const descriptionKey = (record) => `${record.id}|${record.field}|${record.language}`;
 
@@ -981,7 +1007,7 @@ export const DESCRIPTION_SYSTEM_PROMPT = [
   "Translate only. Keep the meaning exact: add nothing, leave nothing out, do not summarise, explain or embellish.",
   "Keep proper names of bodies, laws, places and people in Dutch, as written in the source; you may translate a generic word around them.",
   "Keep every number, date, abbreviation, citation and URL exactly as in the source; write digits as digits, as in the source.",
-  "Use plain, neutral English. Use straight quotes. Do not introduce em dashes or en dashes.",
+  "Use plain, neutral English with British spelling (colour, programme). Use straight quotes. Do not introduce em dashes or en dashes.",
 ].join(" ");
 
 const DESCRIPTION_BATCH_SCHEMA = {
@@ -1072,8 +1098,9 @@ export async function runDescriptionApi({
     return { translated: 0, dropped: 0, remaining: 0, requests: 0, provider: null };
   }
   const provider = client
-    ? { ...PROVIDERS.anthropic, key: "injected", model: model || env.TRANSLATE_MODEL || PROVIDERS.anthropic.defaultModel }
+    ? { ...PROVIDERS.opencode, key: "injected", model: model || env.TRANSLATE_MODEL || PROVIDERS.opencode.defaultModel }
     : resolveProvider(env, { provider: providerName, model });
+  const backup = client ? null : resolveBackup(provider);
   if (!provider) {
     log(`No translation key set; ${pending.length} description(s) have no current English translation and show in Dutch.`);
     await saveCache(records);
@@ -1087,18 +1114,19 @@ export async function runDescriptionApi({
   }
   log(`Translating descriptions with ${provider.name} (${provider.model}), ${pending.length} pending, cap ${descriptionMax}.`);
   const entries = [];
-  const dropped = [];
+  const backupEntries = [];
+  let dropped = [];
   let requests = 0;
   let next = 0;
   let halted = null;
-  const attempt = async (chunk) => {
+  const attempt = async (chunk, using = provider) => {
     requests += 1;
-    const out = await translateBatch(provider, chunk, { client, fetchImpl, retries, sleep, format: DESCRIPTION_FORMAT });
+    const out = await translateBatch(using, chunk, { client, fetchImpl, retries, sleep, format: DESCRIPTION_FORMAT });
     const failed = [];
     for (const task of chunk) {
       const translated = out.get(task.id);
       const problems = translated ? checkDescriptionTranslation(task, translated) : ["missing from the response"];
-      if (problems.length === 0) entries.push({ id: task.id, text: translated.text });
+      if (problems.length === 0) (using === provider ? entries : backupEntries).push({ id: task.id, text: translated.text });
       else failed.push({ task, problems });
     }
     return failed;
@@ -1134,7 +1162,12 @@ export async function runDescriptionApi({
     }
   }
   await Promise.all(Array.from({ length: Math.min(concurrency, chunks.length) }, worker));
-  const result = mergeDescriptionTranslations({ entities, records, entries, engine: provider.model, method: provider.method, date });
+  if (!halted) dropped = await retryOnBackup({ backup, dropped, tasks, size: descriptionBatchSize, attempt, log });
+  let result = mergeDescriptionTranslations({ entities, records, entries, engine: provider.model, method: provider.method, date });
+  if (backupEntries.length > 0) {
+    const second = mergeDescriptionTranslations({ entities, records: result.records, entries: backupEntries, engine: backup.model, method: backup.method, date });
+    result = { records: second.records, merged: result.merged + second.merged, rejected: [...result.rejected, ...second.rejected] };
+  }
   await writeDescriptionTranslations(dataDir, result.records);
   await saveCache(result.records);
   const remaining = pendingDescriptionTasks(entities, result.records).length;
