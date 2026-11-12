@@ -1,10 +1,10 @@
 "use client";
 
-import { useId } from "react";
-import { SlidingIndicator } from "@/components/motion/sliding-indicator";
+import { ChevronDown, Check, Languages, ListFilter, type IconNode } from "lucide";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 import { formatCountIn } from "@/lib/format";
 import { NEWS_DICT } from "@/lib/i18n/dict-news";
-import { interpolate } from "@/lib/i18n/locales";
 import { NEWS_LANGUAGES, PUBLISHER_KINDS } from "@/lib/news-meta";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import type { NewsFilterState } from "@/lib/news-url-state";
@@ -20,10 +20,29 @@ export const pillClass = (active: boolean) =>
 
 const ALL_PUBLISHERS = "__all__";
 
+type MenuName = "language" | "kind";
+
+/** Each menu has its own icon and a colour from the sector palette (a text colour on the icon, a tint when a choice is active). */
+const MENU_TONES: Record<MenuName, { icon: IconNode; iconClass: string; idle: string; active: string }> = {
+  language: {
+    icon: Languages,
+    iconClass: "text-sector-decentraal-lokaal",
+    idle: "border-sector-decentraal-lokaal/30",
+    active: "border-sector-decentraal-lokaal/60 bg-sector-decentraal-lokaal/10",
+  },
+  kind: {
+    icon: ListFilter,
+    iconClass: "text-sector-hoge-colleges",
+    idle: "border-sector-hoge-colleges/30",
+    active: "border-sector-hoge-colleges/60 bg-sector-hoge-colleges/10",
+  },
+};
+
 /**
- * The compact filter bar shared by the news list and the day archives: the original
- * language as the primary row, then one native disclosure for outlet kind and outlet,
- * and the active filters as removable chips (NW-14). Everything wraps; nothing scrolls
+ * The compact filter bar shared by the news list and the day archives: two small menus on
+ * one row. Each closed menu shows the current choice ("EN · 97", the chosen kind), so the
+ * reader sees the active filter without opening it. The language menu lists the original
+ * languages; the other holds outlet kind and outlet. Everything wraps; nothing scrolls
  * sideways at any width. The caller owns the counts, because they depend on whether the
  * items that name nothing are shown.
  */
@@ -40,7 +59,7 @@ export function NewsFilterBar({
   uiLanguage: NewsLanguage;
   filters: NewsFilterState;
   update: (patch: Partial<NewsFilterState>) => void;
-  /** Items per original language and in total, for the language pills. */
+  /** Items per original language and in total, for the language menu. */
   languageCounts: Record<"all" | NewsLanguage, number>;
   /** Items per outlet kind within the chosen language. */
   kindCounts: Map<PublisherKind, number>;
@@ -52,45 +71,113 @@ export function NewsFilterBar({
 }) {
   const messages = NEWS_MESSAGES[uiLanguage];
   const selectId = useId();
-  const activeCount = (filters.kind !== "all" ? 1 : 0) + (activePublisher !== null ? 1 : 0);
-  const chips: { key: string; label: string; clear: () => void }[] = [];
-  if (filters.kind !== "all") {
-    chips.push({ key: "kind", label: messages.kindLabels[filters.kind], clear: () => update({ kind: "all", publisher: null }) });
-  }
-  if (activePublisher !== null) {
-    chips.push({ key: "publisher", label: activePublisher, clear: () => update({ publisher: null }) });
-  }
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState<MenuName | null>(null);
+
+  // A press outside the bar or Escape closes the open menu.
+  useEffect(() => {
+    if (open === null) return;
+    const onPress = (event: PointerEvent) => {
+      if (event.target instanceof Node && !rootRef.current?.contains(event.target)) setOpen(null);
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(null);
+      rootRef.current?.querySelector<HTMLElement>(`[data-menu="${open}"]`)?.focus();
+    };
+    document.addEventListener("pointerdown", onPress);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPress);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const languageOption = (option: "all" | NewsLanguage) =>
+    option === "all" ? messages.allLanguagesLabel : messages.languageFilterLabels[option];
+  const languageShort = filters.language === "all" ? NEWS_DICT.newsLanguageAllShort[uiLanguage] : filters.language.toUpperCase();
+  const languageActive = filters.language !== "all";
+  const kindText = [filters.kind !== "all" ? messages.kindLabels[filters.kind] : null, activePublisher].filter((part) => part !== null);
+  const kindActive = kindText.length > 0;
+
+  const trigger = (name: MenuName, active: boolean, label: string, children: ReactNode) => {
+    const tone = MENU_TONES[name];
+    return (
+      <button
+        type="button"
+        data-menu={name}
+        aria-expanded={open === name}
+        aria-label={label}
+        onClick={() => setOpen(open === name ? null : name)}
+        className={`inline-flex min-h-8 min-w-0 max-w-full items-center gap-1.5 rounded-pill border px-2.5 text-sm font-medium text-ink transition-fast hover:bg-surface-inset pointer-coarse:min-h-11 ${
+          active || open === name ? tone.active : `${tone.idle} bg-surface-raised`
+        }`}
+      >
+        <LucideIcon icon={tone.icon} size={16} className={`shrink-0 ${tone.iconClass}`} />
+        {children}
+        <LucideIcon
+          icon={ChevronDown}
+          size={14}
+          className={`shrink-0 text-ink-faint transition-transform ${open === name ? "rotate-180" : ""}`}
+        />
+      </button>
+    );
+  };
+
+  const optionClass = (selected: boolean) =>
+    `flex min-h-9 w-full items-center gap-2 rounded-sm px-2 text-left text-sm pointer-coarse:min-h-11 ${
+      selected ? "bg-accent-soft font-medium text-accent-text" : "text-ink hover:bg-surface-raised"
+    }`;
 
   return (
-    <div role="group" aria-label={messages.filtersLabel} className="space-y-2">
-      <div role="group" aria-label={messages.languageTabsLabel} className="relative flex flex-wrap gap-2">
-        <SlidingIndicator variant="ring" className="rounded-pill border border-accent/40" />
-        {(["all", ...NEWS_LANGUAGES] as const).map((option) => (
-          <button
-            key={option}
-            type="button"
-            aria-pressed={filters.language === option}
-            onClick={() => update({ language: option, publisher: null })}
-            className={pillClass(filters.language === option)}
-          >
-            {option === "all" ? messages.allLanguagesLabel : messages.languageFilterLabels[option]}
-            <span className="ml-1.5 tabular-nums text-ink-faint">{formatCountIn(languageCounts[option], uiLanguage)}</span>
-          </button>
-        ))}
+    <div ref={rootRef} role="group" aria-label={messages.filtersLabel}>
+      <div className="flex flex-wrap items-center gap-2">
+        {trigger(
+          "language",
+          languageActive,
+          `${messages.languageTabsLabel}: ${languageOption(filters.language)}, ${formatCountIn(languageCounts[filters.language], uiLanguage)}`,
+          <>
+            <span>{languageShort}</span>
+            <span aria-hidden="true" className="tabular-nums text-ink-muted">
+              {formatCountIn(languageCounts[filters.language], uiLanguage)}
+            </span>
+          </>,
+        )}
+        {trigger(
+          "kind",
+          kindActive,
+          kindActive ? `${NEWS_DICT.newsFilterMore[uiLanguage]}: ${kindText.join(", ")}` : NEWS_DICT.newsFilterMore[uiLanguage],
+          <span className="min-w-0 truncate">{kindActive ? kindText.join(" · ") : NEWS_DICT.newsFilterMore[uiLanguage]}</span>,
+        )}
       </div>
 
-      <details className="motion-disclosure group">
-        <summary
-          className={`${pillClass(activeCount > 0)} cursor-pointer list-none gap-1.5 [&::-webkit-details-marker]:hidden`}
-        >
-          {NEWS_DICT.newsFilterMore[uiLanguage]}
-          {activeCount > 0 ? (
-            <span className="rounded-pill bg-accent/15 px-1.5 text-xs tabular-nums">{activeCount}</span>
-          ) : null}
-          <span aria-hidden="true" className="text-ink-faint transition-transform group-open:rotate-180">
-            &#9662;
-          </span>
-        </summary>
+      {open === "language" ? (
+        <div role="group" aria-label={messages.languageTabsLabel} className="mt-2 space-y-0.5 rounded-md border border-line bg-surface-inset p-1.5">
+          {(["all", ...NEWS_LANGUAGES] as const).map((option) => {
+            const selected = filters.language === option;
+            return (
+              <button
+                key={option}
+                type="button"
+                aria-pressed={selected}
+                onClick={() => {
+                  update({ language: option, publisher: null });
+                  setOpen(null);
+                }}
+                className={optionClass(selected)}
+              >
+                <span className="flex size-4 shrink-0 items-center justify-center">
+                  {selected ? <LucideIcon icon={Check} size={14} /> : null}
+                </span>
+                <span className="min-w-0 flex-1">{languageOption(option)}</span>
+                <span className="tabular-nums text-ink-faint">{formatCountIn(languageCounts[option], uiLanguage)}</span>
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
+
+      {open === "kind" ? (
         <div className="mt-2 space-y-3 rounded-md border border-line bg-surface-inset p-3">
           <div role="group" aria-label={messages.kindFilterLabel} className="flex flex-wrap gap-2">
             {(["all", ...PUBLISHER_KINDS] as const).map((option) => {
@@ -129,26 +216,6 @@ export function NewsFilterBar({
             </select>
           </div>
         </div>
-      </details>
-
-      {chips.length > 0 ? (
-        <ul aria-label={NEWS_DICT.newsFilterActiveLabel[uiLanguage]} className="flex list-none flex-wrap gap-2 p-0">
-          {chips.map((chip) => (
-            <li key={chip.key}>
-              <button
-                type="button"
-                onClick={chip.clear}
-                aria-label={interpolate(NEWS_DICT.newsFilterRemove[uiLanguage], { name: chip.label })}
-                className="inline-flex min-h-8 max-w-full items-center gap-1.5 rounded-pill border border-accent/40 bg-accent-soft px-3 text-sm font-medium text-accent-text transition-fast hover:bg-accent/15 pointer-coarse:min-h-11"
-              >
-                <span className="min-w-0 truncate" title={chip.label}>
-                  {chip.label}
-                </span>
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </li>
-          ))}
-        </ul>
       ) : null}
     </div>
   );

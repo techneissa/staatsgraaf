@@ -12,7 +12,6 @@ export const NEWS_DICT = {
   newsListShowLess: { nl: "Toon minder", en: "Show less" },
 
   // News explorer and day archives
-  newsUpdated: { nl: "bijgewerkt {date}", en: "updated {date}" },
   newsOtherLanguageEn: { nl: "Lees in het Engels", en: "English page" },
   newsByDay: { nl: "Per dag:", en: "By day:" },
   newsMoreDays: { nl: "+{count} dagen", en: "+{count} days" },
@@ -34,6 +33,7 @@ export const NEWS_DICT = {
   newsViewStandard: { nl: "Standaardweergave", en: "Standard View" },
   newsShowAll: { nl: "Toon al het nieuws", en: "Show all news" },
   newsRelevantCount: { nl: "{n} van {total} berichten gaan over of noemen de overheid", en: "{n} of {total} items are about or mention the government" },
+  newsRelevantCountShort: { nl: "{n} van {total}", en: "{n} of {total}" },
   newsRelevantEmptyTitle: { nl: "Geen bericht gaat over of noemt de overheid", en: "No item is about or mentions the government" },
   newsRelevantEmptyDescription: {
     nl: "In deze selectie noemt geen bericht een persoon, organisatie, positie of onderwerp uit de dataset en komt er geen uit een politiekrubriek of overheidsbron. Toon al het nieuws om alles te zien.",
@@ -42,8 +42,8 @@ export const NEWS_DICT = {
 
   // Filter bar, result count, translation disclosure, day windows (news follow-up, 05-10-2026)
   newsFilterMore: { nl: "Soort en bron", en: "Kind and source" },
-  newsFilterActiveLabel: { nl: "Actieve filters", en: "Active filters" },
-  newsFilterRemove: { nl: "Filter verwijderen: {name}", en: "Remove filter: {name}" },
+  newsLanguageAllShort: { nl: "Alle", en: "All" },
+  newsInfoLabel: { nl: "Over dit nieuws", en: "About this news" },
   newsFilterResultCount: { nl: "{n} met dit filter", en: "{n} match the filters" },
   newsFilterCountWord: { nl: "{n} berichten", en: "{n} items" },
   newsFilterCountWordOne: { nl: "{n} bericht", en: "{n} item" },
