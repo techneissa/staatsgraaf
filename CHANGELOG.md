@@ -11,6 +11,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - Posts taken over ad interim ("Minister van Defensie a.i.") open an `acting` tenure for the person who took them over.
 - When bewindspersonen of a whole party are gone but no official page says the party left, nothing is written about the cabinet; the run exits with code 2 and the `[ops]` issue gets the exact `coalitions.json` change as a draft.
 
+### Changed (12-11-2026, translation)
+
+- News and description translation runs only on OpenCode (`OPENCODE_API_KEY`). Claude Haiku 5.5 runs at effort `low` instead of `medium`: it thinks less, so each item costs less.
+- Items Haiku drops (a broken entity tag, a missing item, an error) get one more try on DeepSeek V4.1 Flash with the same key. Its records carry `engine: deepseek-v4.1-flash`.
+- English translations use British spelling, and Dutch place names outside entity tags in their English form (The Hague). Existing translations keep their spelling until their source changes.
+- 20 news items per request instead of 8, and 12 descriptions instead of 6, so the instructions are sent less often.
+- The direct DeepSeek (`DEEPSEEK_API_KEY`) and Anthropic (`ANTHROPIC_API_KEY`) routes are gone. Neither key was set.
+
 ### Added (28-10-2026, welcome banner)
 
 - A scrolling banner above the top bar says the project is independent of the Dutch government, was inspired by CivLab's Gov Graph (linked) and was made to understand how the Dutch state fits together. The close button remembers the choice in `localStorage` (`staatsgraaf.welcome-banner`); no cookie, nothing is sent. The text pauses on hover and focus and stands still under reduced motion.
