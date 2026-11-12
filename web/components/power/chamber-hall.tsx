@@ -261,7 +261,7 @@ export function ChamberHallView({
         onPointerLeave={() => legendHot(null)}
         onFocus={() => key === "coalition" && legendHot("coalition")}
         onBlur={() => legendHot(null)}
-        className="flex w-full items-baseline justify-between gap-2 px-1.5 pb-0.5 text-left text-[11px] font-semibold uppercase tracking-wide text-ink-faint"
+        className="flex w-full items-baseline justify-between gap-2 px-1.5 pb-0.5 text-left text-[11px] font-semibold text-ink-faint"
       >
         <span>{key === "coalition" ? t("hallCoalition") : t("hallOpposition")}</span>
         <span className="tabular-nums">{t("hallSeatsOf", { n: seats, total: hall.total })}</span>

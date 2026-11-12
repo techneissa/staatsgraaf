@@ -4,7 +4,7 @@ import type { LocString } from "./locales";
 export const ENTITY_DICT = {
   // Tab labels
   tabNews: { nl: "Nieuws", en: "News" },
-  whosConnected: { nl: "Wie is verbonden?", en: "Who is connected?" },
+  whosConnected: { nl: "Wie is verbonden?", en: "Who Is Connected?" },
   panelLabel: { nl: "Panelen", en: "Panels" },
 
   // Header block
@@ -35,7 +35,7 @@ export const ENTITY_DICT = {
   factsLabel: { nl: "Kenmerken", en: "Facts" },
 
   // Organization page sections
-  currentOfficials: { nl: "Huidige functionarissen", en: "Current office holders" },
+  currentOfficials: { nl: "Huidige functionarissen", en: "Current Office Holders" },
   membersTitle: { nl: "Huidige leden", en: "Current members" },
   seatTallyMajorityLine: {
     nl: "Meerderheid bij {n} van {total} zetels.",
@@ -227,7 +227,7 @@ export const ENTITY_DICT = {
   childrenShortMany: { nl: "{n} organisaties", en: "{n} organizations" },
   childrenOpenAll: { nl: "Alle {n} op deze pagina", en: "Open all on this page" },
   childrenTitle: { nl: "Organisaties onder zich", en: "Organizations under it" },
-  dutchNameLabel: { nl: "Nederlandse naam", en: "Dutch name" },
+  dutchNameLabel: { nl: "Nederlandse naam", en: "Dutch Name" },
   nameTipLabel: { nl: "Naam en aliassen", en: "Name and aliases" },
   keyHoldersLabel: { nl: "Aan het hoofd", en: "Led by" },
   holdersMore: { nl: "en {n} anderen", en: "and {n} more" },
@@ -424,8 +424,8 @@ export const ENTITY_DICT = {
   orgPartsCount: { nl: "{n} onderdelen", en: "{n} parts" },
   orgPartsOf: { nl: "onderdelen van {name}", en: "parts of {name}" },
   orgOverviewNational: { nl: "Landelijk", en: "National" },
-  orgOverviewDecentral: { nl: "Decentraal", en: "Regional and local" },
-  orgOverviewDistance: { nl: "Op afstand en Koninkrijk", en: "At arm's length and Kingdom" },
+  orgOverviewDecentral: { nl: "Decentraal", en: "Regional and Local" },
+  orgOverviewDistance: { nl: "Op afstand en Koninkrijk", en: "At Arm's Length and Kingdom" },
   orgLineStatenGeneraal: { nl: "Het parlement: Eerste en Tweede Kamer", en: "Parliament: the Senate and the House" },
   orgLineRegering: { nl: "Ministeries met hun diensten en inspecties", en: "Ministries with their agencies and inspectorates" },
   orgLineRechterlijkeMacht: { nl: "Rechtbanken, hoven en de Hoge Raad", en: "Courts and the Supreme Court" },
@@ -437,8 +437,8 @@ export const ENTITY_DICT = {
   orgLineCaribischNederland: { nl: "Bonaire, Sint Eustatius en Saba", en: "Bonaire, Sint Eustatius and Saba" },
   orgLineZelfstandig: { nl: "Zbo's en rwt's op afstand van de ministeries", en: "Independent bodies at arm's length from the ministries" },
   orgLineKoninkrijk: { nl: "Aruba, Curaçao, Sint Maarten en het Koninkrijk", en: "Aruba, Curaçao, Sint Maarten and the Kingdom" },
-  orgByProvincie: { nl: "Per provincie", en: "By province" },
-  orgByMinisterie: { nl: "Per ministerie", en: "By ministry" },
+  orgByProvincie: { nl: "Per provincie", en: "By Province" },
+  orgByMinisterie: { nl: "Per ministerie", en: "By Ministry" },
   orgOtherLokaal: { nl: "Samenwerking tussen gemeenten", en: "Cooperation between municipalities" },
   orgOtherGroup: { nl: "Overige", en: "Other" },
   orgSubgroupCount: { nl: "{n} organisaties", en: "{n} organizations" },

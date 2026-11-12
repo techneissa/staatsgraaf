@@ -47,7 +47,7 @@ export const COMMON_DICT = {
   openOrgPage: { nl: "Open organisatiepagina", en: "Open organization page" },
   layerTitle: { nl: "Bestuurslagen", en: "Branches" },
   readMore: { nl: "Lees verder", en: "Read more" },
-  whosInTheNews: { nl: "Mensen in het nieuws", en: "People in the news" },
+  whosInTheNews: { nl: "Mensen in het nieuws", en: "People in the News" },
   goPowerMap: { nl: "Verbanden", en: "Connections" },
   powerMapCalloutLabel: { nl: "Toon in Verbanden", en: "Show in Connections" },
   emptyTitle: { nl: "Nog geen gegevens", en: "No data yet" },

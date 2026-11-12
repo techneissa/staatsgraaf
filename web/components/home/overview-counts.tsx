@@ -113,8 +113,8 @@ export function OverviewCounts({
       </div>
       <div className="mt-4 grid gap-5 @[38rem]:grid-cols-2 @[38rem]:gap-6">
         <div className="min-w-0">
-          <h3 className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">
-            <L nl="Naar branche" en="By branch" />
+          <h3 className="text-[11px] font-semibold text-ink-faint">
+            <L nl="Naar branche" en="By Branch" />
           </h3>
           <ul className="mt-1.5">
             {byBranch.map((entry) => (
@@ -123,8 +123,8 @@ export function OverviewCounts({
           </ul>
         </div>
         <div className="min-w-0">
-          <h3 className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">
-            <L nl="Naar type" en="By type" />
+          <h3 className="text-[11px] font-semibold text-ink-faint">
+            <L nl="Naar type" en="By Type" />
           </h3>
           <ul className="mt-1.5">
             {byType.map((entry) => (
