@@ -773,8 +773,13 @@
     visibility: visible;
     transition: none;
   }
-  html[data-news-large] .sg-workspace > button {
+  html[data-news-large] .sg-workspace > button,
+  html[data-news-large] .sg-resize-handle {
     display: none;
+  }
+  /* The covered canvas and details panel leave the tab order and the accessibility tree. */
+  html[data-news-large] .sg-workspace > :not(.sg-page-col) {
+    visibility: hidden;
   }
 }
 

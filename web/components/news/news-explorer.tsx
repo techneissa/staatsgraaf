@@ -88,7 +88,7 @@ export function NewsExplorer({
   const relevantOnly = !showAll;
   const [entityMeta, setEntityMeta] = useState<Omit<EntityFilter, "id"> | null>(null);
   const settled = useSettled();
-  const [large, setLarge] = useNewsLarge();
+  const { large, active: largeActive, setLarge } = useNewsLarge();
 
   const merged = useMemo(
     () =>
@@ -303,8 +303,8 @@ export function NewsExplorer({
 
                     {filtered.length === 0 ? (
                       <p className="mt-3 text-sm text-ink-faint">{messages.noItemsFilterLabel}</p>
-                    ) : large ? (
-                      <LargeCards items={filtered} language={uiLanguage} />
+                    ) : largeActive ? (
+                      <LargeCards groupKey={group.key} items={filtered} language={uiLanguage} />
                     ) : (
                       <>
                         <ol className="mt-3 list-none space-y-2 p-0">
@@ -357,8 +357,12 @@ const LARGE_WINDOW_STEP = 120;
  * A group's cards in the large view: every item together in a grid that fills the width,
  * in windows so a long group does not put hundreds of cards in the page at once.
  */
-function LargeCards({ items, language }: { items: NewsItemView[]; language: NewsLanguage }) {
-  const [shown, setShown] = useState(LARGE_WINDOW_STEP);
+function LargeCards({ groupKey, items, language }: { groupKey: RecencyGroupKey; items: NewsItemView[]; language: NewsLanguage }) {
+  // How far the reader paged is kept with the history entry, so Back returns to the same length (as MoreItems does).
+  const [shown, setShown] = useState(() => {
+    const count = readEntryState()[`large-shown-${groupKey}`];
+    return typeof count === "number" ? Math.max(LARGE_WINDOW_STEP, count) : LARGE_WINDOW_STEP;
+  });
   const rest = items.length - shown;
   return (
     <>
@@ -372,7 +376,11 @@ function LargeCards({ items, language }: { items: NewsItemView[]; language: News
       {rest > 0 ? (
         <ShowMoreButton
           label={interpolate(NEWS_DICT.newsDayMore[language], { n: formatCountIn(Math.min(rest, LARGE_WINDOW_STEP), language) })}
-          onClick={() => setShown((value) => value + LARGE_WINDOW_STEP)}
+          onClick={() => {
+            const next = shown + LARGE_WINDOW_STEP;
+            setShown(next);
+            writeEntryState({ [`large-shown-${groupKey}`]: next });
+          }}
         />
       ) : null}
     </>
