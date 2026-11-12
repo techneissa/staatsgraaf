@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { copyFileSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -110,6 +110,75 @@ test("a second run reads no download when nothing changed", async () => {
     assert.equal(result.status, "unchanged");
     assert.ok(!calls.includes(`GET ${DOWNLOAD}`), "the file itself was not downloaded again");
     assert.equal((await run({ ...later, now: () => new Date("2026-11-13T13:00:00Z") })).status, "recent");
+  } finally {
+    w.done();
+  }
+});
+
+test("a host that does not answer is a missed check, not a failed refresh", async () => {
+  const w = workspace();
+  try {
+    const before = w.read("budgets.json");
+    const failing = {
+      "network error on HEAD": async (target, init = {}) => {
+        if (target === OVERVIEW_URL) return new Response(`<a href="${DOWNLOAD}">json</a>`);
+        throw new TypeError("fetch failed");
+      },
+      "error status on the file": async (target) => (target === OVERVIEW_URL ? new Response(`<a href="${DOWNLOAD}">json</a>`) : new Response("fout", { status: 503 })),
+      "network error on GET": async (target, init = {}) => {
+        if (target === OVERVIEW_URL) return new Response(`<a href="${DOWNLOAD}">json</a>`);
+        if (init.method === "HEAD") return new Response(null, { status: 200, headers: { "content-length": "1" } });
+        throw new Error("timeout");
+      },
+    };
+    for (const [name, fetchImpl] of Object.entries(failing)) {
+      const result = await run(options(w, fetchImpl));
+      assert.equal(result.status, "unreachable", name);
+      assert.equal(w.read("budgets.json"), before, name);
+      assert.equal(existsSync(join(w.cache, "state.json")), false, `${name}: no state saved`);
+    }
+  } finally {
+    w.done();
+  }
+});
+
+test("a figure that was set and goes missing, or a chapter no rule claims, stops the guard", async () => {
+  const broken = {
+    "no revenue rows": edit((rows) => rows.filter((row) => row.VUO !== "O")),
+    "no spending rows for a ministry": edit((rows) => rows.filter((row) => !(row.HoofdstukRomeins === "X" && row.VUO === "U"))),
+    "a blank realised column": edit((rows) => rows.map((row) => (row.Begrotingsjaar === "2025" ? { ...row, Realisatie: "0" } : row))),
+    "a chapter that no ministry has": edit((rows) => [...rows, { ...rows.find((row) => row.HoofdstukRomeins === "VII" && row.Begrotingsjaar === "2027"), HoofdstukRomeins: "XXIV", Hoofdstuknaam: "Nieuw Ministerie" }]),
+  };
+  for (const [name, body] of Object.entries(broken)) {
+    const w = workspace();
+    try {
+      const before = w.read("budgets.json");
+      await assert.rejects(run(options(w, host(DOWNLOAD, body))), BudgetGuardError, name);
+      assert.equal(w.read("budgets.json"), before, name);
+    } finally {
+      w.done();
+    }
+  }
+});
+
+test("a record whose own figures did not change keeps its cross-check source", async () => {
+  const w = workspace();
+  try {
+    // Change 2026 so that the 2027 record's `previous` moves while its own `current` stays.
+    const body = edit((rows) =>
+      rows.map((row) => (row.HoofdstukRomeins === "X" && row.Begrotingsjaar === "2026" && row.VUO === "U" && row.Artikelnummer === "2" ? { ...row, StandSBS: String(Number(row.StandSBS) + 1000) } : row)),
+    );
+    const result = await run(options(w, host(DOWNLOAD, body)));
+    assert.equal(result.status, "updated");
+    const after = JSON.parse(w.read("budgets.json"));
+    const before = JSON.parse(readFileSync(join(FIXTURES, "budgets-before.json"), "utf8"));
+    const org = "org:ministerie-van-defensie";
+    const was = before.find((r) => r.organization === org && r.fiscalYear === 2027);
+    const now = after.find((r) => r.organization === org && r.fiscalYear === 2027);
+    assert.deepEqual(now.current, was.current);
+    assert.notDeepEqual(now.previous, was.previous);
+    assert.ok(now.sources.some((s) => s.source === "src:rijksfinancien-mjn-2027-bijlage-2"));
+    assert.equal(now.sources.find((s) => s.source.startsWith("src:rijksfinancien-begrotingsstaten-")).retrieved, "2026-11-12");
   } finally {
     w.done();
   }

@@ -35,6 +35,8 @@ export const OVERVIEW_URL = "https://www.rijksfinancien.nl/open-data/overzicht-d
 export const CHECK_EVERY_HOURS = 20;
 /** A download is also hashed once a week when the validators say nothing changed (the host sends only a length). */
 export const FULL_CHECK_EVERY_DAYS = 7;
+/** A host that does not answer must not hold up the whole scheduled refresh. */
+export const REQUEST_TIMEOUT_MS = 30_000;
 const STATE_FILE = "state.json";
 const HOUR = 3_600_000;
 
@@ -77,7 +79,7 @@ function sameValidators(a, b) {
 
 /**
  * Run the refresh. Returns { status, ... }; throws BudgetGuardError when the guard stops the
- * download. `status` is one of: recent, unchanged, unchanged-content, updated, no-change.
+ * download. `status` is one of: recent, unreachable, unchanged, unchanged-content, updated, no-change.
  */
 export async function run({
   dataDir = join(ROOT, "data"),
@@ -105,7 +107,7 @@ export async function run({
   }
 
   const get = (url, init = {}) =>
-    fetchImpl(url, { redirect: "follow", ...init, headers: { "User-Agent": LIVE_USER_AGENT, Accept: "*/*", ...init.headers } });
+    fetchImpl(url, { redirect: "follow", signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS), ...init, headers: { "User-Agent": LIVE_USER_AGENT, Accept: "*/*", ...init.headers } });
 
   const sources = await readJson(sourcesPath, []);
   const knownUrl = sources.filter((source) => /^src:rijksfinancien-begrotingsstaten-/.test(source.id)).at(-1)?.url;
@@ -118,11 +120,25 @@ export async function run({
     log(`begroting: overzichtspagina niet bereikbaar (${error.message})`);
   }
   url ??= knownUrl;
-  if (!url) throw new Error("geen Begrotingsstaten-bestand gevonden en geen bekende bron");
+  if (!url) {
+    log("begroting: geen Begrotingsstaten-bestand gevonden en geen bekende bron; deze keer overgeslagen");
+    return { status: "unreachable" };
+  }
   const { id: sourceId, from, to } = sourceIdFor(url);
 
-  const head = await get(url, { method: "HEAD" });
-  if (!head.ok) throw new Error(`HEAD ${url} gaf HTTP ${head.status}`);
+  // A network error, a timeout or an error status on the download is a missed check, not a failed
+  // refresh: log it, keep the saved state, and try again at the next run.
+  let head;
+  try {
+    head = await get(url, { method: "HEAD" });
+  } catch (error) {
+    log(`begroting: ${url} niet bereikbaar (${error.message}); deze keer overgeslagen`);
+    return { status: "unreachable", url };
+  }
+  if (!head.ok) {
+    log(`begroting: HEAD ${url} gaf HTTP ${head.status}; deze keer overgeslagen`);
+    return { status: "unreachable", url };
+  }
   const validators = validatorsOf(head);
   const fullCheckDue = !state.hashedAt || started - new Date(state.hashedAt) >= FULL_CHECK_EVERY_DAYS * 86_400_000;
   if (!force && inSync && state.url === url && !fullCheckDue && sameValidators(validators, state.validators)) {
@@ -131,9 +147,19 @@ export async function run({
     return { status: "unchanged", url };
   }
 
-  const response = await get(url);
-  if (!response.ok) throw new Error(`GET ${url} gaf HTTP ${response.status}`);
-  const body = await response.text();
+  let response;
+  let body;
+  try {
+    response = await get(url);
+    if (response.ok) body = await response.text();
+  } catch (error) {
+    log(`begroting: ${url} niet te downloaden (${error.message}); deze keer overgeslagen`);
+    return { status: "unreachable", url };
+  }
+  if (!response.ok) {
+    log(`begroting: GET ${url} gaf HTTP ${response.status}; deze keer overgeslagen`);
+    return { status: "unreachable", url };
+  }
   const bodySha = sha256(body);
   const nextState = {
     url,
@@ -158,19 +184,16 @@ export async function run({
   }
   const { totals, unmatchedChapters, rowCount } = aggregate(table);
   const ministries = MINISTRIES.map((ministry) => ministry.id);
-  const reasons = evaluateBudgetDownload({ totals, existing, ministries });
+  const reasons = evaluateBudgetDownload({ totals, existing, ministries, unmatchedChapters });
   if (reasons.length > 0) throw new BudgetGuardError(reasons);
 
   const { records, added, changed, missing } = buildRecords({ existing, totals, sourceId, today });
-  for (const gap of unmatchedChapters) {
-    log(`begroting: hoofdstuk ${gap.chapter} (${gap.name}, ${gap.years.join(", ")}) hoort bij geen ministerie van de dataset; niet opgenomen`);
-  }
   for (const record of missing) log(`begroting: geen cijfers meer voor ${record.organization} ${record.fiscalYear}; record blijft ongewijzigd`);
 
   if (added.length === 0 && changed.length === 0) {
     await saveState(cacheDir, statePath, nextState);
     log(`begroting: ${rowCount} rijen gelezen, geen cijfer veranderd`);
-    return { status: "no-change", url, rows: rowCount, gaps: unmatchedChapters };
+    return { status: "no-change", url, rows: rowCount };
   }
 
   await writeJson(budgetsPath, records);
@@ -180,7 +203,7 @@ export async function run({
   await saveState(cacheDir, statePath, nextState);
   const years = [...new Set(added.map((record) => record.fiscalYear))].sort();
   log(`begroting: ${added.length} record(s) toegevoegd${years.length ? ` (jaar ${years.join(", ")})` : ""}, ${changed.length} bijgewerkt`);
-  return { status: "updated", url, added, changed, gaps: unmatchedChapters };
+  return { status: "updated", url, added, changed };
 }
 
 async function saveState(cacheDir, statePath, state) {

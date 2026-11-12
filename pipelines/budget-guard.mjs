@@ -32,9 +32,24 @@ function outsideFactor(next, prev, factor) {
   return ratio > factor || ratio < 1 / factor;
 }
 
+const FIELDS = [
+  ["spendingBudget", "begroting"],
+  ["spendingActual", "realisatie"],
+  ["revenue", "ontvangsten"],
+];
+
+/** A figure that was set (not null, not 0) and is now null or 0: a block of rows is missing. */
+function vanished(next, prev) {
+  return Boolean(prev) && !next;
+}
+
 /** Reasons the download must not be applied; an empty list means it may be. */
-export function evaluateBudgetDownload({ totals, existing, ministries }) {
+export function evaluateBudgetDownload({ totals, existing, ministries, unmatchedChapters = [] }) {
   const reasons = [];
+  // A chapter with amounts that no ministry claims would be missing from some ministry's totals.
+  for (const gap of unmatchedChapters) {
+    reasons.push(`hoofdstuk ${gap.chapter} (${gap.name}, ${gap.years.join(", ")}) hoort bij geen ministerie van de dataset`);
+  }
   const label = (org) => org.replace(/^org:ministerie-van-/, "");
 
   const newestInFile = Math.max(-Infinity, ...ministries.flatMap((org) => yearsOf(totals, org)));
@@ -57,11 +72,10 @@ export function evaluateBudgetDownload({ totals, existing, ministries }) {
       const now = amountsFor(slots?.get(record.fiscalYear));
       if (!now) continue;
       const was = record.current;
-      if (outsideFactor(now.spendingBudget, was?.spendingBudget, REVISION_FACTOR)) {
-        reasons.push(`${label(org)} ${record.fiscalYear}: begroting ${was.spendingBudget} werd ${now.spendingBudget}`);
-      }
-      if (outsideFactor(now.spendingActual, was?.spendingActual, REVISION_FACTOR)) {
-        reasons.push(`${label(org)} ${record.fiscalYear}: realisatie ${was.spendingActual} werd ${now.spendingActual}`);
+      for (const [field, name] of FIELDS) {
+        if (vanished(now[field], was?.[field]) || outsideFactor(now[field], was?.[field], REVISION_FACTOR)) {
+          reasons.push(`${label(org)} ${record.fiscalYear}: ${name} ${was[field]} werd ${now[field]}`);
+        }
       }
       const total = sums.get(record.fiscalYear) ?? { old: 0, next: 0 };
       total.old += was?.spendingActual ?? was?.spendingBudget ?? 0;

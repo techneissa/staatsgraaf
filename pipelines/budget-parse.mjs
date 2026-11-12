@@ -25,7 +25,8 @@
 //   - V (verplichtingen) is not used.
 //
 // A chapter that belongs to no ministry of the dataset and is not known to be outside it is
-// not guessed: it is returned as a named gap (unmatchedChapters), so the report can show it.
+// not guessed: when it carries amounts it is returned as a named gap (unmatchedChapters), and
+// the guard stops the run until a person has placed it.
 
 export const SOURCE_UNIT = "EUR x 1,000";
 export const PHASES = ["StandOWB", "StandO1", "StandSBS", "StandO2"];
@@ -118,7 +119,8 @@ export function aggregate(rows) {
     const hit = ministryOf(row);
     if (!hit) {
       const chapter = String(row.HoofdstukRomeins);
-      if (!KNOWN_OUTSIDE.has(chapter)) {
+      const hasAmounts = [...PHASES, ACTUAL].some((phase) => number(row[phase]) !== 0);
+      if (!KNOWN_OUTSIDE.has(chapter) && hasAmounts) {
         const entry = unmatched.get(chapter) ?? { chapter, name: row.Hoofdstuknaam, years: new Set() };
         entry.years.add(year);
         unmatched.set(chapter, entry);

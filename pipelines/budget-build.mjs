@@ -69,6 +69,17 @@ export function buildRecords({ existing, totals, sourceId, today }) {
         records.push(old);
         continue;
       }
+      if (old && sameJson(old.current, core.current)) {
+        // Only `previous` (or the history) moved: the figures of this year are as they were, so the
+        // sources that back them stay; only the entry of the begrotingsstaten download is renewed.
+        const sources = old.sources.map((entry) =>
+          /^src:rijksfinancien-begrotingsstaten-/.test(entry.source) ? { ...entry, source: sourceId, retrieved: today } : entry,
+        );
+        const record = { organization: org, fiscalYear: year, ...core, sources };
+        records.push(record);
+        changed.push(record);
+        continue;
+      }
       const record = {
         organization: org,
         fiscalYear: year,
