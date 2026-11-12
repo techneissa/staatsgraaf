@@ -40,6 +40,7 @@ import {
   sourceRef,
 } from "./live-util.mjs";
 import { loadState, saveState } from "./live-state.mjs";
+import { CABINET_PAGES_URL, draftOpsText, parseCabinetStatement, partiesOfLeavers, planCoalitionChanges, recentPartyExits } from "./cabinet-state.mjs";
 import { DECENTRAL_KEYS, planCommissarissen, planDecentral } from "./decentral-plan.mjs";
 import { failureGap, fetchDecentral } from "./decentral-fetch.mjs";
 import { TK_OPEN_URL, TK_SOURCE_DEFS, planTweedeKamer } from "./tk-changes.mjs";
@@ -155,6 +156,19 @@ export function parseRijksoverheidCabinet(html) {
   for (const found of html.matchAll(/bewindspersonen\/(kabinet-[a-z0-9-]+)\//g)) counts.set(found[1], (counts.get(found[1]) ?? 0) + 1);
   const top = [...counts].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]))[0];
   return top ? { slug: top[0], name: null } : null;
+}
+
+/** "Minister van Financiën, Minister van Defensie a.i." gives the own role and the posts taken over ad interim. */
+export function splitActingRoles(role) {
+  const acting = /\s(?:a\.i\.|ad interim)$/i;
+  const segments = String(role ?? "")
+    .split(",")
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+  return {
+    role: segments.filter((segment) => !acting.test(segment)).join(", "),
+    acting: segments.filter((segment) => acting.test(segment)).map((segment) => segment.replace(acting, "").trim()),
+  };
 }
 
 export function matchBewindspersoonPosition(role, positions, posById = new Map(positions.map((p) => [p.id, p]))) {
@@ -349,9 +363,41 @@ export async function planRefresh({
   }
 
   // ---------- bewindspersonen ----------
+  /**
+   * Ministers are gone from the page but no official statement says a party left: draft the [ops] issue text with
+   * the coalitions.json change this would be, and write nothing. Only a whole party leaving fits (everyone of
+   * one or more parties, at least 4 people, never a half-loaded page); anything else gets no draft.
+   */
+  function proposeExitFromLeavers(body, openHolders, exits) {
+    const slug = body.cabinet?.slug;
+    if (!slug || exits.parties.size > 0) return null;
+    const listed = new Set(body.items.map((item) => resolvePerson(item.name, index)).filter((found) => found.status === "matched").map((found) => found.id));
+    const leavers = openHolders.filter((id) => !listed.has(id));
+    const parties = leavers.length > 3 ? partiesOfLeavers(leavers, dataset.people) : null;
+    if (!parties || parties.size === 0) return null;
+    const partyOf = new Map(dataset.people.map((person) => [person.id, person.party]));
+    const wholeParty = openHolders.filter((id) => parties.has(partyOf.get(id))).every((id) => !listed.has(id));
+    if (!wholeParty) return null;
+    const proposal = planCoalitionChanges({ slug, events: [{ kind: "party-exit", date: today, parties: [...parties], demissionair: false }], coalitions, sources: dataset.sources ?? [], today });
+    if (proposal.upserts.length === 0) return null;
+    const why =
+      `${leavers.length} bewindspersonen van ${[...parties].join(" en ")} staan niet meer op de bewindspersonenpagina, maar de kabinetspagina ${CABINET_PAGES_URL}/${slug} ` +
+      `noemt geen vertrek van die partij. De bewindspersonen zijn niet gesloten. Als het vertrek klopt, hoort in coalitions.json het voorstel hieronder (de datum is de ophaaldatum ${today}; neem de officiële datum over).`;
+    return draftOpsText({ why, upserts: proposal.upserts });
+  }
+
+  // The cabinet page's own statement (cabinet-state.mjs): which parties left the cabinet in the last 60 days.
   function planBewindspersonen(body) {
-    const invariants = evaluateBewindspersonenInvariants({ count: body.items.length });
-    if (!invariants.ok) return { guard: { allowed: false, reasons: invariants.failures.map((entry) => `${entry.code}: ${entry.detail}`) } };
+    // Only positions at a ministry: a title such as "Minister van Onderwijs" also exists at Aruba, Curaçao and Sint Maarten.
+    const cabinetIds = new Set(cabinetPositionIds(positions, dataset.organizations ?? null));
+    const exits = recentPartyExits(body.cabinetState?.statement, today);
+    const partyOf = new Map(dataset.people.map((person) => [person.id, person.party]));
+    const openHolders = [...new Set((dataset.tenures ?? []).filter((tenure) => !tenure.end && cabinetIds.has(tenure.position)).map((tenure) => tenure.person))];
+    const exitedHolders = openHolders.filter((id) => exits.parties.has(partyOf.get(id))).length;
+    const invariants = evaluateBewindspersonenInvariants({ count: body.items.length, exitedHolders });
+    if (!invariants.ok) {
+      return { guard: { allowed: false, reasons: invariants.failures.map((entry) => `${entry.code}: ${entry.detail}`) }, ops: proposeExitFromLeavers(body, openHolders, exits) };
+    }
     const bodySource = buildSourceRecord(SOURCE_DEFS.bewindspersonen, existingSources, today);
     const ref = sourceRef(bodySource.id, today);
     const result = { tenures: [], closures: [], openings: [], gaps: [], review: [], sources: [bodySource], people: new Map(), newPeople: [] };
@@ -363,12 +409,40 @@ export async function planRefresh({
     }
     const fresh = new Set();
     const resolved = new Set();
-    // Only positions at a ministry: a title such as "Minister van Onderwijs" also exists at Aruba, Curaçao and Sint Maarten.
-    const cabinetIds = new Set(cabinetPositionIds(positions, dataset.organizations ?? null));
     const cabinetPositions = positions.filter((position) => cabinetIds.has(position.id));
     let blocked = false;
+    // A new holder: the page gives no appointment date, so the start is unknown (ADR 0020), never the retrieval date.
+    function openTenure(personId, positionId, acting, personSourceRef) {
+      const position = posById.get(positionId);
+      const id = nextId(`tenure:${position.slug ?? positionId.replace(/^pos:/, "")}-${personId.replace(/^person:/, "")}`, allTenureIds);
+      const tenure = {
+        id,
+        person: personId,
+        position: positionId,
+        seat: null,
+        start: null,
+        end: null,
+        acting,
+        entryMode: acting ? "waarnemend" : "benoemd-bij-kb",
+        appointedBy: null,
+        predecessor: null,
+        successor: null,
+        endReason: null,
+        source: personSourceRef,
+      };
+      result.tenures.push(tenure);
+      result.openings.push({ entity: "tenures", record: tenure, why: acting ? "new-bewindspersoon-ad-interim" : "new-bewindspersoon" });
+      result.people.set(personId, personSourceRef.source);
+      result.review.push({
+        kind: "unknown-start",
+        key: `unknown-start|${id}`,
+        text: `${id}: de Rijksoverheid-pagina noemt geen benoemingsdatum, dus de start is onbekend (ADR 0020). Een Staatscourant-besluit kan hem later dateren.`,
+      });
+    }
     for (const item of body.items) {
-      const positionId = matchBewindspersoonPosition(item.role, cabinetPositions, posById);
+      // "Minister van Defensie a.i." is a second post taken over ad interim, next to the person's own role.
+      const { role: ownRole, acting: actingRoles } = splitActingRoles(item.role);
+      const positionId = matchBewindspersoonPosition(ownRole, cabinetPositions, posById);
       if (!positionId) {
         blocked = true;
         result.gaps.push(
@@ -425,34 +499,21 @@ export async function planRefresh({
       if (existing) {
         result.tenures.push({ ...existing, source: ref });
         result.people.set(personId, ref.source);
-        continue;
+      } else {
+        openTenure(personId, positionId, false, personSourceRef);
       }
-      // A new holder: the page gives no appointment date, so the start is unknown (ADR 0020), never the retrieval date.
-      const position = posById.get(positionId);
-      const id = nextId(`tenure:${position.slug ?? positionId.replace(/^pos:/, "")}-${personId.replace(/^person:/, "")}`, allTenureIds);
-      const tenure = {
-        id,
-        person: personId,
-        position: positionId,
-        seat: null,
-        start: null,
-        end: null,
-        acting: false,
-        entryMode: "benoemd-bij-kb",
-        appointedBy: null,
-        predecessor: null,
-        successor: null,
-        endReason: null,
-        source: personSourceRef,
-      };
-      result.tenures.push(tenure);
-      result.openings.push({ entity: "tenures", record: tenure, why: "new-bewindspersoon" });
-      result.people.set(personId, personSourceRef.source);
-      result.review.push({
-        kind: "unknown-start",
-        key: `unknown-start|${id}`,
-        text: `${id}: de Rijksoverheid-pagina noemt geen benoemingsdatum, dus de start is onbekend (ADR 0020). Een Staatscourant-besluit kan hem later dateren.`,
-      });
+      for (const segment of actingRoles) {
+        const actingId = matchBewindspersoonPosition(segment, cabinetPositions, posById);
+        if (!actingId) {
+          blocked = true;
+          result.gaps.push(makeGap(`Positie voor rol "${segment} a.i." van ${item.name}`, "geen bestaand pos:-record gevonden op titel of organisatie", RIJKSOVERHEID_URL, "Voeg het ontbrekende pos:-record toe in data/positions.json en draai de refresh opnieuw."));
+          continue;
+        }
+        fresh.add(`${personId}|${actingId}`);
+        const heldAlready = openByPair.get(`${personId}|${actingId}`);
+        if (heldAlready) result.tenures.push({ ...heldAlready, source: ref });
+        else openTenure(personId, actingId, true, personSourceRef);
+      }
     }
     if (!blocked) {
       const covered = new Set(cabinetIds);
@@ -470,13 +531,20 @@ export async function planRefresh({
       }
     }
     const cabinetChanged = Boolean(body.cabinet?.slug && state.bewindspersonen?.cabinetSlug && body.cabinet.slug !== state.bewindspersonen.cabinetSlug);
+    // A party exit explains the closures only when everyone who closed belongs to a party the page says left.
+    const closedParties = partiesOfLeavers(new Set(result.closures.map((entry) => entry.record.person)), dataset.people);
+    const exitExplains = exits.parties.size > 0 && closedParties !== null && closedParties.size > 0 && [...closedParties].every((party) => exits.parties.has(party));
     const decision = decideBulk({
       closures: result.closures.length,
       fractieChanged: cabinetChanged,
-      events: recentEvents({ today, elections: elections.filter((entry) => entry.body === "org:tweede-kamer"), coalitions }),
+      events: [
+        ...recentEvents({ today, elections: elections.filter((entry) => entry.body === "org:tweede-kamer"), coalitions }),
+        ...(exitExplains ? [{ kind: "party-exit", id: null, date: exits.date }] : []),
+      ],
       maxQuiet: 3,
     });
     result.guard = { allowed: decision.allowed, bulk: decision.bulk, event: decision.event, cabinetChanged, reasons: decision.allowed ? [] : [decision.reason] };
+    if (!decision.allowed) result.ops = proposeExitFromLeavers(body, openHolders, exits);
     if (decision.allowed && decision.bulk) {
       result.review.push({
         kind: "bulk-event",
@@ -639,8 +707,22 @@ export async function planRefresh({
     void extraEntities;
   }
 
+  const opsDrafts = [];
+  let coalitionChanges = [];
   if (isFetched(bodies.bewindspersonen)) {
+    // The cabinet record changes only on the official page's own statement; it does not wait for the ministers guard.
+    const cabinetState = bodies.bewindspersonen.cabinetState;
+    if (cabinetState?.statement) {
+      const changes = planCoalitionChanges({ slug: cabinetState.slug, events: cabinetState.statement.events, coalitions, sources: dataset.sources ?? [], today });
+      coalitionChanges = changes.upserts;
+      for (const draft of changes.drafts) {
+        opsDrafts.push(
+          draftOpsText({ why: `de kabinetspagina ${CABINET_PAGES_URL}/${cabinetState.slug} noemt een ${draft.event.kind === "party-exit" ? `vertrek van ${draft.event.parties.join(", ")}` : "ontslag van het kabinet"} op ${formatDateNL(draft.event.date)}, maar ${draft.problem}.` }),
+        );
+      }
+    }
     const result = planBewindspersonen(bodies.bewindspersonen);
+    if (result.ops) opsDrafts.push(result.ops);
     if (!result.guard.allowed) {
       review.push(...(result.review ?? []));
       stop("bewindspersonen", result.guard.reasons);
@@ -797,6 +879,7 @@ export async function planRefresh({
     budgets: [],
     sources: sortById([...out.sources.values()]),
     media: [],
+    ...(coalitionChanges.length > 0 ? { coalitions: coalitionChanges } : {}),
     gaps,
   };
 
@@ -829,7 +912,7 @@ export async function planRefresh({
       : null,
   };
 
-  return { envelope, stats, closures, openings, gaps, review, stopped, planned: [...planned], guards, personMapUpdates, tkResult, decentralState, sourceUpgrades: [...sourceUpgrades] };
+  return { envelope, stats, closures, openings, gaps, review, stopped, opsDrafts, coalitionChanges, planned: [...planned], guards, personMapUpdates, tkResult, decentralState, sourceUpgrades: [...sourceUpgrades] };
 }
 
 // ---------- reports ----------
@@ -1018,7 +1101,19 @@ export async function fetchOfficialSources({
     try {
       const text = await http.getText(RIJKSOVERHEID_URL, { accept: "text/html" });
       const items = parseRijksoverheidBewindspersonen(text);
-      bodies.bewindspersonen = { ok: true, status: 200, url: RIJKSOVERHEID_URL, items, cabinet: parseRijksoverheidCabinet(text) };
+      const cabinet = parseRijksoverheidCabinet(text);
+      bodies.bewindspersonen = { ok: true, status: 200, url: RIJKSOVERHEID_URL, items, cabinet, cabinetState: null };
+      if (cabinet?.slug) {
+        // The cabinet page says in words whether a party left or the cabinet fell; a failed read only drops that statement.
+        const cabinetUrl = `${CABINET_PAGES_URL}/${cabinet.slug}`;
+        try {
+          const page = await http.getText(cabinetUrl, { accept: "text/html" });
+          bodies.bewindspersonen.cabinetState = { slug: cabinet.slug, url: cabinetUrl, statement: parseCabinetStatement(page) };
+          endpointsUsed.push({ url: cabinetUrl, retrieved: today, notes: "Rijksoverheid kabinetspagina" });
+        } catch (error) {
+          gaps.push(makeGap("Rijksoverheid kabinetspagina", `netwerk- of parsefout: ${error.message}`, cabinetUrl, "De kabinetsstatus wordt niet bijgewerkt tot de pagina weer te lezen is."));
+        }
+      }
       rawFiles.push({ path: RAW_RIJKSOVERHEID, content: text });
       endpointsUsed.push({ url: RIJKSOVERHEID_URL, retrieved: today, notes: "Rijksoverheid bewindspersonen" });
     } catch (error) {
