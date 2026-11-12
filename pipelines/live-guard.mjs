@@ -153,7 +153,8 @@ export function recentEvents({ today, elections = [], coalitions = [], windowDay
     if (age >= 0 && age <= windowDays) events.push({ kind: "election", id: election.id, date: election.date });
   }
   for (const coalition of coalitions) {
-    if (!coalition || typeof coalition.start !== "string") continue;
+    // A romp cabinet starts because a party left; the party-exit rule covers it, not this event.
+    if (!coalition || typeof coalition.start !== "string" || coalition.kind === "rompkabinet") continue;
     const age = daysBetween(coalition.start, today);
     if (age >= 0 && age <= windowDays) events.push({ kind: "cabinet-start", id: coalition.id, date: coalition.start });
   }

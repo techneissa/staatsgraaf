@@ -40,7 +40,7 @@ import {
   sourceRef,
 } from "./live-util.mjs";
 import { loadState, saveState } from "./live-state.mjs";
-import { CABINET_PAGES_URL, draftOpsText, parseCabinetStatement, partiesOfLeavers, planCoalitionChanges, recentPartyExits } from "./cabinet-state.mjs";
+import { CABINET_PAGES_URL, canonicalParty, draftOpsText, exitedPartyHolders, parseCabinetStatement, partiesOfLeavers, planCoalitionChanges, recentPartyExits } from "./cabinet-state.mjs";
 import { DECENTRAL_KEYS, planCommissarissen, planDecentral } from "./decentral-plan.mjs";
 import { failureGap, fetchDecentral } from "./decentral-fetch.mjs";
 import { TK_OPEN_URL, TK_SOURCE_DEFS, planTweedeKamer } from "./tk-changes.mjs";
@@ -158,17 +158,36 @@ export function parseRijksoverheidCabinet(html) {
   return top ? { slug: top[0], name: null } : null;
 }
 
-/** "Minister van Financiën, Minister van Defensie a.i." gives the own role and the posts taken over ad interim. */
-export function splitActingRoles(role) {
-  const acting = /\s(?:a\.i\.|ad interim)$/i;
-  const segments = String(role ?? "")
-    .split(",")
-    .map((segment) => segment.trim())
-    .filter(Boolean);
-  return {
-    role: segments.filter((segment) => !acting.test(segment)).join(", "),
-    acting: segments.filter((segment) => acting.test(segment)).map((segment) => segment.replace(acting, "").trim()),
-  };
+/**
+ * "Minister van Financiën, Minister van Defensie a.i." gives the own role and the posts taken over ad interim.
+ * A title can hold commas ("Minister van Onderwijs, Cultuur en Wetenschap a.i."): the longest run of segments before
+ * the marker that is a known position title is one post; without a match only the segment with the marker is.
+ */
+export function splitActingRoles(role, positions = []) {
+  const marker = /\s(?:a\.i\.|ad interim)$/i;
+  const titles = new Set(positions.map((position) => normalizeName(position.title)));
+  const own = [];
+  const acting = [];
+  let pending = [];
+  for (const segment of String(role ?? "").split(",").map((entry) => entry.trim()).filter(Boolean)) {
+    if (!marker.test(segment)) {
+      pending.push(segment);
+      continue;
+    }
+    const last = segment.replace(marker, "").trim();
+    let from = pending.length;
+    for (let start = 0; start < pending.length; start += 1) {
+      if (titles.has(normalizeName([...pending.slice(start), last].join(", ")))) {
+        from = start;
+        break;
+      }
+    }
+    own.push(...pending.slice(0, from));
+    acting.push([...pending.slice(from), last].join(", "));
+    pending = [];
+  }
+  own.push(...pending);
+  return { role: own.join(", "), acting };
 }
 
 export function matchBewindspersoonPosition(role, positions, posById = new Map(positions.map((p) => [p.id, p]))) {
@@ -375,7 +394,7 @@ export async function planRefresh({
     const leavers = openHolders.filter((id) => !listed.has(id));
     const parties = leavers.length > 3 ? partiesOfLeavers(leavers, dataset.people) : null;
     if (!parties || parties.size === 0) return null;
-    const partyOf = new Map(dataset.people.map((person) => [person.id, person.party]));
+    const partyOf = new Map(dataset.people.map((person) => [person.id, canonicalParty(person.party)]));
     const wholeParty = openHolders.filter((id) => parties.has(partyOf.get(id))).every((id) => !listed.has(id));
     if (!wholeParty) return null;
     const proposal = planCoalitionChanges({ slug, events: [{ kind: "party-exit", date: today, parties: [...parties], demissionair: false }], coalitions, sources: dataset.sources ?? [], today });
@@ -391,9 +410,8 @@ export async function planRefresh({
     // Only positions at a ministry: a title such as "Minister van Onderwijs" also exists at Aruba, Curaçao and Sint Maarten.
     const cabinetIds = new Set(cabinetPositionIds(positions, dataset.organizations ?? null));
     const exits = recentPartyExits(body.cabinetState?.statement, today);
-    const partyOf = new Map(dataset.people.map((person) => [person.id, person.party]));
     const openHolders = [...new Set((dataset.tenures ?? []).filter((tenure) => !tenure.end && cabinetIds.has(tenure.position)).map((tenure) => tenure.person))];
-    const exitedHolders = openHolders.filter((id) => exits.parties.has(partyOf.get(id))).length;
+    const exitedHolders = exitedPartyHolders({ slug: body.cabinet?.slug, coalitions, exits, tenures: dataset.tenures ?? [], cabinetPositionIds: cabinetIds, people: dataset.people });
     const invariants = evaluateBewindspersonenInvariants({ count: body.items.length, exitedHolders });
     if (!invariants.ok) {
       return { guard: { allowed: false, reasons: invariants.failures.map((entry) => `${entry.code}: ${entry.detail}`) }, ops: proposeExitFromLeavers(body, openHolders, exits) };
@@ -441,7 +459,7 @@ export async function planRefresh({
     }
     for (const item of body.items) {
       // "Minister van Defensie a.i." is a second post taken over ad interim, next to the person's own role.
-      const { role: ownRole, acting: actingRoles } = splitActingRoles(item.role);
+      const { role: ownRole, acting: actingRoles } = splitActingRoles(item.role, cabinetPositions);
       const positionId = matchBewindspersoonPosition(ownRole, cabinetPositions, posById);
       if (!positionId) {
         blocked = true;

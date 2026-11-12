@@ -8,6 +8,7 @@ import { join } from "node:path";
 import { parseCabinetStatement, planCoalitionChanges } from "./cabinet-state.mjs";
 import { applyEnvelopeToData } from "./live-apply.mjs";
 import { planRefresh, splitActingRoles } from "./refresh-official.mjs";
+import { recentEvents } from "./live-guard.mjs";
 
 const TODAY = "2026-11-12";
 const OLD = { source: "src:old", retrieved: "2026-10-01", confidence: "high" };
@@ -157,4 +158,41 @@ test("the live apply inserts the romp cabinet and patches only end and demission
   const old = written.find((record) => record.id === JETTEN.id);
   assert.deepEqual([old.name, old.end, old.demissionairSince], ["Kabinet-Jetten", "2026-11-10", "2026-11-10"]);
   assert.equal(written.length, 2);
+});
+
+test("two party exits on one day make one romp cabinet without both parties", () => {
+  const events = [
+    { kind: "party-exit", date: "2026-11-10", parties: ["VVD"], demissionair: true },
+    { kind: "party-exit", date: "2026-11-10", parties: ["CDA"], demissionair: false },
+  ];
+  const sources = [{ id: "src:rijksoverheid-kabinet-jetten" }];
+  const { upserts, drafts } = planCoalitionChanges({ slug: "kabinet-jetten", events, coalitions: [JETTEN], sources, today: TODAY });
+  assert.deepEqual(drafts, []);
+  assert.deepEqual(upserts.find((record) => record.id === "coalition:kabinet-jetten-romp-i").parties, ["D66"]);
+  // Written once, a second run finds nothing to do.
+  const written = [...upserts, ...[JETTEN].filter((record) => !upserts.some((entry) => entry.id === record.id))];
+  assert.deepEqual(planCoalitionChanges({ slug: "kabinet-jetten", events, coalitions: written, sources, today: TODAY }), { upserts: [], drafts: [] });
+});
+
+test("after the run that applied the VVD exit, the next run passes the guard and changes nothing", async () => {
+  const dataset = cabinetDataset();
+  const first = await planRefresh({ fetched: fetched(listAfterVvdExit(), JETTEN_AFTER_EXIT), dataset, today: TODAY, state });
+  assert.deepEqual(first.stopped, []);
+  const byId = (old, next) => [...new Map([...old, ...next].map((record) => [record.id, record])).values()];
+  const applied = {
+    ...dataset,
+    tenures: byId(dataset.tenures, first.envelope.tenures),
+    people: byId(dataset.people, first.envelope.people),
+    coalitions: byId(dataset.coalitions, first.envelope.coalitions),
+  };
+  // A later run, also after the 60 days of the statement: the open romp cabinet keeps the floor right.
+  for (const today of ["2026-11-12", "2027-02-01"]) {
+    const next = await planRefresh({ fetched: fetched(listAfterVvdExit(), JETTEN_AFTER_EXIT), dataset: applied, today, state });
+    assert.deepEqual(next.stopped, []);
+    assert.equal(next.closures.length, 0);
+    assert.equal(next.openings.length, 0);
+    assert.equal(next.envelope.coalitions, undefined);
+  }
+  // The romp cabinet's own start is no cabinet-start event that would let other closures through.
+  assert.deepEqual(recentEvents({ today: TODAY, coalitions: applied.coalitions }), []);
 });

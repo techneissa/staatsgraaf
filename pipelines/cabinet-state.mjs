@@ -30,10 +30,40 @@ function plainText(html) {
     .trim();
 }
 
+// The page writes parties long ("Volkspartij voor Vrijheid en Democratie") or short; data/people.json mixes CU and
+// ChristenUnie, GL and GroenLinks; data/coalitions.json has its own strings. Everything is compared by the key below.
+const PARTY_ALIASES = {
+  VVD: ["Volkspartij voor Vrijheid en Democratie"],
+  CDA: ["Christen-Democratisch Appèl", "Christen Democratisch Appèl"],
+  D66: ["Democraten 66"],
+  PvdA: ["Partij van de Arbeid"],
+  PVV: ["Partij voor de Vrijheid"],
+  CU: ["ChristenUnie"],
+  GL: ["GroenLinks"],
+  BBB: ["BoerBurgerBeweging"],
+  NSC: ["Nieuw Sociaal Contract"],
+  FVD: ["Forum voor Democratie"],
+  PvdD: ["Partij voor de Dieren"],
+  SGP: ["Staatkundig Gereformeerde Partij"],
+  SP: ["Socialistische Partij"],
+};
+const ALIAS_LOOKUP = new Map(Object.entries(PARTY_ALIASES).flatMap(([key, names]) => [[key.toLowerCase(), key], ...names.map((name) => [name.toLowerCase(), key])]));
+
+/** The one spelling of a party that the comparisons use (short form of the known parties, else the name as written). */
+export function canonicalParty(name) {
+  const trimmed = String(name ?? "").replace(/^\s*(?:de|het)\s+/i, "").trim();
+  return ALIAS_LOOKUP.get(trimmed.toLowerCase()) ?? trimmed;
+}
+
 function splitParties(text) {
-  return text
+  // A long name that contains " en " is shortened first, so it is not split in the middle.
+  let shortened = text;
+  for (const [key, names] of Object.entries(PARTY_ALIASES)) {
+    for (const name of names) shortened = shortened.replace(new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"), key);
+  }
+  return shortened
     .split(/,| en /)
-    .map((part) => part.replace(/^\s*(?:de|het)\s+/i, "").trim())
+    .map(canonicalParty)
     .filter(Boolean);
 }
 
@@ -66,7 +96,7 @@ export function parseCabinetStatement(html) {
 /** The parties that left according to the page, inside the window before today: they explain a mass closure. */
 export function recentPartyExits(statement, today, windowDays = STATEMENT_WINDOW_DAYS) {
   const exits = (statement?.events ?? []).filter((event) => event.kind === "party-exit" && daysBetween(event.date, today) >= 0 && daysBetween(event.date, today) <= windowDays);
-  return { parties: new Set(exits.flatMap((event) => event.parties)), date: exits.length > 0 ? exits[exits.length - 1].date : null };
+  return { parties: new Set(exits.flatMap((event) => event.parties)), date: exits.length > 0 ? exits[exits.length - 1].date : null, events: exits };
 }
 
 /** The common party of the people who left, or null when one has no known party (never guessed). */
@@ -76,9 +106,33 @@ export function partiesOfLeavers(personIds, people) {
   for (const id of personIds) {
     const party = byId.get(id)?.party;
     if (typeof party !== "string" || party === "") return null;
-    parties.add(party);
+    parties.add(canonicalParty(party));
   }
   return parties;
+}
+
+/**
+ * How many people of parties that left the cabinet held a bewindspersoon post when their party left (so the list
+ * may be that much shorter). Two sources, so the answer stays the same after the run that closed their tenures:
+ * the page's own recent statements, and the open romp cabinet record, which keeps the parties that are gone.
+ */
+export function exitedPartyHolders({ slug, coalitions, exits, tenures, cabinetPositionIds, people }) {
+  const groups = exits.events.map((event) => ({ parties: event.parties, date: event.date }));
+  const chain = coalitions.filter((coalition) => coalition.source?.source === `src:rijksoverheid-${slug}`);
+  const open = chain.find((coalition) => !coalition.end);
+  if (open?.kind === "rompkabinet") {
+    const kept = new Set(open.parties.map(canonicalParty));
+    const lost = [...new Set(chain.flatMap((coalition) => coalition.parties.map(canonicalParty)))].filter((party) => !kept.has(party));
+    const since = chain.filter((coalition) => coalition.kind === "rompkabinet").map((coalition) => coalition.start).sort()[0];
+    if (lost.length > 0) groups.push({ parties: lost, date: since });
+  }
+  const partyOf = new Map(people.map((person) => [person.id, canonicalParty(person.party)]));
+  const holders = new Set();
+  for (const tenure of tenures) {
+    if (!cabinetPositionIds.has(tenure.position)) continue;
+    if (groups.some((group) => group.parties.includes(partyOf.get(tenure.person)) && (!tenure.end || tenure.end >= group.date))) holders.add(tenure.person);
+  }
+  return holders.size;
 }
 
 function nextRompId(slug, chain) {
@@ -101,23 +155,34 @@ export function planCoalitionChanges({ slug, events, coalitions, sources = [], t
   const drafts = [];
   const sourceKnown = sources.some((source) => source.id === sourceId);
 
+  // Party exits on one day are one change: the romp cabinet is the cabinet without all of them.
+  const grouped = [];
   for (const event of [...events].sort((a, b) => a.date.localeCompare(b.date))) {
+    const same = event.kind === "party-exit" ? grouped.find((entry) => entry.kind === "party-exit" && entry.date === event.date) : null;
+    if (same) {
+      same.parties = [...new Set([...same.parties, ...event.parties])];
+      same.demissionair = same.demissionair || event.demissionair;
+    } else grouped.push({ ...event, ...(event.parties ? { parties: [...event.parties] } : {}) });
+  }
+
+  for (const event of grouped) {
     if (event.date > today) continue;
+    // Known when a record starts that day without any of these parties; a record that still lists one is not done yet.
     const known =
       event.kind === "party-exit"
-        ? chain.some((coalition) => coalition.start === event.date)
+        ? chain.some((coalition) => coalition.start === event.date && event.parties.every((party) => !coalition.parties.some((own) => canonicalParty(own) === party)))
         : chain.some((coalition) => coalition.demissionairSince && coalition.demissionairSince <= event.date);
     if (known) continue;
     const open = chain.filter((coalition) => !coalition.end).sort((a, b) => a.start.localeCompare(b.start)).pop();
     const exited = event.kind === "party-exit" ? event.parties : [];
-    const remaining = open ? open.parties.filter((party) => !exited.includes(party)) : [];
+    const remaining = open ? open.parties.filter((party) => !exited.includes(canonicalParty(party))) : [];
     const problem = !sourceKnown
       ? `de bron ${sourceId} staat niet in data/sources.json`
       : !open
         ? `er is geen open kabinetsrecord voor ${slug} in data/coalitions.json`
         : event.date <= open.start
           ? `de datum ${event.date} ligt niet na het begin van ${open.id} (${open.start})`
-          : event.kind === "party-exit" && (exited.some((party) => !open.parties.includes(party)) || remaining.length === 0)
+          : event.kind === "party-exit" && (exited.some((party) => !open.parties.some((own) => canonicalParty(own) === party)) || remaining.length === 0)
             ? `de partijen ${exited.join(", ")} passen niet bij ${open.id} (${open.parties.join(", ")})`
             : null;
     if (problem) {
