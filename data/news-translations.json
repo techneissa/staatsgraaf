@@ -22,17 +22,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:1013c924",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Word search",
-    "lead": null,
-    "sourceHash": "270011d47bdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:1013c925",
     "language": "en",
     "sourceLanguage": "nl",
@@ -97,6 +86,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:1013c942",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Word Search",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:1018faa1",
@@ -405,17 +405,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-09"
-  },
-  {
-    "id": "news:11d9a5b5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'I don't know, you know,' my mother fretted, 'What am I going to do if all hell breaks loose?'",
-    "lead": null,
-    "sourceHash": "15f9c5bef049",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:11df9d71",
@@ -889,17 +878,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
-  },
-  {
-    "id": "news:14188869",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Will the gloomy consumer keep spending money? Ask the elderly",
-    "lead": "Consumers have little confidence in the economy, but continue to spend money anyway. Will that continue next year, asks Mathijs Bouman.",
-    "sourceHash": "91222a4f546d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:142285be",
@@ -1452,17 +1430,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:1646687b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "DNB sees trend break: 10 percent fewer freelancers than in 2024, most find a permanent job quickly",
-    "lead": null,
-    "sourceHash": "a52ebab1b4f8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:16484ff3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1782,6 +1749,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:1796ba1d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "From snack bar to sports canteen: everyone is making their own AI posters, but does it work?",
+    "lead": "In the snack bar, at the market or in the sports canteen: suddenly they are everywhere. Bursting, garish AI posters that all look alike. According to advertising experts they often have hardly any effect. \"It's an explosion of messages.\"",
+    "sourceHash": "3486b3f45bea",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:17a84d7f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1912,6 +1890,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:181cab95",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cuban president: we are preparing for a possible American attack",
+    "lead": null,
+    "sourceHash": "9623748adaf3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:18230954",
@@ -2453,6 +2442,17 @@
     "translated": "2026-10-26"
   },
   {
+    "id": "news:1ac1de9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Yellow warning in parts of five provinces due to local dense fog",
+    "lead": "The <entity id=\"org:koninklijk-nederlands-meteorologisch-instituut\">KNMI</entity> issued a yellow warning on Saturday for <entity id=\"org:provincie-gelderland\">Gelderland</entity> and parts of <entity id=\"org:gemeente-utrecht\">Utrecht</entity>, Limburg, <entity id=\"org:provincie-noord-brabant\">Noord-Brabant</entity> and <entity id=\"org:provincie-overijssel\">Overijssel</entity>, due to local dense fog. Because of the fog, visibility in some places is less than 200 metres.",
+    "sourceHash": "e370fc1990ef",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:1ac5f960",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2869,6 +2869,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-08"
+  },
+  {
+    "id": "news:1cb5837c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New 'formation round' last hope for cabinet, VVD prepares for break",
+    "lead": "Anyone who thought the cabinet had been saved after ten hours of crisis talks was mistaken. Prime Minister <entity id=\"person:rob-jetten\">Rob Jetten</entity> was still hopeful about \"talking further\" after the tax deal with the left and without the VVD. But VVD leader Dilan Yesilgöz soon afterwards called the minority cabinet a \"failed experiment\".",
+    "sourceHash": "2a2323c3e153",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:1ce1562c",
@@ -4070,17 +4081,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:220036d4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Netherlands wants to save emergency oil stocks, but pressure to release more is growing",
-    "lead": "The International Energy Agency (IEA) meets on Thursday to discuss whether countries should release more oil and oil products from their emergency stocks. The Netherlands does not want to do this for now. <entity id=\"org:regering\">De regering</entity> fears the reserves will be needed more urgently later if the global oil crisis worsens.",
-    "sourceHash": "aee0643db26c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:2210da30",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4653,6 +4653,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:23eed20b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ephebiphobia, the fear of and aversion to young people",
+    "lead": "Studium Generale boldly continues the ideal of the broadly educated intellectual. Even during an evening of reflection on death.",
+    "sourceHash": "48835e744472",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:23f355cf",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4950,17 +4961,6 @@
     "translated": "2026-11-09"
   },
   {
-    "id": "news:2524978b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dancing fighter Roy Meyer is a perfect fit for MMA: 'Now I can be fully myself'",
-    "lead": "The video of Roy Meyer dancing after his debut in mixed martial arts (MMA) went viral immediately. For the former top judoka it confirmed that MMA suits his personality better. \"In that cage my primal instinct comes out.\"",
-    "sourceHash": "67ebc9974e76",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:2526e4c2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5159,17 +5159,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:25ee65bf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Coalition speeds headlong toward the wealth tax cliff: who blinks first?",
-    "lead": null,
-    "sourceHash": "b08464426928",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:25f77316",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5267,17 +5256,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-09"
-  },
-  {
-    "id": "news:264d94bd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paraguay swears in new president amid financial crisis, former president under house arrest",
-    "lead": "Santiago Peña must report due to his possible role in the collapse of the Ueño bank. His successor, vice president Pedro Alliana, is also being investigated in connection with that crisis.",
-    "sourceHash": "5d9e12ee5521",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:26531953",
@@ -5476,17 +5454,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:26f580ef",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Parliament commits to extra money for Pieterburen Seal Centre",
-    "lead": "The Party for the Animals wants <entity id=\"org:kabinet\">het kabinet</entity> to step in financially in the short term to save the nearly bankrupt Pieterburen Seal Centre. D66 also wants to guarantee shelter for seal pups, but says this could also be done elsewhere, for example at Ecomare on Texel.",
-    "sourceHash": "d5682a9e2cee",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
   },
   {
     "id": "news:26f7c92d",
@@ -5841,17 +5808,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:289f75c3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vorto",
-    "lead": null,
-    "sourceHash": "e0d279537212",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:289f75c4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5916,6 +5872,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:289f75e1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:28a12474",
@@ -6127,15 +6094,15 @@
     "translated": "2026-11-08"
   },
   {
-    "id": "news:299fbb56",
+    "id": "news:29ab9e50",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Are canned beans tasty enough, or do you really have to cook them yourself for hours?",
-    "lead": null,
-    "sourceHash": "25a35da74b5c",
+    "title": "Britt Dekker surprises Belgians by eating frozen bread live on TV and is startled by talk show guest's remark",
+    "lead": "Presenter Britt Dekker (34) caused surprise on the Flemish talk show De tafel van Ruben by eating frozen bread live on TV. She found it quite manageable with a slice of cheese and was somewhat startled by the reaction of another guest at the table.",
+    "sourceHash": "08c2e04628bc",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-07"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:29c000dd",
@@ -6246,17 +6213,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
-  },
-  {
-    "id": "news:2a1ed2cd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Floortje Dessing (56) back on the road after illness: 'I wanted to shout it from the rooftops: guys, wake up, this is all going totally wrong!'",
-    "lead": null,
-    "sourceHash": "43a57ab4cded",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-01"
   },
   {
     "id": "news:2a2d24eb",
@@ -6864,17 +6820,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:2cfcc1c8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Children locked up and bitten at shelter for children placed out of their homes, judge is appalled",
-    "lead": "Once again, bizarre conditions at a facility for children placed out of their homes have come to light through the courts. This time, children in the Den Haag region were reportedly locked up, threatened, beaten and even bitten by the carers who were supposed to look after them.",
-    "sourceHash": "fdedc7c837bf",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:2d131c1d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7027,17 +6972,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
-  },
-  {
-    "id": "news:2dd1d4bc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Lack of wartime success drives Putin to a ruthless campaign against the Ukrainian civilian population",
-    "lead": null,
-    "sourceHash": "b6712d7a047c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:2de0f455",
@@ -7291,6 +7225,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
+  },
+  {
+    "id": "news:2eaf6310",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US military analyst: 'For Asian countries, the American security guarantees have been dreadfully poorly implemented'",
+    "lead": null,
+    "sourceHash": "c5c61da83e83",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:2eafd179",
@@ -7555,17 +7500,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
-  },
-  {
-    "id": "news:2f87581f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "We made good and less good choices in our reporting on the Gaza student",
-    "lead": null,
-    "sourceHash": "b415e97bfa7a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:2f884096",
@@ -8041,17 +7975,6 @@
     "translated": "2026-11-09"
   },
   {
-    "id": "news:3122dc00",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amsterdam according to singer Noha Saré: 'I always get nervous in the line at Paon Bali, because I'm afraid everything will be sold out by the time it's my turn'",
-    "lead": null,
-    "sourceHash": "0eb54b7877a5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:31252d10",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8083,17 +8006,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-11"
-  },
-  {
-    "id": "news:3154af0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "From a malnourished hamster to partner violence: these Luisterlijn volunteers are ready for big and small problems",
-    "lead": null,
-    "sourceHash": "8f54a7611d55",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-08"
   },
   {
     "id": "news:3161b883",
@@ -8272,28 +8184,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:32037509",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Calm and fairly cold weekend, first official ground frost of autumn",
-    "lead": "The first official frost of autumn has now become a fact. In De Bilt the mercury dropped to -1.4 degrees. The rest of the weekend will be calm, with regional differences in the amount of sun and cloud.",
-    "sourceHash": "fc41247084de",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
-    "id": "news:3210fce4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Three injured after ballistic missile attack on Ukrainian capital",
-    "lead": "In the night from Saturday to Sunday, Russia fired at least six ballistic missiles at Kyiv. Three people, including a child, were injured. The Kyiv Post reports this. A two-storey building on the grounds of a nursery school was destroyed in a missile attack. Follow all developments in the war in Ukraine in our liveblog.",
-    "sourceHash": "807cf8eb2e83",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:3220e0ee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8358,6 +8248,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:32701959",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cruise Ship Capsizes in New Orleans After Collision, All Passengers Rescued",
+    "lead": "A river cruise ship carrying 180 people capsized in New Orleans after colliding with a tanker. All those on board have been rescued. 32 people had to be taken to hospital with minor injuries.",
+    "sourceHash": "97e79dbae120",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:327b25ea",
@@ -8426,6 +8327,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:32ce5fc2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Former professor and doctor critical of medical devices: 'Benefit for the patient often not proven'",
+    "lead": null,
+    "sourceHash": "b982c93811aa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:32d3ce0a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8435,6 +8347,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
+  },
+  {
+    "id": "news:32e4efd2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Author and online entrepreneur Gisele Azad (35): 'I have never known a sense of home, so I wouldn't know what it feels like'",
+    "lead": null,
+    "sourceHash": "19d68a13667f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:32f25ec8",
@@ -8798,17 +8721,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
-  },
-  {
-    "id": "news:343ffdf5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Trump still determines what the Republican future looks like without him",
-    "lead": "The American voter has made clear to the Republicans that they must decide what their party will look like after Donald Trump. That is not simple, because he is not going anywhere for now. The bear has been wounded, but still has sharp claws.",
-    "sourceHash": "5a0463850d68",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:345f1fd0",
@@ -9515,6 +9427,17 @@
     "translated": "2026-11-09"
   },
   {
+    "id": "news:370c7bba",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The Amsterdam of actor and Sinterklaas helper Mark van Eeuwen (50): 'I practised riding for the arrival parade at De Hollandsche Manege'",
+    "lead": null,
+    "sourceHash": "6aadf8410aa5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:371aa02f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9590,6 +9513,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-08"
+  },
+  {
+    "id": "news:3777f237",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At Soba Ukou, the handmade buckwheat noodles by Chef Kura are a hit (9)",
+    "lead": null,
+    "sourceHash": "e12e5a833df5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:378cefe7",
@@ -9944,6 +9878,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:38d12a8a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nationwide Flight Ban in the US Lifted, Air Traffic Gets Going Again",
+    "lead": null,
+    "sourceHash": "d3c261852857",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:38e6834d",
     "language": "nl",
     "sourceLanguage": "en",
@@ -10208,6 +10153,17 @@
     "translated": "2026-11-07"
   },
   {
+    "id": "news:39d6c1ef",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Not happy with your child's grade? Parents are increasingly going to court",
+    "lead": null,
+    "sourceHash": "f42a9d170cbd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:39d6f310",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10406,17 +10362,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:3ab08b75",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cinco",
-    "lead": null,
-    "sourceHash": "b5d17bb2750c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:3ab08b76",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10481,6 +10426,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:3ab08b93",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:3abc1889",
@@ -10701,6 +10657,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
+  },
+  {
+    "id": "news:3b7dfae",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More and more gluten-free Black Petes at arrivals: 'Lame when you get skipped'",
+    "lead": "Gluten-free Black Petes are increasingly joining Sinterklaas arrivals. This year they are present at nearly four hundred arrivals. \"It is also important for children who may not eat gluten that they get pepernoten.\"",
+    "sourceHash": "cb5505bd0493",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:3b85ca67",
@@ -11416,6 +11383,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:3e4ae03f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Single-member factions badly needed in the Senate, if the VVD also votes against the tax plan",
+    "lead": null,
+    "sourceHash": "57a1ced2f837",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:3e5649b8",
@@ -12197,6 +12175,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:40eae01b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A small plea under a column created a small crack in the high wall between editorial and commercial",
+    "lead": null,
+    "sourceHash": "487aa1627711",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:40fb87d4",
@@ -13013,17 +13002,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:44d58ee1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Casino politics, coalition discipline and the big gamble with the Tax Plan",
-    "lead": "Discord and uncertainty dominate Dutch politics these days. The coalition parties still lack a majority for their crucial Tax Plan.",
-    "sourceHash": "0e518b97b9fa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:44e4d247",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13145,17 +13123,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:45345dbf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brilliant",
-    "lead": null,
-    "sourceHash": "c5eb20e21098",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:45345dc0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13220,6 +13187,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:45345ddd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brilliant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:4539d725",
@@ -13319,17 +13297,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:456f02f7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Henk Schiffmacher inks tattoos at Rembrandthuis: 'This is the only art you take to the grave'",
-    "lead": null,
-    "sourceHash": "b75174b8fcf2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:45726c0e",
@@ -13805,6 +13772,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:46f34261",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Double Bass",
+    "lead": "'s Evenings late I return from an orchestra rehearsal. I walk with my double bass through a deserted little tunnel, into an empty street.",
+    "sourceHash": "45303ff35b51",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:470cd05a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13871,6 +13849,17 @@
     "translated": "2026-11-07"
   },
   {
+    "id": "news:474898dc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sinterklaas brings autumn sunshine on Saturday, and it stays mostly dry",
+    "lead": "Across the country Sinterklaas is welcomed on Saturday. Not only in Grave, but in various towns the good saint takes his first steps of the year on Dutch soil on 14 November. And good news for Sinterklaas, he is also getting fine weather.",
+    "sourceHash": "3105c7491b03",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:4755ee07",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13924,17 +13913,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-11"
-  },
-  {
-    "id": "news:47a4415d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Child of married couple no longer automatically receives father's surname",
-    "lead": null,
-    "sourceHash": "544af7361077",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:47afd123",
@@ -14397,17 +14375,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-05"
-  },
-  {
-    "id": "news:495bc8c2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "What does the blue wave mean for the American economy?",
-    "lead": "Anna and Marijn discuss what the Democrats' gains in the midterms mean for Trump's economic plans. And: what are the chances of success of a billionaires' tax?",
-    "sourceHash": "b65e098ec061",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:4965ad2a",
@@ -15139,12 +15106,12 @@
     "id": "news:4c5f6d8a",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "IEA: oil supply in surplus for the first time since the start of the Iran war",
+    "title": "Iran: two oil tankers set on fire by mines in Strait of Hormuz",
     "lead": null,
-    "sourceHash": "11f21e109081",
+    "sourceHash": "a484af59c9da",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:4c7b95f6",
@@ -15950,6 +15917,17 @@
     "translated": "2026-11-07"
   },
   {
+    "id": "news:4f8f38cf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tax debate poisons atmosphere for years",
+    "lead": "The consequences of the tax plan debate will reverberate for years. VVD and CDA, once each other's mainstay, no longer trust each other. Anyone who thought the stumbling Schoof cabinet was an incident does not see how national governance has become permanently unstable. Political correspondent Hans van Soest writes weekly about The Hague affairs that concern us all.",
+    "sourceHash": "017272db62a0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:4f9469ea",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16234,6 +16212,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
+  },
+  {
+    "id": "news:502887f1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Xavi enjoyed Oranje: 'One of the best matches of my career as a coach'",
+    "lead": "Head coach Xavi Hernández thoroughly enjoyed the play of Oranje in the 7-0 Nations League win over Greece on Friday. The Spaniard spoke after the match at the Johan Cruijff ArenA about his best matches as a coach.",
+    "sourceHash": "17515bca0525",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:502cc80f",
@@ -16720,17 +16709,6 @@
     "translated": "2026-11-11"
   },
   {
-    "id": "news:525c88ac",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "EU Commissioner is clear: 'The only way to prevent energy crises is to move away from expensive fossil fuels'",
-    "lead": null,
-    "sourceHash": "03a322229e5c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:526f5e7b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16927,17 +16905,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-09"
-  },
-  {
-    "id": "news:537947c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ajax's financial lead over PSV also under pressure: 'The brand is shrinking along with the results'",
-    "lead": null,
-    "sourceHash": "1f18519f5302",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:537cc725",
@@ -17369,6 +17336,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:54f37baf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "White House: Trump, Xi and Putin sit together at the same table for the first time on Thursday",
+    "lead": "US President Donald Trump, Chinese President Xi Jinping and Russian President Vladimir Putin will hold a joint meeting on Thursday, the White House announced on Friday. It will be the first trilateral meeting ever between the three counterparts.",
+    "sourceHash": "a6e72eeb270c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:54f748b1",
     "language": "nl",
     "sourceLanguage": "en",
@@ -17650,17 +17628,6 @@
     "title": "Those who need next to nothing have everything: children's author Janosch overcame his traumas through writing",
     "lead": "German children's author Janosch reached generations of children with his picture books about Little Bear and Little Tiger, in Germany but also in the Netherlands. For him personally, his books were a way to free himself from his unhappy childhood.",
     "sourceHash": "0ace75e61a42",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
-    "id": "news:5659d1ff",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Mothers Bouchra and Samiha started a girls' club in the Van der Pekbuurt: 'Even without a phone and making real contact'",
-    "lead": null,
-    "sourceHash": "c1aaa352c94e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
@@ -18139,6 +18106,17 @@
     "translated": "2026-11-08"
   },
   {
+    "id": "news:5842372f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US air traffic resumes after major communications disruption",
+    "lead": "The nationwide US flight ban imposed on Friday has been lifted. The US aviation authority, the Federal Aviation Administration (FAA), announced this on Friday evening (local time).",
+    "sourceHash": "bfc0321b409f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:584bb2cf",
     "language": "en",
     "sourceLanguage": "nl",
@@ -18324,6 +18302,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:5915eae8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US air traffic resumes after hours-long flight ban, more than a million travellers affected",
+    "lead": "For about four hours, flights could not depart from American airports due to a nationwide communications fault at air traffic control. Air traffic is now resuming, but it may take days before the more than one million affected travellers reach their destinations. \"There will certainly be anger directed at the government\", says correspondent Erik Mouthaan.",
+    "sourceHash": "bbb1687c55c3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:59265515",
@@ -18887,6 +18876,17 @@
     "translated": "2026-11-13"
   },
   {
+    "id": "news:5b477b20",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Outage Brings US Air Traffic to a Standstill, All European Flights to the US Suspended",
+    "lead": "The American aviation authorities (FAA) have instructed all airlines to keep their aircraft on the ground due to \"exceptional circumstances and safety reasons\". A communication problem is the cause. All European flights to the US have also been suspended.",
+    "sourceHash": "de93762294bc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:5b585a35",
     "language": "en",
     "sourceLanguage": "nl",
@@ -19127,17 +19127,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-08"
-  },
-  {
-    "id": "news:5be5b404",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The hunt for Trump has begun: which rising stars are on the Democrats' list?",
-    "lead": null,
-    "sourceHash": "a146d62f574e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:5bed9ba8",
@@ -19523,39 +19512,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
-  },
-  {
-    "id": "news:5d2c2bc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Kandinsky looted by Nazis sold at auction for nearly 32 million euros",
-    "lead": "The work Das bunte Leben by the famous Russian-French expressionist Wassily Kandinsky was sold at a Christie's auction in London for 27 million pounds (nearly 32 million euros). In 2023 the German public prosecutor's office classified the painting as looted art and returned it to the heirs of the Jewish couple Lewenstein. Emanuel and Hedwig Lewenstein lived in the last century in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> and had a sewing machine factory on the Dam. The family had a large art collection, including works by Jan Toorop, Jozef Israëls and Jean Metzinger. Kandinsky made the auctioned work Das bunte Leben (the colorful life) in 1907 in Paris, where he was living at the time with his lover Gabriele Münter, also an artist. Emanuel and Hedwig Lewenstein bought the colorful painting in 1927. German occupation. Shortly after the start of the German occupation of the Netherlands, the work was auctioned and came into the hands of the Jewish art collector Sal Slijper. His family sold the work to the Bayerische Landesbank, which transferred it on permanent loan to the Städtische Galerie im Lenbachhaus, a museum in Munich. The work was on display there for decades. Research shows that a museum employee had the work (130x 162 cm) brought to the auction house in 1940 by a courier on the orders of an unknown person, where it was then offered for sale. According to the researchers, there are numerous indications that the Nazis had seized the painting. After the war, the children of the Lewenstein couple did everything they could to trace their parents' looted collection. The German bank returned the Kandinsky work to the heirs in 2023. Just over 60 million euros: In 2023 the heirs of the sewing machine manufacturer had already sold Kandinsky's Bild mit Häusern for just over 60 million euros. That painting was returned after a long-running dispute with the municipality of Amsterdam. Until February 2022 the painting hung in the permanent exhibition space of the Stedelijk Museum in Amsterdam.",
-    "sourceHash": "15d812925a65",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
-    "id": "news:5d2c2d4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Wake-up call 15/10: Protest against Israeli football club • Scientists decide on the fate of the leap second",
-    "lead": "Good morning! In <entity id=\"org:gemeente-alkmaar\">Alkmaar</entity> there is a protest against the arrival of the Israeli football club Hapoel Be'er Sheva, and in Paris scientists are deciding on the fate of the leap second. First the weather: it will be calm autumn weather with highs between 18 and 20 degrees. Friday will also be mild for the time of year. During the day it will start raining from the west and it will cool down. The weekend will be slightly changeable with highs around 14 degrees. Are you going out today? Here you can find the overview of traffic jams and roadworks, and here everything about the situation on the rail network. What can you expect today? What did you miss? In the Amsterdam neighbourhood of Floradorp it was restless last night. The mobile unit was deployed after residents set fires and turned against emergency workers. Three people have been detained for vandalism, including two minors. The unrest is said to be the result of a letter from <entity id=\"person:femke-halsema\">burgemeester Halsema</entity> about rejecting an alternative plan for a bonfire. Other news from the night: And one more thing: Off the coast of Turkey, the remains of a ship about 4,500 years old have been found. The ship has sunk but the pots that remained on board are still intact. Archaeologists speak of the oldest shipwreck ever found in the world. Have a nice day!",
-    "sourceHash": "b122e59e59da",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
-    "id": "news:5d2c2d5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Busy election year adds extra pressure to European budget negotiations",
-    "lead": "The leaders of the EU countries are speaking today in Brussels about a new European budget, high energy prices and new financial support for Ukraine. The discussion is under pressure from upcoming elections in four of the five largest EU countries, which could significantly shake up the balance of power within the EU in the coming year. The Spaniards (2026), French, Poles and Italians (2027) will go to the polls between now and the end of 2027. Especially the French presidential elections in April could strongly influence the negotiations on the European budget for the next seven years. In addition, they may have consequences for financial support to Ukraine. Campaign in Brussels In the French polls, the radical-right party Rassemblement National of Marine Le Pen is in the lead. Le Pen argues that France should contribute billions less to the European Union. Moreover, she sees no room for financial support to Ukraine. Ukraine is expected to fall short by tens of billions of euros next year to cover military and social costs, but the money is first needed in France, Le Pen believes, because her country is struggling with an enormous national debt. She makes Ukraine and the negotiations on the European budget part of her election campaign. For that reason she appeared yesterday, on the eve of the summit with EU leaders, at a press conference in a hotel in central Brussels. Her message to European journalists: the EU could look very different in a year. With much more influence from parties that would most like to sharply restrict the power of the EU. Tough negotiation So Le Pen hopes that her Spanish ally, the radical-right Vox, will manage to gain a place in a new Spanish government. Vox is now third in the polls. Le Pen's party colleague, Jordan Bardella, visited Santiago Abascal, the parliamentary leader of Vox in Spain, this week to express his support. The French believe that a good result for Vox in November could set the tone for the rest of the election year. Besides the votes in Spain, France, Italy and Poland, there are also elections in Estonia, Finland and Greece, among others. With her visit to the Belgian capital, Le Pen literally brings the French elections to Brussels. Although as a presidential candidate she may not sit in on the summit of EU leaders, they will certainly feel her presence. Especially in the discussion about a new budget for 2028 through 2034. Early deadline The heads of government and state of the 27 EU countries hope to come somewhat closer to an agreement today on how much money they want to spend in the coming years and on what. That discussion is so far extremely difficult. That is not unusual. Every seven years, countries that pay more money to the EU than they receive, such as Germany and the Netherlands, mainly want to cut costs. Opposing them is a large group of countries that would like to see a larger European budget. This often leads to negotiations that continue until the very last moment, because all countries ultimately have to agree. But this year European Council president Antonio Costa, the man who must steer the talks between the European leaders in the right direction, aims for an agreement still in 2026, a year before the budget is due to take effect in 2028. Costa hopes in this way to prevent all elections next year, and especially the French one, from completely derailing the negotiations. 'Democratic scandal' That early deadline seems too ambitious. So far the countries are not getting closer to an agreement. Moreover, not everyone is in a hurry. \"We will not sign an agreement that is not favourable, just to meet the deadline,\" Italian prime minister Meloni said yesterday. Meanwhile Le Pen is trying to increase pressure on the current French president Macron not to conclude an agreement before his departure. That would, in her view, be a 'democratic scandal', just before the elections. It puts Macron in a difficult position in his final months as president: try to reach an agreement with his 26 colleagues in the coming months, with the risk that such a compromise plays into the hands of political opponents. Or wait, with the possible result that his successor torpedoes the budget negotiations.",
-    "sourceHash": "1f517bf435d2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
   },
   {
     "id": "news:5d2c31b",
@@ -28229,23 +28185,23 @@
     "id": "news:5d501c1",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "First Game Music Top 50 by NPO Klassiek: Zelda game Ocarina of Time at number 1",
-    "lead": "The Legend of Zelda: Ocarina of Time is the game with the best game music, at least according to listeners of NPO Klassiek. Today the Game Music Top 50 was broadcast for the first time, live from Beeld & Geluid. With the new list, NPO Klassiek is trying to reach an audience that perhaps has less affinity with traditional classical music. The idea for the Top 50 arose from an earlier success: videos by NPO Klassiek on social media about game music, such as this one . These proved so popular that the plan was launched for the Top 50, following the example of the film music for which the broadcaster has long produced an annual list. \"That has since become a Top 400,\" says NPO Klassiek presenter Sander Zwiep. \"We have now started with a Top 50 for game music, but it really catches on. A lot of people from the games world have come along, and influencers too. It is an unbelievably big success. You notice that there is a great deal of love for the music in the gaming scene.\" This afternoon Sander Zwiep counted down to number 1: The list was not broadcast on NPO Klassiek's own radio channel, but on NPO 2 Extra and social media platforms such as YouTube, channels that most gamers find more easily than NPO Klassiek itself. The Top 50, which the broadcaster describes as \"full of iconic soundtracks and the most beautiful music from games\", was compiled by a five-member expert jury of game and media professionals. They did not fix the order of the top 10. The public could still vote on that during the broadcast. This became the final list: Game Music Top 50 1) The Legend of Zelda: Ocarina of Time - Koji Kondo 2) Donkey Kong Country - David Wise 3) Final Fantasy VII - Nabuo Uematsu 4) The Last Of Us - Gustavo Santaolalla 5) Red Dead Redemption II - Woody Jackson 6) Ori and the Blind Forest - Gareth Coker 7) Super Mario 64 - Koji Kondo 8) Tetris - Hirokazu Tanaka 9) Metal Gear Solid - Tappi Iwase, Kazuki Muraoka 10) Super Mario Bros. - Koji Kondo. The full list is here and the broadcast can be watched back here. Since the early days of computer games, when game sounds were accompanied by beeps and electronic tunes, a lot has changed. Complete orchestral arrangements feature in the list, although there is also a lot of game music that does not sound classical at all. \"But that music often does have classical roots,\" says presenter Sander Zwiep. \"The music for Tetris, for example, is based on a composition by Bach.\" That music landed in eighth place in the top 50. Other classics on the list include Donkey Kong Country , which at the time was notable for its innovative music. Red Dead Redemption II is also remarkable, says presenter and jury member Zwiep. \"The music for that game is orchestrated, but it is also authentic saloon music.\" Until the very end it remained tense who would finish at number 1. In the final hour another game classic took a considerable lead: The Legend of Zelda: Ocarina of Time, one of the best rated games of all time . The music of that almost 30-year-old game, which was re-released this month with a refreshed soundtrack as well , therefore also scores highly. \"That could well become the Bohemian Rhapsody of game music,\" thinks Zwiep. \"Perhaps we will know that in ten years.\" The jury of the Game Music Top 50 also presented the Game Music Oeuvre Award for the first time today. That award goes to Dutchman Joris de Man, who as a composer worked on the games Killzone and Horizon Zero Dawn .",
-    "sourceHash": "9cc26c9eff79",
+    "title": "First Game Music Top 50 from NPO Klassiek: Zelda game Ocarina of Time at number 1",
+    "lead": "The Legend of Zelda: Ocarina of Time is the game with the best game music, at least according to listeners of NPO Klassiek. Today the Game Music Top 50 was broadcast for the first time, live from Beeld & Geluid. With the new list, NPO Klassiek aims to reach an audience that may have less affinity with traditional classical music. The idea for the Top 50 grew out of an earlier success: videos from NPO Klassiek about game music on social media, such as this one. These were so popular that the plan was launched for a Top 50, following the film music list the broadcaster has long published every year. \"That has since become a Top 400\", says NPO Klassiek presenter Sander Zwiep. \"With game music we have now started with a Top 50, but it really is catching on. Many people from the gaming world have come along, and influencers too. It is an incredibly big success. You can tell there is a lot of love for the music in the gaming scene.\" This afternoon Sander Zwiep counted down to number 1: The list was not broadcast on NPO Klassiek's own radio channel, but on NPO 2 Extra and social media platforms such as YouTube, channels that most gamers are better at finding than NPO Klassiek itself. The Top 50, according to the broadcaster \"full of iconic soundtracks and the most beautiful music from games\", was compiled by a five-member expert jury of game and media professionals. They did not fix the order of the top 10. The audience could still vote on that during the broadcast. This became the final list: Game Music Top 50 The full list is here and the broadcast can be watched back here. Since the early days of computer games, when computer games were accompanied by bleeps and electronic tunes, a lot has changed. Complete orchestral arrangements are on the list, although there is also a lot of game music that does not sound classical at all. \"But that music often does have classical roots\", says presenter Sander Zwiep. \"The music in Tetris, for example, is based on a composition by Bach.\" That music landed in eighth place in the Top 50. Other classics there include Donkey Kong Country, which at the time was notable for its innovative music. Red Dead Redemption II is also remarkable, says presenter and jury member Zwiep. \"The music in that game is orchestrated, but it is also authentic saloon music.\" Until the very end it remained exciting who would finish at number 1. In the last hour another classic game took a clear lead: The Legend of Zelda: Ocarina of Time, one of the best-rated games of all time. The music of that nearly 30-year-old game, which was released again this month with a new soundtrack too, therefore also scores highly. \"That could well become the Bohemian Rhapsody of game music\", Zwiep thinks. \"Perhaps we will know that in ten years.\" The expert jury of the Game Music Top 50 also presented the Oeuvre Award Game Music for the first time today. That prize goes to Dutchman Joris de Man, who worked as a composer on the games Killzone and Horizon Zero Dawn.",
+    "sourceHash": "2b3c7c1fae68",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:5d501c6",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Sinterklaas arrives tomorrow: will it be shivering on the side of the road?",
-    "lead": "Tomorrow Sinterklaas officially arrives in our country. Then you stand outside for a while waiting. What weather can you expect this year, and how was it in recent years? Let's start with the latter; at this time of year it is almost never really pleasant to stand still outdoors for long. On average since 2000 it has been around 9 degrees during the day. It was really cold in 2016, when the Sint set foot ashore in Maassluis. It was only 4 degrees then. A very mild arrival was experienced in 2022 in Hellevoetsluis, with a temperature of almost 15 degrees. Temperature doesn't say everything, of course. What matters most is that it is dry. And of the 24 arrivals since 2000, it was dry as many as 20 times. It was wet in Alkmaar (2004), Gouda (2014), Dokkum (2017) and Gorinchem (2023). And now to tomorrow, Saturday 14 November. The Sint hopefully sets foot ashore in Grave near Nijmegen just after midday. And the weather looks pretty good. A bit fresh perhaps, with around 8 degrees on the thermometer, but there is little wind, the sun shines quite a bit and it stays dry. Good weather, then, for a festive arrival. Check the forecast in NOS Weer below:",
-    "sourceHash": "889d95ed591e",
+    "title": "Sinterklaas arrives in the country: will it be shivering on the side of the road?",
+    "lead": "Today Sinterklaas officially arrives in our country. If you are waiting to greet him, you will probably have to stand outside for a while. What weather can you expect this year, and how has it been in recent years? To start with the latest; at this time of year it is almost never really pleasant to stand still outdoors for long. On average, since 2000 the daytime temperature has been around 9 degrees. It was really cold in 2016, when Sinterklaas set foot ashore in Maassluis. It was only 4 degrees then. A very mild arrival was in 2022 in Hellevoetsluis, with a temperature of nearly 15 degrees. Temperature does not tell the whole story, of course. The most important thing is that it stays dry. And of the 24 arrivals since 2000, it was dry as many as 20 times. It was wet in Alkmaar (2004), Gouda (2014), Dokkum (2017) and Gorinchem (2023). Now to today, Saturday 14 November. Sinterklaas is hopefully set to step ashore in Grave near Nijmegen just after midday. And the weather looks quite good. A bit fresh perhaps, with around 8 degrees on the thermometer, but there is little wind, the sun is shining well and it stays dry. So good weather for a festive arrival. Check the forecast in NOS Weer below:",
+    "sourceHash": "fb83a638eec8",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:5d501c8",
@@ -28306,23 +28262,23 @@
     "id": "news:5d50203",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "All aircraft in the US grounded due to communications fault",
-    "lead": "The American aviation authority FAA is keeping all aircraft across the whole of the US on the ground because of \"extraordinary circumstances\" and \"for safety reasons\". Transport Secretary Duffy says there is a telecommunications fault affecting all air traffic control towers in the US. He does not say exactly what is going on, but says FAA technicians are looking into it. The FAA speaks of communications problems at regional air traffic control centres. According to security sources who spoke to CNN, a first analysis indicates it is not a cyberattack. There is also no link between the worldwide Microsoft outage yesterday and today's communications problem, says the Homeland Security Secretary. The problem began around 22:00. Around 22:35 the flight tracking service Flightaware reported that 7,000 flights had already been delayed or cancelled. \"The damage could rise quickly. Thousands of euros per flight in any case\", says aviation expert Joris Melkert of TU Delft. \"And depending on how long it lasts, it rises to tens of thousands of euros if you include compensation for travellers, and the hotels that have to be booked.\" Melkert: \"Passengers will miss connections, pilots will exceed their flying hours and have to rest. It quickly runs into the millions, because there are around 15 million flights a year in the US, more than 40,000 a day. And if it goes on a bit longer, it can take days to clear all the backlogs.\" ATC, a website that monitors messages from air traffic control, reports that a problem with radio contact is being reported in Chicago. And air traffic controllers in Toronto also speak of a loss of radio traffic in the United States. For incoming international flights, how they can land is being looked at case by case. It is rare for all air traffic in the US to be halted. On 11 September 2001 this was done after the terrorist attacks with hijacked aircraft on the WTC and the Pentagon. In 2023 all air traffic was also brought to a standstill, after the so-called Notam system crashed. That is a notice containing essential information for pilots on flights. The outage lasted a few hours at that time.",
-    "sourceHash": "c919afc0c703",
+    "title": "US Air Traffic Resumes After Major Communications Outage, Equipment Was Overloaded",
+    "lead": "The American aviation authority FAA has lifted the temporary suspension of air traffic across the whole of the US. The measure had been taken due to \"exceptional circumstances\" and \"for safety reasons\". Air traffic was halted for about five hours by a failure in the communications equipment of the American air traffic control. According to the US Secretary of Transportation Sean Duffy, equipment was overloaded by a large amount of data. As a result, communication failed. He could not guarantee that such an outage would not happen again. US government officials say that new technologies added to the air traffic control system overloaded the outdated systems. As a result, communication links and radar systems failed at certain moments. It led to the longest nationwide flight stoppage in 25 years. The communication problems affected the regional air traffic control centres that guide flights between airports. The problems began around 22.00 Dutch time. FlightAware reported around 02.00 that thousands of flights had been delayed or cancelled. According to Transport Secretary Duffy, tens of thousands of people are stranded and many of them will have to spend the night at the airport out of necessity. The European air traffic control organisation Eurocontrol also temporarily suspended, at the request of the FAA, all air traffic from connected countries to the United States. Eurocontrol counts 42 connected countries, including the Netherlands. On the Schiphol website it says that flights departing for the US have been delayed by a few hours. Around 03.00 Dutch time, the FAA reopened the airspace. Shortly afterwards, airlines announced that flights could gradually resume. It will still take some time before air traffic is back to normal, possibly even days. The American authorities expect that the air traffic control system will be functioning normally in time for the heavy travel rush around Thanksgiving. 'Damage Is Mounting Quickly' According to aviation expert Joris Melkert of TU Delft, the damage from the outage can quickly mount. \"Definitely thousands of euros per flight\", he says. \"And depending on how long it lasts, it rises to tens of thousands of euros if you include compensation for passengers and the hotels that have to be booked.\" Melkert: \"Passengers will miss connections, pilots will exceed their flying hours and have to rest. It quickly adds up to millions, because there are around 15 million flights a year in the US, more than 40,000 a day. And if it goes on a bit longer, it can take days to clear all the backlogs.\" For incoming international flights, it was assessed case by case how they could land. American Airlines and Delta Airlines had earlier reported that flights already en route could continue to their destinations. Some passengers were about to depart and waited for hours on the aircraft. Other passengers waited at the airport itself for news. Earlier outages It is rare for all air traffic to be stopped in the US. On 11 September 2001 this was done after the terrorist attacks with hijacked aircraft on the WTC and the Pentagon. In 2023, all air traffic was also halted when the so-called Notam system crashed. That is a notice containing essential information for pilots on flights. The outage lasted several hours at that time.",
+    "sourceHash": "26ec36f1ab76",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:5d50207",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "It could still go wrong, is the conclusion after hours of crisis talks",
-    "lead": "From the morning until the evening, Jetten, Yesilgöz and Van den Brink sat together in The Hague to try to resolve the coalition crisis between D66, VVD and CDA. This has not succeeded. On the contrary: it is still hopelessly stuck and the crisis seems rather to have deepened. The difference in tone after the eight-hour meeting at the <entity id=\"org:ministerie-van-algemene-zaken\">ministerie van Algemene Zaken</entity> was quite striking. First the prime minister, and D66 leader, Jetten came out to face the press. Some things have not gone well and we are going to do better, was his message. \"Our work is far from finished.\" Emotions and feelings \"We all have feelings and emotions about how things have gone recently\", the prime minister said conciliatorily about the VVD. And the three parties must keep talking \"in all calm\". That talks would continue was roughly the only thing on which VVD deputy prime minister Yesilgöz agreed with Jetten. Shortly after the prime minister, she came out and went on the attack. This minority cabinet experiment has failed, we cannot continue like this, she said. She had no kind words for her coalition partners CDA and D66, who she said look too often to the left. Harsh words from the VVD leader, reckless and escalating, can be heard behind the scenes from the other two parties. Does the VVD actually want to get anywhere, D66 and CDA wonder. What is clear in any case is that there are two camps in the coalition facing each other head-on. Watch the three statements after the long meeting here: Well, an improvement \"is possible in theory\", said Yesilgöz. But that would require an \"substantive correction\" and a \"political correction\". With the latter she was referring, for example, to participation in the coalition or tolerance support from an additional right-wing party. During the formation the VVD tried to bring JA21 into the coalition, but D66 and CDA were not keen on that then. For those parties that is not on the table now either. Disillusionment D66 and CDA have recently looked more to the left than to the right, because it was easier to get things done with the left. Yesterday that resulted in a majority for the tax plan with the left, without the VVD. And the VVD found that \"disillusioning\". Or in the words of the other deputy prime minister, CDA member Van den Brink, who came out third: \"There has of course been an enormous amount going on\". After Yesilgöz and Jetten he had his say, but he did not want to comment on the other two. \"I am not going to respond to loose statements.\" To the King Van den Brink stressed above all that <entity id=\"org:kabinet\">het kabinet</entity> bears a heavy responsibility in the national interest. \"That is why we are going to continue the intensive talks.\" That will happen this weekend at the De Zwaluwenberg estate, where the parties will meet. And after that it may become clear whether the coalition can still keep the ball rolling a little further. But the outcome could also be, Yesilgöz stressed, \"that the three of us decide to go to the King\". For the avoidance of doubt: when cabinets fall, they offer their resignation to the King.",
-    "sourceHash": "e37e70d1d631",
+    "title": "It Could Still Go Wrong, Is the Conclusion After Hours of Crisis Talks",
+    "lead": "From morning until evening, Jetten, Yesilgöz and Van den Brink sat together in The Hague to try to avert the coalition crisis between D66, VVD and CDA. That has not succeeded. On the contrary: it is still stuck fast and the crisis seems to have deepened. Quite striking was the difference in tone after the eight-hour meeting at the <entity id=\"org:ministerie-van-algemene-zaken\">ministerie van Algemene Zaken</entity>. First, the prime minister and D66 leader Jetten came out to face the press. Things have not gone well and we are going to do better, was his message. \"Our work is far from finished.\" Emotions and feelings \"We all have feelings and emotions about how things have gone recently\", the prime minister said conciliatorily about the VVD. And the three parties must continue talking \"in complete calm\". That talks will continue was roughly the only point on which VVD deputy prime minister Yesilgöz agreed with Jetten. Shortly after the prime minister, she came out and went on the attack. This minority cabinet experiment has failed, we cannot go on like this, she said. She had no kind words for her coalition partners CDA and D66, who, she said, look too often to the left. Harsh words from the VVD leader, reckless and escalating, can be heard behind the scenes from the other two parties. Does the VVD actually want to find a way out, D66 and CDA wonder. What is clear, in any case, is that there are two camps in the coalition facing each other directly. Watch the three statements after the long meeting here: Well, an improvement \"is theoretically possible\", said Yesilgöz. But that would require an \"substantive correction\" and a \"political correction\". With the latter she meant, for example, participation in the coalition or tolerance support from an additional right-wing party. During the formation, the VVD tried to bring JA21 into the coalition, but D66 and CDA were not keen on that then. For those parties, that is not on the table now either. Disillusionment D66 and CDA have recently looked more to the left than to the right, because things could be done more easily with the left. Yesterday this resulted in a majority for the tax plan with the left, without the VVD. And the VVD found that \"disillusioning\". Or in the words of the other deputy prime minister, CDA member Van den Brink, who came out third: \"There has naturally been an enormous amount going on.\" After Yesilgöz and Jetten he had his say, but he did not want to comment on the other two. \"I am not going to respond to loose statements.\" To the king Van den Brink stressed above all that <entity id=\"org:kabinet\">het kabinet</entity> bears a heavy responsibility in the national interest. \"That is why we are going to continue the intensive talks.\" That will happen this weekend at the De Zwaluwenberg estate, where the parties will meet. And afterwards it may become clear whether the coalition can still keep the ball rolling a little further. But the outcome could also be, Yesilgöz emphasised, \"that the three of us decide to go to the king\". For the avoidance of doubt: when a cabinet falls, it offers its resignation to the king.",
+    "sourceHash": "03bd1a38d1a3",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:5d5051b",
@@ -28334,6 +28290,83 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:5d5055c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US Air Force responds to drone activity at British air base",
+    "lead": "The US Air Force went into action last night after reports of suspected unauthorised drone activity at the British Royal Air Force base RAF Lakenheath in eastern England. It is unknown whether any drones were actually observed. According to the Americans, no military personnel, aircraft or buildings were affected in any case. The situation has now been resolved. The British Ministry of Defence also confirms that US Air Force security personnel responded to reports of the drone activity. \"We are working closely with them to establish exactly what happened\", says a spokesperson for the ministry. This is another security incident at a British air base. At the end of September, five men were arrested at the RAF Fairford British air base on suspicion of preparing a terrorist attack. Seven men have now been arrested in total. Two of them have been charged with possibly assisting the Iranian intelligence service. British Prime Minister Andy Burnham said he sees strong indications that Iran played a role in the incident at Fairford. The United States has in recent weeks withdrawn bombers that had been deployed in attacks on Iran from Great Britain. Large tanker aircraft were also moved to Germany. According to American media, this was due to a threat from Iran. Iran denies involvement in the incident at Fairford and in other hostile activities in Great Britain.",
+    "sourceHash": "12b3ebeac735",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
+    "id": "news:5d5055d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "White House: next week trilateral talks between Trump, Putin and Xi",
+    "lead": "The White House reports that there will be a unique summit next week between the leaders of the US, China and Russia. The US government informed journalists of this overnight. The Chinese government has not confirmed the three-party meeting. If it goes ahead, it will be the first time the leaders of those countries speak together. The meeting would take place during the Asia-Pacific Economic Cooperation (APEC) summit in the Chinese city of Shenzhen and would cover, among other things, reducing nuclear weapons. \"President Trump believes that the expansion of nuclear weapons is very dangerous\", spokeswoman Olivia Wales of the White House told reporters. The last nuclear weapons treaty between the US and Russia expired in February. Anonymous analysts tell the American press that they do not expect a new agreement. \"I would describe this as the starting point, the first conversation at the level of these leaders between the countries\", a official tells CNN. \"So this is the beginning of what hopefully can become a productive conversation.\" Speaking to news agency Reuters, an anonymous American official says that the Iran issue will most likely also be discussed. The official expects that talks about Ukraine will be avoided. Nor is Trump expected to hold a one-on-one conversation with Putin. Trump has been hoping for weeks for the three-party meeting, but as far as is known China has not agreed to take part. Wednesday sees the start of the two-day APEC summit. This is an economic conference of 21 Asian and Pacific countries, in which the US and China also take part. Trump departs on Monday for a four-day trip to Asia. He will also stop in the Philippines.",
+    "sourceHash": "2abd53acd41c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
+    "id": "news:5d5055e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "WSJ: America loses measles-free status",
+    "lead": "America has lost its status as a measles-free country. The Wall Street Journal writes this, based on anonymous sources. According to the paper, the international health organisation Pan American Health Organization has withdrawn America's measles-free status. The US received that status in 2000 after the country eliminated the contagious infectious disease through a strong vaccination campaign and by making vaccinations free for many children. Over the past two years infections have increased enormously. This year alone the Centers for Disease Control and Prevention (CDC) has registered more than 5400 cases of measles. In 2025 there were 2289 in total and in 2024 only 285. The governor of New York attributes the rising infections to the policy of <entity id=\"org:regering\">de regering</entity>-Trump. According to her, the government has undermined trust in vaccinations. The vaccination rate has fallen in the past year and is now below the required 95 percent needed to keep the disease under control. In Wisconsin a baby died of measles earlier this month. That was the first fatal case in the state in 36 years. Shortly before that a child also died of the disease in the state of New York. Hundreds of people were infected in both states. To regain the status, the US must stop the spread of measles for at least twelve months. What are measles? Measles is one of the most contagious infectious diseases in the world. A measles infection usually runs mild, but serious complications can occur and the patient can die from it. The virus sits in the throat of someone who is infected. When someone with measles coughs or sneezes, tiny droplets of the virus enter the air. The infection most often affects babies under twelve months old. In the Netherlands children receive the MMR vaccination at 14 months and 3 years. The vaccination protects against measles, mumps and rubella. Since the introduction of the measles vaccination in 1976, a few dozen cases of measles have been reported each year in the Netherlands. According to the reports, eleven deaths due to measles have been known since 1981 in total.",
+    "sourceHash": "59dac4c6549c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
+    "id": "news:5d5055f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Passengers left uncertain after major flight stoppage in US: 'I am stuck here'",
+    "lead": "The United States was hit last evening and overnight by the longest nationwide flight stoppage in 25 years. The cause was outdated communications equipment of air traffic control, which became overloaded. After about five hours the flight ban was lifted and the aviation authority FAA released the airspace again. Air traffic could then gradually resume. Although the flight ban has been lifted, the problems for travellers are far from over. From Boston to Seattle and from New York to Los Angeles, departure halls and airline counters are full of passengers. In New York hundreds of people are waiting for their luggage. Others are trying to get information about their flight. People are forced to change their plans. No information One of the affected travellers is Amber McQuilkin. She was at Chicago airport and wanted to go to New York for a week. Her friends were already at their destination, but it is uncertain whether her flight will still go ahead. \"Essentially no information is being passed on to me,\" she tells the news agency AP. A couple stranded in Chicago also saw their trip to Denver come under threat. They were on their way to a friend's baby shower and were already on the plane when they had to leave it. \"We saw that they were taking the luggage off our plane and other planes. That is why we think this will be a fairly long delay.\" Edward Kargbo from Pennsylvania was due to fly to Togo in the evening, but had to spend the night at the airport. \"I am stuck here,\" he says. Louise Maher was hit by the chaos at Newark airport in New Jersey. Her British Airways flight to London was delayed. \"Perhaps at some point I will have to cry, but not yet for now,\" she tells Reuters. Other travellers also complained about a lack of information. One passenger who had landed in Chicago thought he would be able to leave the plane within minutes. But because of the disruption he had to remain on the runway for another two and a half hours. Days to last The consequences will still be noticeable in the coming days. According to aviation analysts, it may take days before flight schedules are back to normal. Passengers are advised to check the latest information about their flight before coming to the airport. Many airlines have cancelled flights and expect that many flights will still be unable to depart today.",
+    "sourceHash": "da9cb016405f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
+    "id": "news:5d50560",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "D66, VVD and CDA continue crisis talks at the De Zwaluwenberg estate, outcome uncertain",
+    "lead": "The crisis talks between D66, VVD and CDA about the future of <entity id=\"org:kabinet\">het kabinet</entity>-Jetten continue today at the De Zwaluwenberg estate. Here Jetten and D66 <entity id=\"person:jan-maarten-paternotte\">fractievoorzitter Paternotte</entity>, VVD leader Yesilgöz and VVD <entity id=\"person:ruben-pieter-brekelmans\">fractievoorzitter Brekelmans</entity> and deputy prime minister Van den Brink and CDA <entity id=\"person:hendrik-bontenbal\">leider Bontenbal</entity> come together. Jetten announced yesterday evening that he will hold \"fundamental conversations\" this weekend to achieve improvements on the \"substantive, political and personal\" level. These conversations are necessary after it became clear on Friday evening, following over eight hours of talks at the <entity id=\"org:ministerie-van-algemene-zaken\">ministerie van Algemene Zaken</entity>, that the coalition crisis has not yet been resolved. Yesilgöz, immediately after Jetten's conciliatory words, went on the attack. She called the minority cabinet a \"failed experiment\" and put a few demands on the table with the underlying message: the two coalition parties D66 and CDA must no longer do business with the left, and there may still need to be another right-wing party in the cabinet. See here how Jetten and VVD leader Yesilgöz took a different tone: that no way out has been found for the coalition crisis at the Ministry of General Affairs is clear, and the outcome of the talks this weekend cannot be predicted. At D66 and the CDA they are shocked by Yesilgöz's hard approach. These parties find it difficult to judge whether the VVD really wants to resolve this. That should become clear today and tomorrow at De Zwaluwenberg. Two camps now face each other and this must be resolved for the cabinet to function well. The key players will not stay overnight at the estate, as happened earlier. And the chance is small that they will speak to the press during their \"fundamental conversations\", which the press is also not allowed to enter the estate for.",
+    "sourceHash": "8475a75c00d9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
+    "id": "news:5d50562",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Italian minister: schools not immediately closed after bomb threat",
+    "lead": "Schools in Italy no longer have to be automatically evacuated after a bomb threat sent by email. That is stated in a guideline from Interior Minister <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> Piantedosi, sent to regional administrators and police chiefs. That is reported by the Italian news agency ANSA. The occasion is the bomb threats that were sent to thousands of Italian schools on two consecutive days last week. More than 300 schools were evacuated. Prime Minister Meloni said earlier that the false reports appear intended to cause fear. The guideline sets out how the authorities must act in the event of new bomb threats. An evacuation is no longer automatic, but must be weighed on the basis of additional indications of danger. This includes, among other things, whether suspicious objects have been found and whether camera footage shows unusual situations. Furthermore, previous incidents or reports may point to a concrete threat. Identical threats: The way the threat is expressed also plays a role. Identical threats sent en masse from the same source to different recipients must, according to the guideline, be regarded as not credible. The police chief examines the threat as part of his approach and takes any necessary security measures. If evacuation is necessary, he proposes it to the prefect, who decides on it. Schools must immediately report any threats to the police.",
+    "sourceHash": "c5b59fff6943",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
+    "id": "news:5d50565",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nvidia boss affair exposes risks of ties between the tech world and American politics",
+    "lead": "Now that Jensen Huang, chief executive of chipmaker Nvidia, has stepped down, American politics is openly asking whether the close ties between the government and the chief executive have caused blind spots. Under President Trump the way was cleared for unrestrained growth in artificial intelligence, but any risks appear to have been brushed aside. Last week it came to light that Huang had an affair with someone suspected of spying for China. Last October, according to the New York Times, Trump was already informed of the affair and its possible dangers by American security services. Trump decided not to take any further action. Indeed, two months later he permitted the sale of more powerful chips to China. Warnings about this from Secretary of State Marco Rubio were also brushed aside. Chip technology For nearly ten years America has tried to make it difficult for China when it comes to obtaining advanced chip technology, but under Trump that is no longer the case. Trump sees no problem, because in his view Nvidia's chips are 'too advanced to copy', he said this week. Another counterargument, according to Trump and Huang, is that it is important for the American economy if Chinese companies remain dependent on these American chips. And so Huang was also allowed to attend two state dinners with Chinese President Xi in Beijing and in Washington. The success of Nvidia and the White House are becoming increasingly intertwined. In exchange for allowing chip exports to China, the government in some cases even receives up to 25 percent of the revenue from these sales. AI development is an important pillar for Trump's government and for economic growth. It is likely that from the end of next year 4 percent of the entire American economy will be attributable to AI, according to a report by the investment bank Goldman Sachs. Close ties There is little sign of reflection in the government so far. Yet there are voices calling for Minister of Commerce Howard Lutnick to be held responsible. Lutnick, according to news website Axios, repeatedly stood in the way whenever export restrictions were discussed within the government. He has had close ties with Jensen Huang for years. Moreover, according to the Wall Street Journal, Lutnick is an important link for tech companies to get close to the president. The question is whether Trump dares to sacrifice his good friend Lutnick to keep himself out of the wind. Trump himself so far mainly regrets that he has lost an important partner in Huang and called him a 'legend'. Other tech bros seem to feel the same. They are mostly worried that Huang's departure will have consequences for the rest of the AI world and are trying to limit the damage. Tesla and SpaceX boss Elon Musk even offered Huang a job. China wants answers Congress, on the other hand, is sharpening its knives. They want Huang to testify before <entity id=\"org:eerste-kamer\">de Senaat</entity> to provide answers about the alleged spy. Howard Lutnick has also been invited to testify. That will not be the end of it. With a Democratic Congress on the way after the elections, there is a good chance that further investigation will follow into the entanglement between business and the White House. It also still needs to become clear whether important information actually reached China through Huang's extramarital relationship. Beijing still firmly denies this and says that Asian women are being demonised by this accusation. Within the US, it has also not yet been definitively established whether Huang indeed had an affair with a spy. China will in any case want answers if Trump travels to Shenzhen next week for an economic summit that Xi will also attend. At the previous meeting, both leaders precisely agreed to communicate better about AI and the rules surrounding it. The fear is that this affair has created new mistrust.",
+    "sourceHash": "498307aed2fb",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:5d5ea7",
@@ -28721,6 +28754,17 @@
     "translated": "2026-11-11"
   },
   {
+    "id": "news:5f0fc001",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "What to do about the winter slump now that it gets dark so early?",
+    "lead": null,
+    "sourceHash": "29458c1d0fba",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:5f11de76",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28897,6 +28941,17 @@
     "translated": "2026-11-06"
   },
   {
+    "id": "news:5fbea434",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nationwide Flight Ban in the US Lifted, Air Traffic Gets Going Again",
+    "lead": null,
+    "sourceHash": "d3c261852857",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:5fc02ec6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28950,17 +29005,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-05"
-  },
-  {
-    "id": "news:5ffd29c9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Netherlands does not want to release extra diesel, but international pressure is increasing",
-    "lead": "The International Energy Agency (IEA) will discuss on Thursday whether countries should release more oil and oil products from their emergency stocks. The Netherlands does not want to do so for now. <entity id=\"org:regering\">De regering</entity> fears the reserves may be needed more urgently later if the global oil crisis worsens.",
-    "sourceHash": "1efbc50800b0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
   },
   {
     "id": "news:60000a29",
@@ -29379,17 +29423,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:61e62f9f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Stop the gin brothers! Workers in the Jordaan took action against hard liquor in 1843",
-    "lead": null,
-    "sourceHash": "52fe2d0381b7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:61f0a112",
@@ -30569,17 +30602,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:67816f88",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Faded Texas has also voted against buzzing delivery drones: 'You only understand how annoying they are when you experience it yourself'",
-    "lead": null,
-    "sourceHash": "ae7bc5b40ef7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-08"
-  },
-  {
     "id": "news:678601f7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31185,17 +31207,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:69dd9b87",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Tweezers at the ready: at stamp association De Zegelaars in Diemen, everyone is searching for that one stamp",
-    "lead": null,
-    "sourceHash": "20c572dcd4e6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:69e95c16",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31227,17 +31238,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:6a104988",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "5 million euros, harsh words and a German keeper who may still prove better than the Kuip's feeling",
-    "lead": "The cynical little clap from the Kuip when Tjark Ernst plucked a simple cross from Internazionale out of the air shows how hard the 23-year-old German is finding it at Feyenoord. Part of the fanbase and the analysts have passed their verdict: this keeper is not good enough for Feyenoord. But is that really so?",
-    "sourceHash": "0c9cb39674a5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:6a133a60",
@@ -31438,17 +31438,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:6aa0d11f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The climate summit in Antalya is becoming a search for allies, but money is a breaking point",
-    "lead": "The most important climate agreements are on the table. At the upcoming summit in Turkey, it comes down to the question: how should those goals be put into practice? And that is precisely where it hurts.",
-    "sourceHash": "f0e20d4cf7b4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:6ab0762a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31504,17 +31493,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:6ad86651",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "On Wednesday the council decides on the ban on sleeping outdoors: will homeless people from across the country come to Amsterdam, as the right fears?",
-    "lead": null,
-    "sourceHash": "d14a789ca6e4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-08"
-  },
-  {
     "id": "news:6ad920e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31568,6 +31546,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
+  },
+  {
+    "id": "news:6b2dc033",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Difficult mother, toxic ex: that must be a narcissist. What does the tendency to see narcissists everywhere say about ourselves?",
+    "lead": null,
+    "sourceHash": "07012ada39d0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:6b572196",
@@ -31878,6 +31867,17 @@
     "translated": "2026-11-13"
   },
   {
+    "id": "news:6c8f05aa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In the power game over the war in Ukraine, Europe must act as one bloc",
+    "lead": "Europe should not expect help from Washington for the time being; for Trump, Putin's macabre war of destruction against Ukraine has never been a reason to change course.",
+    "sourceHash": "c210d3c9bea9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:6ca84a38",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31966,17 +31966,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:6ce8be33",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "A few jars of brown beans and a knijpkat: my old mother is well prepared for the apocalypse",
-    "lead": null,
-    "sourceHash": "e41f3610616b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:6ceadef2",
     "language": "nl",
     "sourceLanguage": "en",
@@ -32041,6 +32030,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:6d452644",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why the power struggle between a fraudster and a documentary maker is so fascinating",
+    "lead": "Few documentaries have captured people's attention like You Can See Everything. Online, people cannot stop talking about the film by Nathan Fielder and Lance Oppenheim, which follows convicted fraudster Elizabeth Holmes. But what makes the documentary so fascinating?",
+    "sourceHash": "fc3321d4de92",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:6d499961",
@@ -32382,6 +32382,28 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-09"
+  },
+  {
+    "id": "news:6ebfc898",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cuban president: we are preparing for a possible American attack",
+    "lead": "Cuba is preparing for a possible American military attack. That is what Cuban president Miguel Díaz-Canel said on Friday.",
+    "sourceHash": "8e1168b3a9e0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
+    "id": "news:6ec289dc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Explainer | Why Ukraine thinks it is stronger than it was months ago",
+    "lead": null,
+    "sourceHash": "ac4e5c56b291",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:6ec3ea33",
@@ -33152,17 +33174,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:71aadcb6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "A32 near Grou reopened after emergency repairs, also inspections of other aqueducts",
-    "lead": "The A32 at the Frisian town of Grou was reopened in both directions just before midnight on Friday evening. The road was closed on Thursday evening due to a dangerous situation near the Aquaduct Mid-Fryslân. The glass panels of the lights above the road surface could fall down.",
-    "sourceHash": "9e110de7654a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:71b21105",
@@ -34136,12 +34147,12 @@
     "id": "news:756a75",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Financial Times: Nvidia sounds out chip designer Arm chief as successor to departing Jensen Huang",
+    "title": "White House: Trump to meet Putin and Xi in China on Thursday",
     "lead": null,
-    "sourceHash": "129786351356",
+    "sourceHash": "ccbc7b07c63c",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:757e1fa3",
@@ -34595,17 +34606,6 @@
     "translated": "2026-11-04"
   },
   {
-    "id": "news:776c879e",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Voormalige zzp'ers vinden snel werk, vaak in een andere sector: DNB",
-    "lead": "Het aantal zelfstandigen in Nederland is gedaald, maar dat heeft nauwelijks tot een stijging van de werkloosheid geleid, blijkt uit een analyse die door De Nederlandsche Bank is gepubliceerd. Het",
-    "sourceHash": "80fac9b0cac4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:7778621b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34799,17 +34799,6 @@
     "title": "Schreiber thought she had it, but then came the jury: Lucinda Brand is European cyclocross champion",
     "lead": null,
     "sourceHash": "d83a9fbbcb25",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
-    "id": "news:7823793f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "A32 open again after emergency repairs, other aqueducts being examined",
-    "lead": "The A32 at the height of Grou in Friesland reopened in both directions just before midnight. The road closed on Thursday evening due to a dangerous situation near the Aquaduct Mid-Fryslân.",
-    "sourceHash": "c43c00ea7125",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
@@ -35495,6 +35484,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-08"
+  },
+  {
+    "id": "news:7ad3979b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A cabinet collapse in slow motion?",
+    "lead": "There is still a <entity id=\"org:kabinet\">kabinet</entity> and, after a spectacular denouement, the Tax Plan was also adopted on Thursday after months of negotiating, but without the support of the VVD.",
+    "sourceHash": "293bae1058b3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:7ad87803",
@@ -36520,6 +36520,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:7ef4c0b5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Starship launched successfully, but lower stage catches fire at sea",
+    "lead": "The fifteenth test flight of SpaceX's Starship rocket was successfully placed into orbit around the Earth, but suffered a setback. The lower stage of the rocket came down in the sea and caught fire.",
+    "sourceHash": "288645c5580b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:7efb732c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36674,6 +36685,17 @@
     "translated": "2026-11-08"
   },
   {
+    "id": "news:7f9c0a06",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dozens of tenants demand back dubious cash payments from landlord: 'It is bleeding us dry'",
+    "lead": "Landlord Marcel van Hooijdonk has in recent years already faced an order subject to a penalty, a criminal conviction and exposure by BOOS. Yet he continues to take money from tenants. Dozens of tenants are now demanding almost 20 thousand euros back through a summons.",
+    "sourceHash": "199209565a70",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:7fb76e8d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36749,6 +36771,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-09"
+  },
+  {
+    "id": "news:8034ceab",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Iran: two oil tankers set on fire by mines in Strait of Hormuz",
+    "lead": null,
+    "sourceHash": "a484af59c9da",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:803c2b23",
@@ -37013,6 +37046,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-05"
+  },
+  {
+    "id": "news:81518db1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Iran: two oil tankers set on fire by mines in Strait of Hormuz",
+    "lead": "According to the Iranian Revolutionary Guard Corps (IRG), two oil tankers caught fire on Saturday after sailing onto mines in the Strait of Hormuz. The IRG reports this in a statement via Iranian state broadcaster. Follow all developments in the Middle East in our liveblog.",
+    "sourceHash": "8b12a33aa469",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:816a2b2c",
@@ -38159,6 +38203,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:8657b377",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "EU opts for separate representatives in Ukraine peace talks",
+    "lead": "Representatives of the EU and of the so-called E5 (the United Kingdom, France, Germany, Italy and Poland) will be appointed to represent Europe in future negotiations on peace in Ukraine. EU leaders agreed to this on Friday at an informal summit in Dublin, EU leaders' president António Costa said at a press conference. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "f000b37966ea",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:867466ee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38555,17 +38610,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:8808cbc6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Job Cohen and Jozias van Aartsen join the Rode Lijn march: 'Jetten shows insufficient leadership'",
-    "lead": null,
-    "sourceHash": "673ba3329c7c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:8819149e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38773,17 +38817,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
-  },
-  {
-    "id": "news:8907fd30",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Betrouwbare mannetjes followed the update on the tax plan",
-    "lead": null,
-    "sourceHash": "da796b7078df",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:890b26c3",
@@ -40865,6 +40898,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:90227970",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "B&B full of lies: reality show misleads viewers and participants",
+    "lead": "After several scandals at reality programmes, RTL promised improvement with B&B Vol Liefde. An authentic programme about real people who are sincerely looking for love.",
+    "sourceHash": "bf46525dd54b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:90389d41",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41107,6 +41151,17 @@
     "translated": "2026-11-07"
   },
   {
+    "id": "news:911592d8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "With Veerman and De Jong in midfield, Oranje is more threatening and stable: 7-0",
+    "lead": "With Frenkie de Jong returning, the Netherlands played with two holding midfielders, which worked well: the Netherlands beat Greece 7-0.",
+    "sourceHash": "0c4d6951017a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:912d5591",
     "language": "nl",
     "sourceLanguage": "en",
@@ -41226,6 +41281,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:918ff42d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "White House: Trump to meet Xi Jinping and Putin in China on Thursday",
+    "lead": "The White House announced on Friday that US President Donald Trump will meet Russian President Vladimir Putin and Chinese President Xi Jinping on Thursday. The meeting will take place on the sidelines of the APEC summit (Asia-Pacific Economic Cooperation) in the Chinese city of Shenzhen. Follow all developments in the United States via our liveblog.",
+    "sourceHash": "6c69a9f0f93e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:91966984",
@@ -41701,6 +41767,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:938dc743",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cuban president: we are preparing for a possible American attack",
+    "lead": null,
+    "sourceHash": "9623748adaf3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:93915967",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42053,17 +42130,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:94d3816c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Wiegel's papers are indeed in the National Archives, but will Jetten's end up there too? National Archives future vision causes uproar",
-    "lead": null,
-    "sourceHash": "101fc6b95870",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:94d8b92c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42405,17 +42471,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:966900c1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "So this is what betrayal of vulnerable people looks like, I realised with horror",
-    "lead": null,
-    "sourceHash": "7bdaea7f48ec",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-08"
-  },
-  {
     "id": "news:9677de39",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42436,17 +42491,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
-  },
-  {
-    "id": "news:9691959d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Explainer | Lots of oil is flowing through Hormuz again: why does the price remain so high?",
-    "lead": null,
-    "sourceHash": "48594e5f6084",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:96a5a6de",
@@ -42933,6 +42977,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:98b68ece",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nationwide Flight Ban in the US Lifted, Air Traffic Gets Going Again",
+    "lead": null,
+    "sourceHash": "d3c261852857",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:98c8dd81",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43266,12 +43321,12 @@
     "id": "news:9a3272ae",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "All aircraft in the US must stay grounded due to communication problem",
-    "lead": "There is a communication problem affecting the various air traffic control centres across the country, says Transport Secretary Sean Duffy. According to CNN, there is so far no sign of a cyberattack.",
-    "sourceHash": "2592408e1a57",
+    "title": "Thousands of Flights in the US Cancelled After Hours-Long Communications System Failure",
+    "lead": "The communication problem affected several air traffic control centres across the country. Meanwhile, flights at American airports are gradually resuming.",
+    "sourceHash": "69e83d2b1630",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:9a3c5c2c",
@@ -43294,17 +43349,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:9a53257",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Exactly Four",
-    "lead": null,
-    "sourceHash": "e7fcdf3c307a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:9a53258",
@@ -43371,6 +43415,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:9a53275",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Exactly Four",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:9a7e8545",
@@ -43989,39 +44044,6 @@
     "translated": "2026-11-06"
   },
   {
-    "id": "news:9cc81aa3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rode Lijn demonstration again on Sunday in Amsterdam: 'Israel is not a normal country and does not do normal things'",
-    "lead": null,
-    "sourceHash": "e019015c4d51",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
-    "id": "news:9ccaaeac",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "US carries out new attacks on Iranian island of Qeshm, Iran reports shooting down American drone",
-    "lead": null,
-    "sourceHash": "44d1348547ba",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
-    "id": "news:9cd2eafa",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Zwarte Piet or we're out': Het Sinterklaasjournaal came close to going under",
-    "lead": "Zwarte Piet out or we're out. According to Jeroen Kramer, this was the message to the makers' team in 2018. In its 25th year, Het Sinterklaasjournaal nearly sank in a single crisis.",
-    "sourceHash": "831dbbd62863",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:9cd6b0c4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44086,6 +44108,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:9cf6c61b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Scrypto",
+    "lead": "This is not a fill-in exercise: wrestle with double meanings until the grid works",
+    "sourceHash": "611cdbbdd0ad",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:9cfafa80",
@@ -44286,17 +44319,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:9da95e21",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Opinion: 'Is a woman's life an exercise in enduring violence? Or shall we no longer put up with this?'",
-    "lead": null,
-    "sourceHash": "7b82b757cce0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-08"
-  },
-  {
     "id": "news:9db0c079",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44317,17 +44339,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-09"
-  },
-  {
-    "id": "news:9dd58ff3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "DNB sees a break in trend: self-employed workers quit en masse and quickly find permanent jobs",
-    "lead": "It is a striking break in trend: after twenty years, the number of self-employed people in the Netherlands is falling, and rapidly too. Halfway through this year there were 131,000 fewer freelancers than at the end of 2024. The possible cause: the strict checks by the <entity id=\"org:belastingdienst\">Belastingdienst</entity> on sham self-employment.",
-    "sourceHash": "51c7deee7612",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
   },
   {
     "id": "news:9dd75108",
@@ -44572,15 +44583,15 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:9e9f1583",
+    "id": "news:9e94e494",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Escaping the daily shitshow",
-    "lead": "Only when people come under heavy pressure do you find out what they are made of, and whether they are willing to hold on to their principles, writes columnist Han Dirk Hekking.",
-    "sourceHash": "deaf7f8d1e80",
+    "title": "Barrels full of arsenic, flares and black soot clouds: a former one of Europe's dirtiest toxic waste dumps stood on the Diemerzeedijk",
+    "lead": null,
+    "sourceHash": "50cf16b6cee8",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-07"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:9ea5a81c",
@@ -45188,17 +45199,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:a0a1f237",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Herman Koch: 'The tram is for tourists, there are hardly any Amsterdammers left on it'",
-    "lead": null,
-    "sourceHash": "924e26ccfc69",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-01"
-  },
-  {
     "id": "news:a0a2760b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45697,12 +45697,12 @@
     "id": "news:a2a7e85b",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "'Exceptional' disruption in US could disrupt air traffic worldwide for days",
-    "lead": "In the United States, aircraft have been grounded since Friday afternoon (local time). The disruption may be caused by faltering communication systems. Either way, this situation is 'very exceptional', says aviation expert Joris Melkert.",
-    "sourceHash": "1deda50bbc16",
+    "title": "'Exceptional' disruption in the US could disrupt air traffic worldwide for days",
+    "lead": "In the United States, aircraft were grounded for at least four hours overnight. The disruption was caused by malfunctioning communication systems. This situation is 'very exceptional', said aviation expert Joris Melkert.",
+    "sourceHash": "1e241f1a26eb",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:a2b15d85",
@@ -45969,17 +45969,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:a432517",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cold start to the weekend, but with large differences between north and south of the country",
-    "lead": "The weather picture has two faces on Saturday. While the weekend began regionally cold and misty with light frost, the thermometers show considerable contrasts on Saturday afternoon. Where the north stays stuck in grey at a meagre 4 to 5 degrees, the mercury in the south, with some sun, reaches double digits.",
-    "sourceHash": "5a147b35bf78",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:a43d0791",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46154,6 +46143,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-11"
+  },
+  {
+    "id": "news:a4b6d04a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "3 in 10 parents see children get upset during Sinterklaas season: 'Wetting the bed again when the Sinterklaas Journal starts'",
+    "lead": "Children are more restless, sleep worse or are in fact much more cheerful: 3 in 10 (27 percent) parents with primary school children notice that their child is out of sorts in the run-up to the Sinterklaas celebration.",
+    "sourceHash": "403bd2b26910",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:a4c086ba",
@@ -46352,17 +46352,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-06"
-  },
-  {
-    "id": "news:a5785fc8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Just before I went to bed, Miles Davis looked at me intently",
-    "lead": null,
-    "sourceHash": "b4a15df88939",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-08"
   },
   {
     "id": "news:a57f3ab2",
@@ -46706,17 +46695,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:a7519aab",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Nanook (28) was not the highest bidder, but thanks to a striking action she has now bought her dream home after all",
-    "lead": "People bid tens of thousands of euros above the asking price and invariably write beautiful motivation letters, but in 2026 that is far from always enough to secure a home. After many disappointments, Nanook van der Pol (28) decided to take a different approach. She set up a petition in her future neighbourhood. And with success: despite not being the highest bidder, she will soon receive the key to her dream home.",
-    "sourceHash": "20e076616fcc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:a76a8ae2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46946,6 +46924,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
+  },
+  {
+    "id": "news:a857725b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet crisis not over yet: parties keep talking at Zwaluwenberg",
+    "lead": "The political crisis in <entity id=\"org:kabinet\">het kabinet</entity> is far from over. Prime Minister <entity id=\"person:rob-jetten\">Rob Jetten</entity> and the leaders of coalition parties D66, VVD and CDA are talking again today about the future of the cabinet. They are doing so at the Zwaluwenberg estate in Hilversum. The parties are still diametrically opposed, says political correspondent Fons Lambie.",
+    "sourceHash": "c808f306ce53",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:a86a190b",
@@ -47487,6 +47476,17 @@
     "translated": "2026-11-10"
   },
   {
+    "id": "news:aaf1b3a2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tanker collides with cruise ship carrying 150 people in New Orleans: 32 injured taken to hospital",
+    "lead": "A tanker collided with a river cruise ship in the port of the American city of New Orleans. According to the local broadcaster Fox8, about 150 people were on board the American Cruise Lines ship. After the collision, 32 people were admitted to hospital, the broadcaster reports.",
+    "sourceHash": "f78ca687da2f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:aaf1d917",
     "language": "nl",
     "sourceLanguage": "en",
@@ -47639,17 +47639,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
-  },
-  {
-    "id": "news:ab86801f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Frisian supermarket chain Poiesz has not been for sale for more than a hundred years",
-    "lead": "It began with a cargo bike loaded with green beans and cauliflower. Now, more than a hundred years later, the sixth generation is poised to lead supermarket chain and family business Poiesz.",
-    "sourceHash": "5ca692e0903f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:ab8fe8d7",
@@ -47817,17 +47806,6 @@
     "translated": "2026-11-08"
   },
   {
-    "id": "news:ac34bd6c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Complex Implants",
-    "lead": "Eleven years ago he arrived in the Netherlands as a refugee. His diplomas lay at the bottom of the Mediterranean Sea, but he was absolutely determined to become a dentist.",
-    "sourceHash": "b27ac1c577cb",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:ac3684df",
     "language": "en",
     "sourceLanguage": "nl",
@@ -47914,6 +47892,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:ac88a3ae",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Opinion: 'Less litter on the street? Forget bins and tackle fast food culture'",
+    "lead": null,
+    "sourceHash": "755d5b4477f9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:ac8c8cf6",
@@ -48367,17 +48356,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:ae5cf379",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Your Move",
-    "lead": null,
-    "sourceHash": "0ca9c42013e9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:ae5cf37a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48442,6 +48420,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:ae5cf397",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Your Move",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:ae5ddfd1",
@@ -48722,12 +48711,12 @@
     "id": "news:af6e73df",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Over 1,700 Dutch complaints about Microsoft outage",
+    "title": "Microsoft: all consumer products fully restored",
     "lead": null,
-    "sourceHash": "99b98c06d201",
+    "sourceHash": "d3940947946e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-13"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:af81e8bf",
@@ -48992,17 +48981,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:b08ae316",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "These cars are the most and least reliable according to millions of Belgian vehicle inspections",
-    "lead": "Which car lasts for years without expensive repairs? And are electric cars really as reliable as is often thought? A unique analysis of more than two million Belgian vehicle inspections shows which models stand out and which you as a used car buyer would be better off avoiding.",
-    "sourceHash": "a93cee85b623",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:b093c13c",
@@ -50281,15 +50259,15 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:b644ece6",
+    "id": "news:b64984e9",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "How Chinese counterfeit medicines are flooding the European market",
-    "lead": "Increasingly, experimental peptides are coming to the European market from China. Dutch webshops resell the products with substantial margins, sometimes at nearly twelve times the purchase price. But what is in the vials, and whether the products are safe to inject, is hardly verifiable.",
-    "sourceHash": "b498dbfcf563",
+    "title": "8000 flights in US cancelled due to communication disruption in air traffic",
+    "lead": "Air traffic in the United States is no longer disrupted, the aviation authority FAA reported shortly after 02.15 (Dutch time) overnight. All aircraft in the country were grounded for four hours, and more than a million travellers have been affected. We will keep you informed of the situation in this liveblog.",
+    "sourceHash": "697bf2d029ac",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-07"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:b64bb29a",
@@ -50356,17 +50334,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
-  },
-  {
-    "id": "news:b671de36",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ousted president of Paraguay under house arrest after bank collapse",
-    "lead": null,
-    "sourceHash": "e86405cc370b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:b6895a6a",
@@ -50521,6 +50488,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
+  },
+  {
+    "id": "news:b759e71c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Explosive statement from witness who saw video footage of 'Bolle Jos' shortly after Overasselt",
+    "lead": "\"I am Jos, you may recognise me. I am described as Bolle Jos in the media.\" That is what the most wanted criminal, a few hours after the explosive attack in Overasselt, is said to have told a corrupt transport employee via a video link. While the employee is walking the dog in the street, he is told to stay away from Jan G. and that 'something in the news' will come out later that day. The statement is a crucial lead for <entity id=\"org:politie\">politie</entity> and the justice system, linking Jos Leijdekkers to the attack by 35 heavily armed criminals.",
+    "sourceHash": "ebc6a09d11c8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:b766a903",
@@ -50875,6 +50853,17 @@
     "translated": "2026-11-10"
   },
   {
+    "id": "news:b8b3a090",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Test on the menu: at these Amsterdam restaurants you can get the best out of eating out",
+    "lead": null,
+    "sourceHash": "6b291ea73e96",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:b8b6faee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51170,17 +51159,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
-  },
-  {
-    "id": "news:ba0e8320",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "First national frost day of autumn measured, skating possible in Winterswijk",
-    "lead": "In De Bilt the first official frost of autumn was measured in the night from Friday to Saturday, reports Weeronline. At the measuring station in the Utrecht town the temperature dropped to -1.4 degrees. In the Gelderland town of Winterswijk the natural ice rink has opened.",
-    "sourceHash": "a6c253aec431",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:ba1f2c67",
@@ -51522,6 +51500,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
+  },
+  {
+    "id": "news:bb7a9e36",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "On Saturday mornings Mohamed (43) often has breakfast with his daughters: 'They are crazy about anything with melted cheese or cream'",
+    "lead": null,
+    "sourceHash": "33b79a370a61",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:bb86e4c3",
@@ -52129,15 +52118,15 @@
     "translated": "2026-11-07"
   },
   {
-    "id": "news:be40b190",
+    "id": "news:be351c77",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "A room full of balloons, a talking mouse and four thousand kilos of confetti: Voorlinden goes all out for its tenth anniversary with icons of modern art",
-    "lead": null,
-    "sourceHash": "80d052e3890b",
+    "title": "Frenkie de Jong praises head coach Xavi: 'He is very good at knowing where the free man is'",
+    "lead": "The emphatic win over Greece (7-0) was an evening to savour for newly appointed captain Frenkie de Jong. The collaboration with Joey Veerman went excellently, and head coach Xavi Hernández is making an increasing impression on the players. \"Now Germany, always special, the classic in international football.\"",
+    "sourceHash": "f0fe7dc6e275",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-08"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:be47befc",
@@ -52523,6 +52512,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
+  },
+  {
+    "id": "news:c0253d5a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The ladies grumbled about America and then went for 1 euro coffee at McDonald's",
+    "lead": null,
+    "sourceHash": "940f9c401255",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:c026b7a9",
@@ -53064,6 +53064,17 @@
     "translated": "2026-11-09"
   },
   {
+    "id": "news:c2513587",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "American Aviation Authority: Nationwide Flight Ban in the US Lifted, Air Traffic Gets Going Again",
+    "lead": "The nationwide flight ban in the United States, introduced on Friday, has been lifted. The American aviation authority, the Federal Aviation Administration (FAA), announced this in the night from Friday to Saturday. Many American airlines are meanwhile resuming their flights.",
+    "sourceHash": "1cf3fc84a667",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:c26219c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53405,17 +53416,6 @@
     "translated": "2026-11-11"
   },
   {
-    "id": "news:c3a63e9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Is Europe expensive, or cheap?",
-    "lead": "<entity id=\"person:rob-jetten\">Premier Jetten</entity> speaks of a \"completely unacceptable\" new European budget proposal, and Chancellor Merz calls the plans \"really unaffordable\".",
-    "sourceHash": "131c2c7ff06d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:c3a6e4fd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53636,6 +53636,17 @@
     "translated": "2026-11-11"
   },
   {
+    "id": "news:c4a0e8e0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "White House: Trump to meet Putin and Xi in China on Thursday",
+    "lead": null,
+    "sourceHash": "ccbc7b07c63c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:c4c20ab",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53766,6 +53777,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:c53891aa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How is the Jewish community responding to Hertzberger's harsh words? 'We are now caught in a catch 22 with each other'",
+    "lead": null,
+    "sourceHash": "abd71493e803",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:c54313dc",
@@ -53942,6 +53964,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
+  },
+  {
+    "id": "news:c5be0518",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fluffy Clouds, Na-Na-Nanana and Other Verbal Trimmings",
+    "lead": "A song about nothing can become a worldwide hit. In politics that formula also appears to work well, writes columnist Han Dirk Hekking.",
+    "sourceHash": "ec2c54a98e68",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:c5c43594",
@@ -54472,17 +54505,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:c80a3c15",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Pien ran the marathon with an aneurysm in her head: 'It was as big as an Easter egg'",
-    "lead": "Pien Wijsman (31) from Rotterdam ran the marathon in 2025 while she had been suffering from intense headaches, nausea and dizziness for weeks. A week later it turned out what was causing the complaints: an aneurysm as big as an Easter egg. \"That I am no longer completely the same, I have accepted.'",
-    "sourceHash": "4b74fee29984",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:c81735b9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54833,6 +54855,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
+  },
+  {
+    "id": "news:c96afeae",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Complacent Europe must search for a new narrative, says this adviser: 'We no longer have a story for future generations'",
+    "lead": null,
+    "sourceHash": "6dcffb94e44c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:c96c0766",
@@ -55286,6 +55319,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:cb571b9d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Do you have to get your hair cut every six weeks? And does wearing a cap cause hair loss? Four well-known hair myths examined",
+    "lead": null,
+    "sourceHash": "764cb3d56cab",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:cb608f8a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55559,17 +55603,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:cce6b5e4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Trump reports attack on Iranian air defence",
-    "lead": null,
-    "sourceHash": "10d7034539f1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:cceda798",
@@ -55880,17 +55913,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:ce4ca240",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Somersault",
-    "lead": null,
-    "sourceHash": "19fc40e02aae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:ce4ca241",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55955,6 +55977,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:ce4ca25e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Koprol",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:ce4f37fa",
@@ -56562,17 +56595,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:d052e604",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sudoku",
-    "lead": "You are given a few numbers as a gift, but the 9x9 grid must be filled in without errors.",
-    "sourceHash": "d8a11c06af6e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:d052e605",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56936,6 +56958,17 @@
     "translated": "2026-11-13"
   },
   {
+    "id": "news:d154c8ef",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "200 helper Pieten prepared in utmost secrecy for the arrival: 'One holds The Great Book, the other the staff'",
+    "lead": null,
+    "sourceHash": "f1fb29abcda6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:d155f208",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57145,17 +57178,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:d27db264",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number Pad",
-    "lead": null,
-    "sourceHash": "773ba346c5f3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:d27db265",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57220,6 +57242,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-13"
+  },
+  {
+    "id": "news:d27db282",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number Pad",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:d2841a9b",
@@ -59576,17 +59609,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:dc70dbe2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Republican dilemma: neither going further with nor without Trump",
-    "lead": "The American voter has made it clear to the Republicans that they must decide what their party will look like after Donald Trump. That is not simple, because he is not going anywhere for the time being. The bear has been wounded, but still has sharp claws.",
-    "sourceHash": "a1cc9b7f045f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:dc951ec",
     "language": "en",
     "sourceLanguage": "nl",
@@ -59807,17 +59829,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:dd0b4b1e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Emine discovered through DNA test that she is a donor child: \"I thought: what kind of nonsense is this?\"",
-    "lead": "Emine took a DNA test with MyHeritage at the end of last year out of curiosity. What she could not yet know was that her life would change forever. Because it turns out her father is not her biological father. She is a donor child.",
-    "sourceHash": "82574ed0f068",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:dd0e5415",
     "language": "en",
     "sourceLanguage": "nl",
@@ -59937,17 +59948,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
-  },
-  {
-    "id": "news:dd53f3bd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Henk Schiffmacher puts tattoos in the Rembrandt House: 'Only this art you take with you to the grave'",
-    "lead": null,
-    "sourceHash": "5c4eb043b120",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:dd789a74",
@@ -60720,17 +60720,6 @@
     "translated": "2026-11-10"
   },
   {
-    "id": "news:e0236e6b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "US intelligence services: Nvidia chief had a relationship with a Chinese spy",
-    "lead": "US intelligence services have informed the government in Washington that a woman who had built a romantic relationship with Nvidia chief Jensen Huang worked for a Chinese intelligence service. According to The New York Times , which first reported this, she had been recruited to gather information about him.",
-    "sourceHash": "c2ad04a4f917",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:e02ec3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -61457,6 +61446,17 @@
     "translated": "2026-11-12"
   },
   {
+    "id": "news:e319e1fd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mental health absence is not an HR problem but a business risk",
+    "lead": null,
+    "sourceHash": "bfe32316435d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:e3494fae",
     "language": "en",
     "sourceLanguage": "nl",
@@ -61589,17 +61589,6 @@
     "translated": "2026-11-08"
   },
   {
-    "id": "news:e3d152ef",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "ASML grows, but cannot meet demand",
-    "lead": "Today in Dagkoers: the <entity id=\"org:zbo-uitvoeringsinstituut-werknemersverzekeringen\">UWV</entity> is pulling the plug on an ICT project that cost at least €55 mln; ASML sees its profits doubling but can barely keep up with demand for chip machines; and China and the EU are concluding a new trade deal.",
-    "sourceHash": "8297a38577d5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:e3ec33d2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -61609,6 +61598,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-07"
+  },
+  {
+    "id": "news:e3faa5bb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Parking fine while you are still at the pay machine: is that allowed?",
+    "lead": "You have parked your car and are walking to the pay machine. But what if a scan car registers your number plate before you have been able to pay? Can you then simply receive a parking fine?",
+    "sourceHash": "05607d2d8c70",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:e3fadb23",
@@ -62645,6 +62645,17 @@
     "translated": "2026-11-13"
   },
   {
+    "id": "news:e84501a4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lita Cabellut Holds a Conversation with Goya",
+    "lead": "The Spanish-Dutch Lita Cabellut went from street child to internationally renowned artist. In her work, which leans heavily on Goya, she explores human madness.",
+    "sourceHash": "751be798216c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:e850be67",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62753,17 +62764,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-10"
-  },
-  {
-    "id": "news:e8da6b1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Demonstrators march 'Red Line' on Sunday against cabinet's Israel policy: why they consider this necessary again",
-    "lead": "Tomorrow a red line will again be drawn in Amsterdam against the violence in Gaza and the cabinet's Israel policy. Last year the demonstration drew some 250,000 people: one of the largest ever. According to demonstrators, little has changed since then.",
-    "sourceHash": "1bd08114b38a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:e8e4c7dc",
@@ -63613,17 +63613,6 @@
     "translated": "2026-11-13"
   },
   {
-    "id": "news:ecbcf930",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "European taxes are no longer taboo, but they are also no magic cure for the billions being sought",
-    "lead": "To avoid a major clash in the European budget negotiations, Brussels is focusing on a controversial measure: more \"own resources\" for Europe. But aren't these levies on plastic, CO2 and parcels simply a back door to a European tax? \"They act as if this is free money.\"",
-    "sourceHash": "e04670c66cb0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:eced9ace",
     "language": "en",
     "sourceLanguage": "nl",
@@ -63877,17 +63866,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:ee3fcb06",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "KLM CFO Bas Brouns: 'We also need to step up the pace'",
-    "lead": "KLM is trying to turn the financial tide by cutting staff. 'I can well imagine the unions were alarmed by the measures. But the world does not wait for KLM.'",
-    "sourceHash": "6ebb32b5d5ec",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:ee41f0b1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -64073,17 +64051,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
-  },
-  {
-    "id": "news:eef8fb9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Father (82) of Meghan Markle under house arrest in care home in child pornography case",
-    "lead": "Thomas Markle, the 82-year-old father of Meghan Markle, has been placed under house arrest by a US judge. He has been charged with possession of child pornography and may await the case \"under electronic monitoring\" in the care home where he lives.",
-    "sourceHash": "4efb859f74d6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
   },
   {
     "id": "news:eefbbca3",
@@ -65241,17 +65208,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:f314337b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "First national ground frost day of autumn measured after cold in De Bilt",
-    "lead": "In De Bilt the first official ground frost of autumn was measured in the night from Friday to Saturday, Weeronline reports. At the measuring station in the Utrecht town the temperature dropped to -1.4 degrees.",
-    "sourceHash": "dc79b98d028d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:f31893df",
     "language": "en",
     "sourceLanguage": "nl",
@@ -65382,6 +65338,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-08"
+  },
+  {
+    "id": "news:f37d18bf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "You are amazing and you can do it! Does it help to say slogans like this to yourself?",
+    "lead": null,
+    "sourceHash": "ef640160f7ef",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:f39a7058",
@@ -66374,17 +66341,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:f823ba6b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "US Launches New Attacks on the Iranian Island of Qeshm, Iran Reports Downing American Drone",
-    "lead": null,
-    "sourceHash": "44d1348547ba",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-07"
-  },
-  {
     "id": "news:f836582f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -66460,6 +66416,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-12"
+  },
+  {
+    "id": "news:f87858ea",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Touring the Netherlands in your mum's Renault Clio: how rock 'n' roll the Popronde is for the band of writer Thijs Hoekstra",
+    "lead": null,
+    "sourceHash": "351213d85669",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:f879ecbc",
@@ -67243,6 +67210,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:fbbe0ccb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Returners' on their near-death experience: 'The most beautiful thing that can happen to you in life'",
+    "lead": null,
+    "sourceHash": "8f95b426c3f0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
+  },
+  {
     "id": "news:fbc66ae",
     "language": "en",
     "sourceLanguage": "nl",
@@ -67571,6 +67549,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-11"
+  },
+  {
+    "id": "news:fd457fd2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "What is this then, you ask? This is convicted British rapist Russell Brand in pieces",
+    "lead": null,
+    "sourceHash": "cdd125f6c88b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-14"
   },
   {
     "id": "news:fd48345",
@@ -68057,17 +68046,6 @@
     "translated": "2026-11-12"
   },
   {
-    "id": "news:ff1dbb20",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The battle over working from home intensifies: is returning to the office better?",
-    "lead": null,
-    "sourceHash": "4a89f762705f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-09"
-  },
-  {
     "id": "news:ff491601",
     "language": "en",
     "sourceLanguage": "nl",
@@ -68112,15 +68090,15 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:ff8cb2c",
+    "id": "news:ff908609",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "That sense of feeling connected through food will surely be recognised by many",
-    "lead": null,
-    "sourceHash": "0c14753a9e73",
+    "title": "LIVE Microsoft outage | Microsoft restores consumer services, problems with Microsoft 365 continue",
+    "lead": "Microsoft announced on Saturday morning that its consumer products and services have been fully restored, while the business services of Microsoft 365 are still experiencing a persistent recovery. Follow the latest developments in this liveblog.",
+    "sourceHash": "1116600fd87a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-07"
+    "translated": "2026-11-14"
   },
   {
     "id": "news:ff99c19e",
