@@ -1,7 +1,7 @@
 {
   "bewindspersonen": {
     "cabinetSlug": "kabinet-jetten",
-    "lastRun": "2026-11-16T11:03:52.905Z",
+    "lastRun": "2026-11-17T07:49:18.021Z",
     "slugsHash": null
   },
   "decentral": {
@@ -361,13 +361,13 @@
         "gm1992": "org:gemeente-voorne-aan-zee"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-11-16T00:58:56.208Z",
+      "lastAttempt": "2026-11-17T07:49:18.021Z",
       "lastCounts": {
         "cbs": 342,
         "register": 342,
         "tooi": 342
       },
-      "lastRun": "2026-11-16T00:58:56.208Z",
+      "lastRun": "2026-11-17T07:49:18.021Z",
       "names": {
         "gm0014": "Groningen",
         "gm0034": "Almere",
@@ -399,7 +399,7 @@
         "gm0158": "Haaksbergen",
         "gm0160": "Hardenberg",
         "gm0163": "Hellendoorn",
-        "gm0164": "Hengelo (O.)",
+        "gm0164": "Hengelo (OV)",
         "gm0166": "Kampen",
         "gm0168": "Losser",
         "gm0171": "Noordoostpolder",
@@ -476,7 +476,7 @@
         "gm0361": "Alkmaar",
         "gm0362": "Amstelveen",
         "gm0363": "Amsterdam",
-        "gm0373": "Bergen (NH.)",
+        "gm0373": "Bergen (NH)",
         "gm0375": "Beverwijk",
         "gm0376": "Blaricum",
         "gm0377": "Bloemendaal",
@@ -494,7 +494,7 @@
         "gm0405": "Hoorn",
         "gm0406": "Huizen",
         "gm0415": "Landsmeer",
-        "gm0417": "Laren (NH.)",
+        "gm0417": "Laren (NH)",
         "gm0420": "Medemblik",
         "gm0431": "Oostzaan",
         "gm0432": "Opmeer",
@@ -534,7 +534,7 @@
         "gm0590": "Papendrecht",
         "gm0597": "Ridderkerk",
         "gm0599": "Rotterdam",
-        "gm0603": "Rijswijk (ZH.)",
+        "gm0603": "Rijswijk (ZH)",
         "gm0606": "Schiedam",
         "gm0610": "Sliedrecht",
         "gm0613": "Albrandswaard",
@@ -551,7 +551,7 @@
         "gm0668": "West Maas en Waal",
         "gm0677": "Hulst",
         "gm0678": "Kapelle",
-        "gm0687": "Middelburg (Z.)",
+        "gm0687": "Middelburg (ZE)",
         "gm0703": "Reimerswaal",
         "gm0715": "Terneuzen",
         "gm0716": "Tholen",
@@ -601,9 +601,9 @@
         "gm0879": "Zundert",
         "gm0880": "Wormerland",
         "gm0882": "Landgraaf",
-        "gm0888": "Beek (L.)",
+        "gm0888": "Beek (LI)",
         "gm0889": "Beesel",
-        "gm0893": "Bergen (L.)",
+        "gm0893": "Bergen (LI)",
         "gm0899": "Brunssum",
         "gm0907": "Gennep",
         "gm0917": "Heerlen",
@@ -614,7 +614,7 @@
         "gm0946": "Nederweert",
         "gm0957": "Roermond",
         "gm0965": "Simpelveld",
-        "gm0971": "Stein (L.)",
+        "gm0971": "Stein (LI)",
         "gm0981": "Vaals",
         "gm0983": "Venlo",
         "gm0984": "Venray",
@@ -732,13 +732,13 @@
         "pv31": "org:provincie-limburg"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-11-16T00:58:56.208Z",
+      "lastAttempt": "2026-11-17T07:49:18.021Z",
       "lastCounts": {
         "cbs": 12,
         "register": 12,
         "tooi": 12
       },
-      "lastRun": "2026-11-16T00:58:56.208Z",
+      "lastRun": "2026-11-17T07:49:18.021Z",
       "names": {
         "pv20": "Groningen",
         "pv21": "Fryslân",
@@ -782,13 +782,13 @@
         "ws0665": "org:waterschap-limburg"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-11-16T00:58:56.208Z",
+      "lastAttempt": "2026-11-17T07:49:18.021Z",
       "lastCounts": {
         "cbs": null,
         "register": 21,
         "tooi": 21
       },
-      "lastRun": "2026-11-16T00:58:56.208Z",
+      "lastRun": "2026-11-17T07:49:18.021Z",
       "names": {
         "ws0152": "Rijn en IJssel",
         "ws0155": "Amstel, Gooi en Vecht",
@@ -829,7 +829,7 @@
       "fracties": "0c1a14c56c26b6052121358d62eda103f1045bf4e4a06bcc0e2bf3a6ff07dd26",
       "mutaties": "18011dbde2e6953e03db4f58422a8e59066b7046ce6d84a8c96950819d87a555"
     },
-    "lastFullRun": "2026-11-16T11:03:52.905Z"
+    "lastFullRun": "2026-11-17T07:49:18.021Z"
   },
   "electionDates": {
     "gaps": [
@@ -986,11 +986,11 @@
     ]
   },
   "lastRun": {
-    "at": "2026-11-16T11:03:52.905Z",
+    "at": "2026-11-17T07:49:18.021Z",
     "outcome": "updated"
   },
   "news": {
-    "lastRun": "2026-11-16T11:03:52.905Z",
+    "lastRun": "2026-11-17T07:49:18.021Z",
     "sitemapLastmod": null
   },
   "note": "State of `bun run live` (ADR 0024). Cursors are Tweede Kamer ApiGewijzigdOp values; personMap maps a Tweede Kamer Persoon.Id to a person id in data/people.json. Written by the pipeline, not by hand.",
@@ -1002,7 +1002,7 @@
       "vacature": "2026-09-02T13:39:18.4481246Z"
     },
     "lastCounts": null,
-    "lastFullRun": "2026-11-16T11:03:52.905Z",
+    "lastFullRun": "2026-11-17T07:49:18.021Z",
     "pendingGuard": null,
     "personMap": {
       "0004fa63-2652-43fe-9866-4130ca4652d8": "person:maikel-christiaan-hendrikus-boon",

@@ -23074,7 +23074,7 @@
   {
     "id": "org:gemeente-beek-l",
     "slug": "gemeente-beek-l",
-    "name": "Gemeente Beek (L.)",
+    "name": "Gemeente Beek (LI)",
     "type": "department",
     "subtype": "gemeente",
     "branch": "decentraal-lokaal",
@@ -23082,7 +23082,9 @@
     "country": "nederland",
     "aliases": [
       "Beek (L.)",
-      "Gemeente Beek (L.)"
+      "Gemeente Beek (L.)",
+      "Gemeente Beek (LI)",
+      "Beek (LI)"
     ],
     "parent": null,
     "partOf": [],
@@ -23111,7 +23113,7 @@
       },
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -23147,6 +23149,11 @@
       {
         "source": "src:koop-oo-export",
         "retrieved": "2026-10-16",
+        "confidence": "high"
+      },
+      {
+        "source": "src:tooi-gemeenten",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       }
     ],
@@ -23524,7 +23531,7 @@
   {
     "id": "org:gemeente-bergen-l",
     "slug": "gemeente-bergen-l",
-    "name": "Gemeente Bergen (L.)",
+    "name": "Gemeente Bergen (LI)",
     "type": "department",
     "subtype": "gemeente",
     "branch": "decentraal-lokaal",
@@ -23532,7 +23539,9 @@
     "country": "nederland",
     "aliases": [
       "Bergen (L.)",
-      "Gemeente Bergen (L.)"
+      "Gemeente Bergen (L.)",
+      "Gemeente Bergen (LI)",
+      "Bergen (LI)"
     ],
     "parent": null,
     "partOf": [],
@@ -23561,7 +23570,7 @@
       },
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -23597,6 +23606,11 @@
       {
         "source": "src:koop-oo-export",
         "retrieved": "2026-10-16",
+        "confidence": "high"
+      },
+      {
+        "source": "src:tooi-gemeenten",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       }
     ],
@@ -32308,7 +32322,7 @@
   {
     "id": "org:gemeente-hengelo-o",
     "slug": "gemeente-hengelo-o",
-    "name": "Gemeente Hengelo (O.)",
+    "name": "Gemeente Hengelo (OV)",
     "type": "department",
     "subtype": "gemeente",
     "branch": "decentraal-lokaal",
@@ -32316,7 +32330,9 @@
     "country": "nederland",
     "aliases": [
       "Gemeente Hengelo (O.)",
-      "Hengelo (O.)"
+      "Hengelo (O.)",
+      "Gemeente Hengelo (OV)",
+      "Hengelo (OV)"
     ],
     "parent": null,
     "partOf": [],
@@ -32345,7 +32361,7 @@
       },
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -32381,6 +32397,11 @@
       {
         "source": "src:koop-oo-export",
         "retrieved": "2026-10-16",
+        "confidence": "high"
+      },
+      {
+        "source": "src:tooi-gemeenten",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       }
     ],
@@ -37071,7 +37092,7 @@
   {
     "id": "org:gemeente-middelburg-z",
     "slug": "gemeente-middelburg-z",
-    "name": "Gemeente Middelburg (Z.)",
+    "name": "Gemeente Middelburg (ZE)",
     "type": "department",
     "subtype": "gemeente",
     "branch": "decentraal-lokaal",
@@ -37079,7 +37100,9 @@
     "country": "nederland",
     "aliases": [
       "Gemeente Middelburg (Z.)",
-      "Middelburg (Z.)"
+      "Middelburg (Z.)",
+      "Gemeente Middelburg (ZE)",
+      "Middelburg (ZE)"
     ],
     "parent": null,
     "partOf": [],
@@ -37106,7 +37129,7 @@
       },
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -37142,6 +37165,11 @@
       {
         "source": "src:koop-oo-export",
         "retrieved": "2026-10-16",
+        "confidence": "high"
+      },
+      {
+        "source": "src:tooi-gemeenten",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       }
     ],
@@ -44644,7 +44672,7 @@
   {
     "id": "org:gemeente-stein-l",
     "slug": "gemeente-stein-l",
-    "name": "Gemeente Stein (L.)",
+    "name": "Gemeente Stein (LI)",
     "type": "department",
     "subtype": "gemeente",
     "branch": "decentraal-lokaal",
@@ -44652,7 +44680,9 @@
     "country": "nederland",
     "aliases": [
       "Gemeente Stein (L.)",
-      "Stein (L.)"
+      "Stein (L.)",
+      "Gemeente Stein (LI)",
+      "Stein (LI)"
     ],
     "parent": null,
     "partOf": [],
@@ -44681,7 +44711,7 @@
       },
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -44717,6 +44747,11 @@
       {
         "source": "src:koop-oo-export",
         "retrieved": "2026-10-16",
+        "confidence": "high"
+      },
+      {
+        "source": "src:tooi-gemeenten",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       }
     ],
@@ -53113,7 +53148,7 @@
   {
     "id": "org:gemeenteraad-beek-l",
     "slug": "gemeenteraad-beek-l",
-    "name": "Gemeenteraad van Beek (L.)",
+    "name": "Gemeenteraad van Beek (LI)",
     "type": "elected",
     "subtype": "gemeenteraad",
     "branch": "decentraal-lokaal",
@@ -53121,7 +53156,8 @@
     "country": "nederland",
     "aliases": [
       "Gemeenteraad Beek (L.)",
-      "Gemeenteraad van Beek (L.)"
+      "Gemeenteraad van Beek (L.)",
+      "Gemeenteraad Beek (LI)"
     ],
     "parent": "org:gemeente-beek-l",
     "partOf": [
@@ -53145,7 +53181,7 @@
     "sources": [
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -53363,7 +53399,7 @@
   {
     "id": "org:gemeenteraad-bergen-l",
     "slug": "gemeenteraad-bergen-l",
-    "name": "Gemeenteraad van Bergen (L.)",
+    "name": "Gemeenteraad van Bergen (LI)",
     "type": "elected",
     "subtype": "gemeenteraad",
     "branch": "decentraal-lokaal",
@@ -53371,7 +53407,8 @@
     "country": "nederland",
     "aliases": [
       "Gemeenteraad Bergen (L.)",
-      "Gemeenteraad van Bergen (L.)"
+      "Gemeenteraad van Bergen (L.)",
+      "Gemeenteraad Bergen (LI)"
     ],
     "parent": "org:gemeente-bergen-l",
     "partOf": [
@@ -53395,7 +53432,7 @@
     "sources": [
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -58263,7 +58300,7 @@
   {
     "id": "org:gemeenteraad-hengelo-o",
     "slug": "gemeenteraad-hengelo-o",
-    "name": "Gemeenteraad van Hengelo (O.)",
+    "name": "Gemeenteraad van Hengelo (OV)",
     "type": "elected",
     "subtype": "gemeenteraad",
     "branch": "decentraal-lokaal",
@@ -58271,7 +58308,8 @@
     "country": "nederland",
     "aliases": [
       "Gemeenteraad Hengelo (O.)",
-      "Gemeenteraad van Hengelo (O.)"
+      "Gemeenteraad van Hengelo (O.)",
+      "Gemeenteraad Hengelo (OV)"
     ],
     "parent": "org:gemeente-hengelo-o",
     "partOf": [
@@ -58295,7 +58333,7 @@
     "sources": [
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-10-06",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -60913,7 +60951,7 @@
   {
     "id": "org:gemeenteraad-middelburg-z",
     "slug": "gemeenteraad-middelburg-z",
-    "name": "Gemeenteraad van Middelburg (Z.)",
+    "name": "Gemeenteraad van Middelburg (ZE)",
     "type": "elected",
     "subtype": "gemeenteraad",
     "branch": "decentraal-lokaal",
@@ -60921,7 +60959,8 @@
     "country": "nederland",
     "aliases": [
       "Gemeenteraad Middelburg (Z.)",
-      "Gemeenteraad van Middelburg (Z.)"
+      "Gemeenteraad van Middelburg (Z.)",
+      "Gemeenteraad Middelburg (ZE)"
     ],
     "parent": "org:gemeente-middelburg-z",
     "partOf": [
@@ -60945,7 +60984,7 @@
     "sources": [
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -65164,7 +65203,7 @@
   {
     "id": "org:gemeenteraad-stein-l",
     "slug": "gemeenteraad-stein-l",
-    "name": "Gemeenteraad van Stein (L.)",
+    "name": "Gemeenteraad van Stein (LI)",
     "type": "elected",
     "subtype": "gemeenteraad",
     "branch": "decentraal-lokaal",
@@ -65172,7 +65211,8 @@
     "country": "nederland",
     "aliases": [
       "Gemeenteraad Stein (L.)",
-      "Gemeenteraad van Stein (L.)"
+      "Gemeenteraad van Stein (L.)",
+      "Gemeenteraad Stein (LI)"
     ],
     "parent": "org:gemeente-stein-l",
     "partOf": [
@@ -65196,7 +65236,7 @@
     "sources": [
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -65987,7 +66027,7 @@
     "website": null,
     "established": null,
     "dissolved": null,
-    "seatsCount": 19,
+    "seatsCount": 20,
     "employeeCount": {
       "budgeted": null,
       "actual": null,
@@ -65997,7 +66037,7 @@
     "sources": [
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
@@ -68337,7 +68377,7 @@
     "website": null,
     "established": null,
     "dissolved": null,
-    "seatsCount": 39,
+    "seatsCount": 38,
     "employeeCount": {
       "budgeted": null,
       "actual": null,
@@ -68347,7 +68387,7 @@
     "sources": [
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-11-17",
         "confidence": "high"
       },
       {
