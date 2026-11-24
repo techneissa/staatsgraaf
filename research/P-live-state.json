@@ -986,11 +986,11 @@
     ]
   },
   "lastRun": {
-    "at": "2026-11-24T13:34:53.860Z",
+    "at": "2026-11-24T23:51:58.852Z",
     "outcome": "stopped-by-guard"
   },
   "news": {
-    "lastRun": "2026-11-24T13:34:53.860Z",
+    "lastRun": "2026-11-24T23:51:58.852Z",
     "sitemapLastmod": null
   },
   "note": "State of `bun run live` (ADR 0024). Cursors are Tweede Kamer ApiGewijzigdOp values; personMap maps a Tweede Kamer Persoon.Id to a person id in data/people.json. Written by the pipeline, not by hand.",
@@ -1005,7 +1005,7 @@
     "lastFullRun": "2026-11-17T07:49:18.021Z",
     "pendingGuard": [
       "seat-total: 149 actieve zetels (met 0 recente vacatures), verwacht 150",
-      "fractie-count: PvdD: 2 actieve leden, Fractie.AantalZetels 3"
+      "fractie-count: FVD: 6 actieve leden, Fractie.AantalZetels 7"
     ],
     "personMap": {
       "0004fa63-2652-43fe-9866-4130ca4652d8": "person:maikel-christiaan-hendrikus-boon",
