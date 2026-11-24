@@ -1,606 +1,127 @@
 {
   "workstream": "P",
-  "generatedAt": "2026-11-17T00:00:00.000Z",
+  "generatedAt": "2026-11-24T00:00:00.000Z",
   "endpointsUsed": [
     {
       "url": "https://www.rijksoverheid.nl/regering/bewindspersonen",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Rijksoverheid bewindspersonen"
     },
     {
       "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet eq null&$expand=Persoon,FractieZetel($expand=Fractie)&$format=json&$top=250",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "FractieZetelPersoon (huidige leden, met Persoon en Fractie)"
     },
     {
       "url": "https://www.eerstekamer.nl/alle_leden",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Eerste Kamer alle leden"
     },
     {
       "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet ne null&$orderby=ApiGewijzigdOp desc",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "FractieZetelPersoon (gesloten rijen, laatst gewijzigd eerst)"
     },
     {
       "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie?$filter=DatumInactief eq null",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Fractie (actieve fracties met AantalZetels)"
     },
     {
       "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=CommissieZetel/Commissie/Afkorting eq 'PRES'",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Presidium (Voorzitter en ondervoorzitters van de Tweede Kamer)"
     },
     {
       "url": "https://www.eerstekamer.nl/fracties",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Eerste Kamer fracties en fractiebesturen"
     },
     {
       "url": "https://identifier.overheid.nl/tooi/id/gemeente?format=json",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "TOOI gemeenten"
     },
     {
       "url": "https://organisaties.overheid.nl/export/Gemeenten.csv",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Register gemeenten"
     },
     {
       "url": "https://organisaties.overheid.nl/export-medewerkers/Gemeenten.csv",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Register medewerkers gemeenten"
     },
     {
       "url": "https://opendata.cbs.nl/ODataCatalog/Tables?$format=json&$filter=startswith(Title%2C'Gebieden%20in%20Nederland')&$select=Identifier,Title,Modified,Period",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "CBS catalogus"
     },
     {
       "url": "https://opendata.cbs.nl/ODataApi/odata/86247NED/TypedDataSet?$select=Code_1,Naam_2,Code_28,Naam_29",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "CBS 86247NED"
     },
     {
       "url": "https://identifier.overheid.nl/tooi/id/provincie?format=json",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "TOOI provincies"
     },
     {
       "url": "https://organisaties.overheid.nl/export/Provincies.csv",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Register provincies"
     },
     {
       "url": "https://organisaties.overheid.nl/export-medewerkers/Provincies.csv",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Register medewerkers provincies"
     },
     {
       "url": "https://identifier.overheid.nl/tooi/id/waterschap?format=json",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "TOOI waterschappen"
     },
     {
       "url": "https://organisaties.overheid.nl/export/Waterschappen.csv",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Register waterschappen"
     },
     {
       "url": "https://organisaties.overheid.nl/export-medewerkers/Waterschappen.csv",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Register medewerkers waterschappen"
     },
     {
       "url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/commissaris-van-de-koning/overzicht/commissarissen-van-de-koning",
-      "retrieved": "2026-11-16",
+      "retrieved": "2026-11-24",
       "notes": "Rijksoverheid overzicht commissarissen van de Koning"
     },
     {
       "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-jetten",
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "notes": "Rijksoverheid kabinetspagina"
     }
   ],
   "organizations": [
     {
-      "id": "org:gemeente-beek-l",
-      "slug": "gemeente-beek-l",
-      "name": "Gemeente Beek (LI)",
-      "type": "department",
-      "subtype": "gemeente",
-      "branch": "decentraal-lokaal",
-      "level": "lokaal",
-      "country": "nederland",
-      "aliases": [
-        "Beek (L.)",
-        "Gemeente Beek (L.)",
-        "Gemeente Beek (LI)",
-        "Beek (LI)"
-      ],
-      "parent": null,
-      "partOf": [],
-      "description": "Beek is een gemeente in Limburg met 16.141 inwoners (1 januari 2026) in Beek LB, Maastricht-Airport en Spaubeek; het gemeentehuis staat in Beek LB. De gemeente zorgt onder meer voor de bijstand en hulp bij het vinden van werk, de jeugdhulp, de maatschappelijke ondersteuning (Wmo) en het omgevingsplan met de regels voor de fysieke leefomgeving. De gemeenteraad van 17 gekozen leden stelt de begroting en de regels vast en controleert het college van burgemeester en wethouders, dat de gemeente dagelijks bestuurt.",
-      "legalSource": {
-        "label": "Gemeentewet art. 1",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelI_Artikel1"
-      },
-      "website": "https://www.gemeentebeek.nl",
-      "established": null,
-      "dissolved": null,
-      "seatsCount": null,
-      "employeeCount": {
-        "budgeted": null,
-        "actual": null,
-        "year": null
-      },
-      "images": [
-        "media:wapen-gemeente-beek-l"
-      ],
-      "sources": [
-        {
-          "source": "src:cbs-86247ned",
-          "retrieved": "2026-09-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:gemeentewet",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        },
-        {
-          "source": "src:cbs-70072ned-2026",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0015703",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0034925",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0035362",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0037885",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-oo-export",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:tooi-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        }
-      ],
-      "address": {
-        "street": "Raadhuisstraat 9",
-        "postcode": "6191 KA",
-        "city": "Beek LB",
-        "country": "Nederland",
-        "building": null,
-        "source": "src:koop-oo-export",
-        "retrieved": "2026-10-16"
-      }
-    },
-    {
-      "id": "org:gemeente-bergen-l",
-      "slug": "gemeente-bergen-l",
-      "name": "Gemeente Bergen (LI)",
-      "type": "department",
-      "subtype": "gemeente",
-      "branch": "decentraal-lokaal",
-      "level": "lokaal",
-      "country": "nederland",
-      "aliases": [
-        "Bergen (L.)",
-        "Gemeente Bergen (L.)",
-        "Gemeente Bergen (LI)",
-        "Bergen (LI)"
-      ],
-      "parent": null,
-      "partOf": [],
-      "description": "Bergen is een gemeente in Limburg met 13.037 inwoners (1 januari 2026) in 5 plaatsen; het gemeentehuis staat in Bergen L. De gemeente zorgt onder meer voor de bijstand en hulp bij het vinden van werk, de jeugdhulp, de maatschappelijke ondersteuning (Wmo) en het omgevingsplan met de regels voor de fysieke leefomgeving. De gemeenteraad van 15 gekozen leden stelt de begroting en de regels vast en controleert het college van burgemeester en wethouders, dat de gemeente dagelijks bestuurt.",
-      "legalSource": {
-        "label": "Gemeentewet art. 1",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelI_Artikel1"
-      },
-      "website": "https://www.bergen.nl",
-      "established": null,
-      "dissolved": null,
-      "seatsCount": null,
-      "employeeCount": {
-        "budgeted": null,
-        "actual": null,
-        "year": null
-      },
-      "images": [
-        "media:wapen-gemeente-bergen-l"
-      ],
-      "sources": [
-        {
-          "source": "src:cbs-86247ned",
-          "retrieved": "2026-09-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:gemeentewet",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        },
-        {
-          "source": "src:cbs-70072ned-2026",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0015703",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0034925",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0035362",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0037885",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-oo-export",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:tooi-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        }
-      ],
-      "address": {
-        "street": "Raadhuisstraat 2",
-        "postcode": "5854 AX",
-        "city": "Bergen L",
-        "country": "Nederland",
-        "building": null,
-        "source": "src:koop-oo-export",
-        "retrieved": "2026-10-16"
-      }
-    },
-    {
-      "id": "org:gemeente-hengelo-o",
-      "slug": "gemeente-hengelo-o",
-      "name": "Gemeente Hengelo (OV)",
-      "type": "department",
-      "subtype": "gemeente",
-      "branch": "decentraal-lokaal",
-      "level": "lokaal",
-      "country": "nederland",
-      "aliases": [
-        "Gemeente Hengelo (O.)",
-        "Hengelo (O.)",
-        "Gemeente Hengelo (OV)",
-        "Hengelo (OV)"
-      ],
-      "parent": null,
-      "partOf": [],
-      "description": "Hengelo is een gemeente in Overijssel met 84.045 inwoners (1 januari 2026); het gemeentehuis staat in Hengelo OV. De gemeente zorgt onder meer voor de bijstand en hulp bij het vinden van werk, de jeugdhulp, de maatschappelijke ondersteuning (Wmo) en het omgevingsplan met de regels voor de fysieke leefomgeving. De gemeenteraad van 37 gekozen leden stelt de begroting en de regels vast en controleert het college van burgemeester en wethouders, dat de gemeente dagelijks bestuurt.",
-      "legalSource": {
-        "label": "Gemeentewet art. 1",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelI_Artikel1"
-      },
-      "website": "https://www.hengelo.nl",
-      "established": null,
-      "dissolved": null,
-      "seatsCount": null,
-      "employeeCount": {
-        "budgeted": null,
-        "actual": null,
-        "year": null
-      },
-      "images": [
-        "media:wapen-gemeente-hengelo-o"
-      ],
-      "sources": [
-        {
-          "source": "src:cbs-86247ned",
-          "retrieved": "2026-09-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:gemeentewet",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        },
-        {
-          "source": "src:cbs-70072ned-2026",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0015703",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0034925",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0035362",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0037885",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-oo-export",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:tooi-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        }
-      ],
-      "address": {
-        "street": "Burg van Dussenplein 1",
-        "postcode": "7551 EB",
-        "city": "Hengelo OV",
-        "country": "Nederland",
-        "building": null,
-        "source": "src:koop-oo-export",
-        "retrieved": "2026-10-16"
-      }
-    },
-    {
-      "id": "org:gemeente-middelburg-z",
-      "slug": "gemeente-middelburg-z",
-      "name": "Gemeente Middelburg (ZE)",
-      "type": "department",
-      "subtype": "gemeente",
-      "branch": "decentraal-lokaal",
-      "level": "lokaal",
-      "country": "nederland",
-      "aliases": [
-        "Gemeente Middelburg (Z.)",
-        "Middelburg (Z.)",
-        "Gemeente Middelburg (ZE)",
-        "Middelburg (ZE)"
-      ],
-      "parent": null,
-      "partOf": [],
-      "description": "Middelburg is een gemeente in Zeeland met 50.439 inwoners (1 januari 2026) in Arnemuiden, Middelburg en Nieuw- en Sint Joosland; het gemeentehuis staat in Middelburg. De gemeente zorgt onder meer voor de bijstand en hulp bij het vinden van werk, de jeugdhulp, de maatschappelijke ondersteuning (Wmo) en het omgevingsplan met de regels voor de fysieke leefomgeving. De gemeenteraad van 31 gekozen leden stelt de begroting en de regels vast en controleert het college van burgemeester en wethouders, dat de gemeente dagelijks bestuurt.",
-      "legalSource": {
-        "label": "Gemeentewet art. 1",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelI_Artikel1"
-      },
-      "website": "https://www.middelburg.nl",
-      "established": null,
-      "dissolved": null,
-      "seatsCount": null,
-      "employeeCount": {
-        "budgeted": null,
-        "actual": null,
-        "year": null
-      },
-      "images": [],
-      "sources": [
-        {
-          "source": "src:cbs-86247ned",
-          "retrieved": "2026-09-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:gemeentewet",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        },
-        {
-          "source": "src:cbs-70072ned-2026",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0015703",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0034925",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0035362",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0037885",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-oo-export",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:tooi-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        }
-      ],
-      "address": {
-        "street": "Kanaalweg 3",
-        "postcode": "4337 PA",
-        "city": "Middelburg",
-        "country": "Nederland",
-        "building": null,
-        "source": "src:koop-oo-export",
-        "retrieved": "2026-10-16"
-      }
-    },
-    {
-      "id": "org:gemeente-stein-l",
-      "slug": "gemeente-stein-l",
-      "name": "Gemeente Stein (LI)",
-      "type": "department",
-      "subtype": "gemeente",
-      "branch": "decentraal-lokaal",
-      "level": "lokaal",
-      "country": "nederland",
-      "aliases": [
-        "Gemeente Stein (L.)",
-        "Stein (L.)",
-        "Gemeente Stein (LI)",
-        "Stein (LI)"
-      ],
-      "parent": null,
-      "partOf": [],
-      "description": "Stein is een gemeente in Limburg met 24.691 inwoners (1 januari 2026) in Elsloo LB, Stein en Urmond; het gemeentehuis staat in Stein Lb. De gemeente zorgt onder meer voor de bijstand en hulp bij het vinden van werk, de jeugdhulp, de maatschappelijke ondersteuning (Wmo) en het omgevingsplan met de regels voor de fysieke leefomgeving. De gemeenteraad van 19 gekozen leden stelt de begroting en de regels vast en controleert het college van burgemeester en wethouders, dat de gemeente dagelijks bestuurt.",
-      "legalSource": {
-        "label": "Gemeentewet art. 1",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelI_Artikel1"
-      },
-      "website": "https://www.gemeentestein.nl",
-      "established": null,
-      "dissolved": null,
-      "seatsCount": null,
-      "employeeCount": {
-        "budgeted": null,
-        "actual": null,
-        "year": null
-      },
-      "images": [
-        "media:wapen-gemeente-stein-l"
-      ],
-      "sources": [
-        {
-          "source": "src:cbs-86247ned",
-          "retrieved": "2026-09-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:gemeentewet",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        },
-        {
-          "source": "src:cbs-70072ned-2026",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0015703",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0034925",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0035362",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:wet-bwbr0037885",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:koop-oo-export",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        },
-        {
-          "source": "src:tooi-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        }
-      ],
-      "address": {
-        "street": "Stadhouderslaan 200",
-        "postcode": "6171 KP",
-        "city": "Stein Lb",
-        "country": "Nederland",
-        "building": null,
-        "source": "src:koop-oo-export",
-        "retrieved": "2026-10-16"
-      }
-    },
-    {
-      "id": "org:gemeenteraad-beek-l",
-      "slug": "gemeenteraad-beek-l",
-      "name": "Gemeenteraad van Beek (LI)",
+      "id": "org:gemeenteraad-de-fryske-marren",
+      "slug": "gemeenteraad-de-fryske-marren",
+      "name": "Gemeenteraad van De Fryske Marren",
       "type": "elected",
       "subtype": "gemeenteraad",
       "branch": "decentraal-lokaal",
       "level": "lokaal",
       "country": "nederland",
       "aliases": [
-        "Gemeenteraad Beek (L.)",
-        "Gemeenteraad van Beek (L.)",
-        "Gemeenteraad Beek (LI)"
+        "Gemeenteraad De Fryske Marren",
+        "Gemeenteraad van De Fryske Marren"
       ],
-      "parent": "org:gemeente-beek-l",
+      "parent": "org:gemeente-de-fryske-marren",
       "partOf": [
-        "org:gemeente-beek-l"
+        "org:gemeente-de-fryske-marren"
       ],
-      "description": "De gemeenteraad van Beek (L.) vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 17 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
+      "description": "De gemeenteraad van De Fryske Marren vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 31 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
       "legalSource": {
         "label": "Gemeentewet art. 7 en art. 8",
         "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelII_HoofdstukII_Artikel8"
@@ -608,7 +129,7 @@
       "website": null,
       "established": null,
       "dissolved": null,
-      "seatsCount": 17,
+      "seatsCount": 31,
       "employeeCount": {
         "budgeted": null,
         "actual": null,
@@ -618,7 +139,7 @@
       "sources": [
         {
           "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         },
         {
@@ -634,24 +155,23 @@
       ]
     },
     {
-      "id": "org:gemeenteraad-bergen-l",
-      "slug": "gemeenteraad-bergen-l",
-      "name": "Gemeenteraad van Bergen (LI)",
+      "id": "org:gemeenteraad-ede",
+      "slug": "gemeenteraad-ede",
+      "name": "Gemeenteraad van Ede",
       "type": "elected",
       "subtype": "gemeenteraad",
       "branch": "decentraal-lokaal",
       "level": "lokaal",
       "country": "nederland",
       "aliases": [
-        "Gemeenteraad Bergen (L.)",
-        "Gemeenteraad van Bergen (L.)",
-        "Gemeenteraad Bergen (LI)"
+        "Gemeenteraad Ede",
+        "Gemeenteraad van Ede"
       ],
-      "parent": "org:gemeente-bergen-l",
+      "parent": "org:gemeente-ede",
       "partOf": [
-        "org:gemeente-bergen-l"
+        "org:gemeente-ede"
       ],
-      "description": "De gemeenteraad van Bergen (L.) vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 15 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
+      "description": "De gemeenteraad van Ede vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 40 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
       "legalSource": {
         "label": "Gemeentewet art. 7 en art. 8",
         "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelII_HoofdstukII_Artikel8"
@@ -659,7 +179,7 @@
       "website": null,
       "established": null,
       "dissolved": null,
-      "seatsCount": 15,
+      "seatsCount": 39,
       "employeeCount": {
         "budgeted": null,
         "actual": null,
@@ -669,7 +189,7 @@
       "sources": [
         {
           "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         },
         {
@@ -710,7 +230,7 @@
       "website": null,
       "established": null,
       "dissolved": null,
-      "seatsCount": 37,
+      "seatsCount": 36,
       "employeeCount": {
         "budgeted": null,
         "actual": null,
@@ -720,7 +240,7 @@
       "sources": [
         {
           "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         },
         {
@@ -736,24 +256,23 @@
       ]
     },
     {
-      "id": "org:gemeenteraad-middelburg-z",
-      "slug": "gemeenteraad-middelburg-z",
-      "name": "Gemeenteraad van Middelburg (ZE)",
+      "id": "org:gemeenteraad-veenendaal",
+      "slug": "gemeenteraad-veenendaal",
+      "name": "Gemeenteraad van Veenendaal",
       "type": "elected",
       "subtype": "gemeenteraad",
       "branch": "decentraal-lokaal",
       "level": "lokaal",
       "country": "nederland",
       "aliases": [
-        "Gemeenteraad Middelburg (Z.)",
-        "Gemeenteraad van Middelburg (Z.)",
-        "Gemeenteraad Middelburg (ZE)"
+        "Gemeenteraad van Veenendaal",
+        "Gemeenteraad Veenendaal"
       ],
-      "parent": "org:gemeente-middelburg-z",
+      "parent": "org:gemeente-veenendaal",
       "partOf": [
-        "org:gemeente-middelburg-z"
+        "org:gemeente-veenendaal"
       ],
-      "description": "De gemeenteraad van Middelburg (Z.) vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 31 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
+      "description": "De gemeenteraad van Veenendaal vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 35 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
       "legalSource": {
         "label": "Gemeentewet art. 7 en art. 8",
         "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelII_HoofdstukII_Artikel8"
@@ -761,7 +280,7 @@
       "website": null,
       "established": null,
       "dissolved": null,
-      "seatsCount": 31,
+      "seatsCount": 34,
       "employeeCount": {
         "budgeted": null,
         "actual": null,
@@ -771,158 +290,7 @@
       "sources": [
         {
           "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:gemeentewet",
-          "retrieved": "2026-09-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:grondwet",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "id": "org:gemeenteraad-stein-l",
-      "slug": "gemeenteraad-stein-l",
-      "name": "Gemeenteraad van Stein (LI)",
-      "type": "elected",
-      "subtype": "gemeenteraad",
-      "branch": "decentraal-lokaal",
-      "level": "lokaal",
-      "country": "nederland",
-      "aliases": [
-        "Gemeenteraad Stein (L.)",
-        "Gemeenteraad van Stein (L.)",
-        "Gemeenteraad Stein (LI)"
-      ],
-      "parent": "org:gemeente-stein-l",
-      "partOf": [
-        "org:gemeente-stein-l"
-      ],
-      "description": "De gemeenteraad van Stein (L.) vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 19 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
-      "legalSource": {
-        "label": "Gemeentewet art. 7 en art. 8",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelII_HoofdstukII_Artikel8"
-      },
-      "website": null,
-      "established": null,
-      "dissolved": null,
-      "seatsCount": 19,
-      "employeeCount": {
-        "budgeted": null,
-        "actual": null,
-        "year": null
-      },
-      "images": [],
-      "sources": [
-        {
-          "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:gemeentewet",
-          "retrieved": "2026-09-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:grondwet",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "id": "org:gemeenteraad-urk",
-      "slug": "gemeenteraad-urk",
-      "name": "Gemeenteraad van Urk",
-      "type": "elected",
-      "subtype": "gemeenteraad",
-      "branch": "decentraal-lokaal",
-      "level": "lokaal",
-      "country": "nederland",
-      "aliases": [
-        "Gemeenteraad Urk",
-        "Gemeenteraad van Urk"
-      ],
-      "parent": "org:gemeente-urk",
-      "partOf": [
-        "org:gemeente-urk"
-      ],
-      "description": "De gemeenteraad van Urk vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 19 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
-      "legalSource": {
-        "label": "Gemeentewet art. 7 en art. 8",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelII_HoofdstukII_Artikel8"
-      },
-      "website": null,
-      "established": null,
-      "dissolved": null,
-      "seatsCount": 20,
-      "employeeCount": {
-        "budgeted": null,
-        "actual": null,
-        "year": null
-      },
-      "images": [],
-      "sources": [
-        {
-          "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:gemeentewet",
-          "retrieved": "2026-09-17",
-          "confidence": "high"
-        },
-        {
-          "source": "src:grondwet",
-          "retrieved": "2026-10-16",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "id": "org:gemeenteraad-zaanstad",
-      "slug": "gemeenteraad-zaanstad",
-      "name": "Gemeenteraad van Zaanstad",
-      "type": "elected",
-      "subtype": "gemeenteraad",
-      "branch": "decentraal-lokaal",
-      "level": "lokaal",
-      "country": "nederland",
-      "aliases": [
-        "Gemeenteraad van Zaanstad",
-        "Gemeenteraad Zaanstad"
-      ],
-      "parent": "org:gemeente-zaanstad",
-      "partOf": [
-        "org:gemeente-zaanstad"
-      ],
-      "description": "De gemeenteraad van Zaanstad vertegenwoordigt de inwoners en staat aan het hoofd van de gemeente. De raad telt 39 leden, die om de vier jaar rechtstreeks worden gekozen. Hij stelt de begroting en de verordeningen vast en controleert het college van burgemeester en wethouders.",
-      "legalSource": {
-        "label": "Gemeentewet art. 7 en art. 8",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelII_HoofdstukII_Artikel8"
-      },
-      "website": null,
-      "established": null,
-      "dissolved": null,
-      "seatsCount": 38,
-      "employeeCount": {
-        "budgeted": null,
-        "actual": null,
-        "year": null
-      },
-      "images": [],
-      "sources": [
-        {
-          "source": "src:koop-gemeenten",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         },
         {
@@ -1502,7 +870,7 @@
         "gekozen"
       ],
       "termLengthMonths": null,
-      "seatsCount": 30,
+      "seatsCount": 31,
       "legalBasis": {
         "label": "Gemeentewet",
         "url": "https://wetten.overheid.nl/BWBR0005416"
@@ -1667,7 +1035,7 @@
         "gekozen"
       ],
       "termLengthMonths": null,
-      "seatsCount": 40,
+      "seatsCount": 39,
       "legalBasis": {
         "label": "Gemeentewet",
         "url": "https://wetten.overheid.nl/BWBR0005416"
@@ -1865,7 +1233,7 @@
         "gekozen"
       ],
       "termLengthMonths": null,
-      "seatsCount": 37,
+      "seatsCount": 36,
       "legalBasis": {
         "label": "Gemeentewet",
         "url": "https://wetten.overheid.nl/BWBR0005416"
@@ -2975,6 +2343,39 @@
       ],
       "aliases": [
         "Lid gemeenteraad van Veendam"
+      ]
+    },
+    {
+      "id": "pos:raadslid-veenendaal",
+      "slug": "raadslid-veenendaal",
+      "title": "Lid gemeenteraad van Veenendaal",
+      "organization": "org:gemeenteraad-veenendaal",
+      "type": "elected",
+      "fillMethod": "verkiezing",
+      "entryModes": [
+        "gekozen"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 34,
+      "legalBasis": {
+        "label": "Gemeentewet",
+        "url": "https://wetten.overheid.nl/BWBR0005416"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:koop-gemeenten",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:gemeentewet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Lid gemeenteraad van Veenendaal"
       ]
     },
     {
@@ -4585,7 +3986,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -5409,7 +4810,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -6469,7 +5870,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -6911,7 +6312,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -6984,7 +6385,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -7101,7 +6502,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -8523,7 +7924,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -8569,7 +7970,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -8687,7 +8088,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -9024,7 +8425,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -11332,7 +10733,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -11664,7 +11065,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -13132,7 +12533,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -14184,7 +13585,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -15078,7 +14479,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -18526,7 +17927,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -20110,7 +19511,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -21147,7 +20548,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -21327,7 +20728,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -22457,7 +21858,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -22861,7 +22262,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -22980,7 +22381,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -23106,7 +22507,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -23334,7 +22735,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -23687,7 +23088,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -23984,7 +23385,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -24389,7 +23790,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -24694,7 +24095,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-11-17",
+          "retrieved": "2026-11-24",
           "confidence": "high"
         }
       ]
@@ -32524,7 +31925,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-50plus",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32543,7 +31944,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-boerburgerbeweging",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32562,7 +31963,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-christen-democratisch-appel",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32581,7 +31982,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-christenunie",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32600,7 +32001,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-democraten-1966",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32619,7 +32020,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-beukering",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32638,7 +32039,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-van-de-sanden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32657,7 +32058,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-visseren-hamakers",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32676,7 +32077,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-walenkamp",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32695,7 +32096,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-forum-voor-democratie",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32714,7 +32115,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-ja21",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32733,7 +32134,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-onafhankelijke-politiek-nederland",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32752,7 +32153,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-progressief-nederland-pro",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32771,7 +32172,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-partij-voor-de-dieren",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32790,7 +32191,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-partij-voor-de-vrijheid",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32809,7 +32210,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-staatkundig-gereformeerde-partij",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32828,7 +32229,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-socialistische-partij",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32847,7 +32248,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-volt",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -32866,7 +32267,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-volkspartij-voor-vrijheid-en",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33208,7 +32609,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33227,7 +32628,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33246,7 +32647,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33265,7 +32666,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33284,7 +32685,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33303,7 +32704,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33322,7 +32723,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33341,7 +32742,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33360,7 +32761,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33379,7 +32780,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33398,7 +32799,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33417,7 +32818,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33436,7 +32837,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33455,7 +32856,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33474,7 +32875,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33493,7 +32894,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33512,7 +32913,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33531,7 +32932,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33550,7 +32951,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33569,7 +32970,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33588,7 +32989,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33607,7 +33008,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33626,7 +33027,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33645,7 +33046,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33664,7 +33065,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33683,7 +33084,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33702,7 +33103,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33721,7 +33122,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33759,7 +33160,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-persoon-dr-m-l-vos-pro",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33794,7 +33195,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33808,7 +33209,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33822,7 +33223,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33836,7 +33237,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33850,7 +33251,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33864,7 +33265,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33878,7 +33279,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33892,7 +33293,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33906,7 +33307,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33920,7 +33321,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33934,7 +33335,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33948,7 +33349,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33962,7 +33363,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33976,7 +33377,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -33990,7 +33391,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34004,7 +33405,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34018,7 +33419,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34032,7 +33433,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34046,7 +33447,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34060,7 +33461,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34074,7 +33475,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34088,7 +33489,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34102,7 +33503,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34116,7 +33517,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34130,7 +33531,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34144,7 +33545,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34158,7 +33559,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34172,7 +33573,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34186,7 +33587,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34200,7 +33601,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34214,7 +33615,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34228,7 +33629,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34242,7 +33643,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34256,7 +33657,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34270,7 +33671,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34284,7 +33685,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34298,7 +33699,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34312,7 +33713,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34326,7 +33727,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34340,7 +33741,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34354,7 +33755,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34368,7 +33769,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34382,7 +33783,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34396,7 +33797,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34410,7 +33811,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34424,7 +33825,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34438,7 +33839,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34452,7 +33853,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34466,7 +33867,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34480,7 +33881,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34494,7 +33895,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34508,7 +33909,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34522,7 +33923,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34536,7 +33937,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34550,7 +33951,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34564,7 +33965,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34578,7 +33979,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34592,7 +33993,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34606,7 +34007,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34620,7 +34021,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34634,7 +34035,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34648,7 +34049,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34662,7 +34063,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34676,7 +34077,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34690,7 +34091,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34704,7 +34105,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34718,7 +34119,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34732,7 +34133,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34746,7 +34147,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34760,7 +34161,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34774,7 +34175,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34788,7 +34189,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34802,7 +34203,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34816,7 +34217,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -34830,7 +34231,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-11-17",
+        "retrieved": "2026-11-24",
         "confidence": "high"
       }
     },
@@ -37235,7 +36636,7 @@
       "validFrom": null,
       "validTo": null,
       "supersededBy": null,
-      "seatsAppointed": 30,
+      "seatsAppointed": 31,
       "source": {
         "source": "src:grondwet",
         "retrieved": "2026-09-19",
@@ -37325,7 +36726,7 @@
       "validFrom": null,
       "validTo": null,
       "supersededBy": null,
-      "seatsAppointed": 40,
+      "seatsAppointed": 39,
       "source": {
         "source": "src:grondwet",
         "retrieved": "2026-09-19",
@@ -37433,7 +36834,7 @@
       "validFrom": null,
       "validTo": null,
       "supersededBy": null,
-      "seatsAppointed": 37,
+      "seatsAppointed": 36,
       "source": {
         "source": "src:grondwet",
         "retrieved": "2026-09-19",
@@ -38035,6 +37436,24 @@
       }
     },
     {
+      "id": "rel:elects-kiesgerechtigden-gemeenteraad-veenendaal",
+      "from": "org:kiesgerechtigden-nederland",
+      "to": "org:gemeenteraad-veenendaal",
+      "type": "elects",
+      "metadata": {
+        "artikel": "Grondwet art. 4, art. 125 lid 1 en art. 129 lid 1; Gemeentewet art. 7"
+      },
+      "validFrom": null,
+      "validTo": null,
+      "supersededBy": null,
+      "seatsAppointed": 34,
+      "source": {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
       "id": "rel:elects-kiesgerechtigden-gemeenteraad-veere",
       "from": "org:kiesgerechtigden-nederland",
       "to": "org:gemeenteraad-veere",
@@ -38251,7 +37670,7 @@
       "publisher": "CBS",
       "type": "api",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
       "notes": "Onafhankelijke telling van gemeenten en provincies met de provincie per gemeente."
@@ -38263,7 +37682,7 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
       "notes": "Overzicht van de 75 huidige Eerste Kamerleden met fractie en ancienniteit."
@@ -38275,10 +37694,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Martin van Rooijen sinds 2019-06-11. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/50plus, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Martin van Rooijen sinds 2019-06-11. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/50plus, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-beukering",
@@ -38287,10 +37706,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Toine Beukering sinds 2025-11-18. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/beukering, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Toine Beukering sinds 2025-11-18. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/beukering, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-boerburgerbeweging",
@@ -38299,10 +37718,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Ilona Lagas sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/boerburgerbeweging, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Ilona Lagas sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/boerburgerbeweging, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-christen-democratisch-appel",
@@ -38311,10 +37730,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Theo Bovens sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/christen_democratisch_appel, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Theo Bovens sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/christen_democratisch_appel, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-christenunie",
@@ -38323,10 +37742,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Tineke Huizinga-Heringa sinds 2021-04-06. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/christenunie, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Tineke Huizinga-Heringa sinds 2021-04-06. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/christenunie, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-democraten-1966",
@@ -38335,10 +37754,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Paul van Meenen sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/democraten_1966, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Paul van Meenen sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/democraten_1966, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-forum-voor-democratie",
@@ -38347,10 +37766,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Johan Dessing sinds 2022-03-31. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/forum_voor_democratie, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Johan Dessing sinds 2022-03-31. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/forum_voor_democratie, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-ja21",
@@ -38359,10 +37778,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Karin van Bijsterveld sinds 2025-11-06. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/ja21, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Karin van Bijsterveld sinds 2025-11-06. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/ja21, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-onafhankelijke-politiek-nederland",
@@ -38371,10 +37790,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Auke van der Goot sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/onafhankelijke_politiek_nederland, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Auke van der Goot sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/onafhankelijke_politiek_nederland, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-partij-voor-de-dieren",
@@ -38383,10 +37802,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Peter Nicolaï sinds 2025-11-10. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/partij_voor_de_dieren, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Peter Nicolaï sinds 2025-11-10. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/partij_voor_de_dieren, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-partij-voor-de-vrijheid",
@@ -38395,10 +37814,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Alexander van Hattem sinds 2024-01-16. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/partij_voor_de_vrijheid, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Alexander van Hattem sinds 2024-01-16. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/partij_voor_de_vrijheid, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-progressief-nederland-pro",
@@ -38407,10 +37826,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Paul Rosenmöller sinds 2026-09-09. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/progressief_nederland_pro, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Paul Rosenmöller sinds 2026-09-09. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/progressief_nederland_pro, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-socialistische-partij",
@@ -38419,10 +37838,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Rik Janssen sinds 2022-01-25. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/socialistische_partij, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Rik Janssen sinds 2022-01-25. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/socialistische_partij, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-staatkundig-gereformeerde-partij",
@@ -38431,10 +37850,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Peter Schalk sinds 2015-06-09. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/staatkundig_gereformeerde_partij, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Peter Schalk sinds 2015-06-09. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/staatkundig_gereformeerde_partij, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-van-de-sanden",
@@ -38443,10 +37862,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Cees van de Sanden sinds 2025-10-08. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/van_de_sanden, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Cees van de Sanden sinds 2025-10-08. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/van_de_sanden, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-visseren-hamakers",
@@ -38455,10 +37874,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Ingrid Visseren-Hamakers sinds 2025-11-10. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/visseren_hamakers, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Ingrid Visseren-Hamakers sinds 2025-11-10. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/visseren_hamakers, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-volkspartij-voor-vrijheid-en",
@@ -38467,10 +37886,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Tanja Klip-Martin sinds 2025-01-01. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/volkspartij_voor_vrijheid_en, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Tanja Klip-Martin sinds 2025-01-01. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/volkspartij_voor_vrijheid_en, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-volt",
@@ -38479,10 +37898,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Gaby Perin-Gopie sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/volt, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Gaby Perin-Gopie sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/volt, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-fractie-walenkamp",
@@ -38491,10 +37910,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Pim Walenkamp sinds 2025-09-23. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/walenkamp, geraadpleegd 2026-11-17."
+      "notes": "Fractiebestuur: fractievoorzitter Pim Walenkamp sinds 2025-09-23. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/walenkamp, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:ek-persoon-dr-m-l-vos-pro",
@@ -38503,10 +37922,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Ledenpagina van de Voorzitter, Voorzitter sinds 2025-10-07. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro, geraadpleegd 2026-11-17."
+      "notes": "Ledenpagina van de Voorzitter, Voorzitter sinds 2025-10-07. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro, geraadpleegd 2026-11-24."
     },
     {
       "id": "src:kiesraad-eerste-kamer",
@@ -38515,7 +37934,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-10",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -38527,7 +37946,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-10",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -38539,7 +37958,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-10",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -38563,7 +37982,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-10",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -38575,7 +37994,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-10",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -38587,7 +38006,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-10",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -38599,7 +38018,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Officiële naam, website, aantal zetels en organisatiecode."
@@ -38611,7 +38030,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen."
@@ -38623,7 +38042,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen."
@@ -38635,7 +38054,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen."
@@ -38647,7 +38066,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Officiële naam, website, aantal zetels en organisatiecode."
@@ -38659,7 +38078,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Officiële naam, website, aantal zetels en organisatiecode."
@@ -38671,7 +38090,7 @@
       "publisher": "Rijksoverheid",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Overzichtspagina met de huidige ministers en staatssecretarissen."
@@ -38683,7 +38102,7 @@
       "publisher": "Rijksoverheid",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-16",
+      "retrieved": "2026-11-24",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Naam, partij, datum van benoeming en geboortedatum per provincie."
@@ -38743,7 +38162,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "unknown",
       "archiveUrl": null,
       "notes": "Officiële organisatiecodes, begin- en einddata en herindelingen (JSON-LD). Een licentieverklaring staat niet op de set of op standaarden.overheid.nl/tooi; alleen feiten (codes, data) worden gebruikt."
@@ -38755,7 +38174,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "unknown",
       "archiveUrl": null,
       "notes": "Officiële organisatiecodes, begin- en einddata en herindelingen (JSON-LD). Een licentieverklaring staat niet op de set of op standaarden.overheid.nl/tooi; alleen feiten (codes, data) worden gebruikt."
@@ -38767,7 +38186,7 @@
       "publisher": "KOOP / Overheid.nl",
       "type": "register",
       "published": null,
-      "retrieved": "2026-11-17",
+      "retrieved": "2026-11-24",
       "license": "unknown",
       "archiveUrl": null,
       "notes": "Officiële organisatiecodes, begin- en einddata en herindelingen (JSON-LD). Een licentieverklaring staat niet op de set of op standaarden.overheid.nl/tooi; alleen feiten (codes, data) worden gebruikt."

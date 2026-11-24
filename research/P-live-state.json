@@ -1,16 +1,16 @@
 {
   "bewindspersonen": {
     "cabinetSlug": "kabinet-jetten",
-    "lastRun": "2026-11-17T07:49:18.021Z",
+    "lastRun": "2026-11-24T13:34:53.860Z",
     "slugsHash": null
   },
   "decentral": {
     "commissarissen": {
-      "lastAttempt": "2026-11-16T11:03:52.905Z",
+      "lastAttempt": "2026-11-24T13:34:53.860Z",
       "lastCounts": {
         "items": 12
       },
-      "lastRun": "2026-11-16T11:03:52.905Z",
+      "lastRun": "2026-11-24T13:34:53.860Z",
       "pendingGuard": null,
       "pendingRetry": false
     },
@@ -361,13 +361,13 @@
         "gm1992": "org:gemeente-voorne-aan-zee"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-11-17T07:49:18.021Z",
+      "lastAttempt": "2026-11-24T13:34:53.860Z",
       "lastCounts": {
         "cbs": 342,
         "register": 342,
         "tooi": 342
       },
-      "lastRun": "2026-11-17T07:49:18.021Z",
+      "lastRun": "2026-11-24T13:34:53.860Z",
       "names": {
         "gm0014": "Groningen",
         "gm0034": "Almere",
@@ -732,13 +732,13 @@
         "pv31": "org:provincie-limburg"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-11-17T07:49:18.021Z",
+      "lastAttempt": "2026-11-24T13:34:53.860Z",
       "lastCounts": {
         "cbs": 12,
         "register": 12,
         "tooi": 12
       },
-      "lastRun": "2026-11-17T07:49:18.021Z",
+      "lastRun": "2026-11-24T13:34:53.860Z",
       "names": {
         "pv20": "Groningen",
         "pv21": "Fryslân",
@@ -782,13 +782,13 @@
         "ws0665": "org:waterschap-limburg"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-11-17T07:49:18.021Z",
+      "lastAttempt": "2026-11-24T13:34:53.860Z",
       "lastCounts": {
         "cbs": null,
         "register": 21,
         "tooi": 21
       },
-      "lastRun": "2026-11-17T07:49:18.021Z",
+      "lastRun": "2026-11-24T13:34:53.860Z",
       "names": {
         "ws0152": "Rijn en IJssel",
         "ws0155": "Amstel, Gooi en Vecht",
@@ -820,7 +820,7 @@
     "colofon": {
       "annotationAnnounced": true,
       "annotationText": null,
-      "checked": "2026-11-11T06:05:03.128Z",
+      "checked": "2026-11-24T13:34:53.860Z",
       "dateRequired": true,
       "imagesForbidden": true,
       "sourceRequired": true
@@ -829,7 +829,7 @@
       "fracties": "0c1a14c56c26b6052121358d62eda103f1045bf4e4a06bcc0e2bf3a6ff07dd26",
       "mutaties": "18011dbde2e6953e03db4f58422a8e59066b7046ce6d84a8c96950819d87a555"
     },
-    "lastFullRun": "2026-11-17T07:49:18.021Z"
+    "lastFullRun": "2026-11-24T13:34:53.860Z"
   },
   "electionDates": {
     "gaps": [
@@ -851,7 +851,7 @@
         "quote": "De volgende Eerste Kamerverkiezing is op 24 mei 2027.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-11-10",
+          "retrieved": "2026-11-24",
           "source": "src:kiesraad-eerste-kamer"
         },
         "type": "ek",
@@ -883,7 +883,7 @@
         "quote": "De volgende gemeenteraadsverkiezingen zijn in maart 2030.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-11-10",
+          "retrieved": "2026-11-24",
           "source": "src:kiesraad-verkiezingen-gemeenteraden"
         },
         "type": "gr",
@@ -900,7 +900,7 @@
         "scope": "Hilversum en Wijdemeren",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-11-10",
+          "retrieved": "2026-11-24",
           "source": "src:kiesraad-verkiezingen-herindelingen"
         },
         "type": "her",
@@ -916,7 +916,7 @@
         "quote": "De volgende verkiezingen voor de Provinciale Staten zijn op 17 maart 2027.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-11-10",
+          "retrieved": "2026-11-24",
           "source": "src:kiesraad-ps"
         },
         "type": "ps",
@@ -932,7 +932,7 @@
         "quote": "De laatste Tweede Kamerverkiezing vond plaats op 29 oktober 2025.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-11-10",
+          "retrieved": "2026-11-24",
           "source": "src:kiesraad-tweede-kamer"
         },
         "type": "tk",
@@ -948,7 +948,7 @@
         "quote": "De volgende reguliere Tweede Kamerverkiezing is op 15 mei 2030.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-11-10",
+          "retrieved": "2026-11-24",
           "source": "src:kiesraad-tweede-kamer"
         },
         "type": "tk",
@@ -964,14 +964,14 @@
         "quote": "De volgende waterschapsverkiezingen zijn op 17 maart 2027.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-11-10",
+          "retrieved": "2026-11-24",
           "source": "src:kiesraad-ws"
         },
         "type": "ws",
         "url": "https://www.kiesraad.nl/verkiezingen/waterschappen"
       }
     ],
-    "lastRun": "2026-11-10T14:48:10.098Z"
+    "lastRun": "2026-11-24T13:34:53.860Z"
   },
   "electionResults": {
     "regular": [
@@ -986,11 +986,11 @@
     ]
   },
   "lastRun": {
-    "at": "2026-11-17T07:49:18.021Z",
-    "outcome": "updated"
+    "at": "2026-11-24T13:34:53.860Z",
+    "outcome": "stopped-by-guard"
   },
   "news": {
-    "lastRun": "2026-11-17T07:49:18.021Z",
+    "lastRun": "2026-11-24T13:34:53.860Z",
     "sitemapLastmod": null
   },
   "note": "State of `bun run live` (ADR 0024). Cursors are Tweede Kamer ApiGewijzigdOp values; personMap maps a Tweede Kamer Persoon.Id to a person id in data/people.json. Written by the pipeline, not by hand.",
@@ -1003,7 +1003,10 @@
     },
     "lastCounts": null,
     "lastFullRun": "2026-11-17T07:49:18.021Z",
-    "pendingGuard": null,
+    "pendingGuard": [
+      "seat-total: 149 actieve zetels (met 0 recente vacatures), verwacht 150",
+      "fractie-count: PvdD: 2 actieve leden, Fractie.AantalZetels 3"
+    ],
     "personMap": {
       "0004fa63-2652-43fe-9866-4130ca4652d8": "person:maikel-christiaan-hendrikus-boon",
       "0079c245-1bd8-45fb-8cb8-afa4b7bc5d36": "person:heera-liza-olga-dijk",
