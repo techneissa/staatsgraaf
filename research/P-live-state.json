@@ -986,11 +986,11 @@
     ]
   },
   "lastRun": {
-    "at": "2026-11-24T23:51:58.852Z",
+    "at": "2026-11-25T08:23:11.900Z",
     "outcome": "stopped-by-guard"
   },
   "news": {
-    "lastRun": "2026-11-24T23:51:58.852Z",
+    "lastRun": "2026-11-25T08:23:11.900Z",
     "sitemapLastmod": null
   },
   "note": "State of `bun run live` (ADR 0024). Cursors are Tweede Kamer ApiGewijzigdOp values; personMap maps a Tweede Kamer Persoon.Id to a person id in data/people.json. Written by the pipeline, not by hand.",
